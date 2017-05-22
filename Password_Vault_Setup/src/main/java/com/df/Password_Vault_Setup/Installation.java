@@ -695,82 +695,82 @@ public class Installation extends JFrame implements PropertyChangeListener
 				
 				lblProgress.setText("Retrieving configuration information..."); //informing the user of a task change
 								
-				getProperty("wmic diskdrive get serialnumber", 1);
+				getProperty("wmic diskdrive get serialnumber", 1); //calling method with command needed to be ran and number referencing this is the first command
 				
-				h = serialNumbers.size();
-				
-				if (increment(prbrInstall.getValue(), 5) == true) //incrementing the progress bar to represent that task has been complete for the user
-					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
-				
-				getProperty("wmic bios get serialnumber", 2);
-				
-				b = serialNumbers.size();
+				h = serialNumbers.size(); //variable to get current size of arraylist (used as boundaries later on)
 				
 				if (increment(prbrInstall.getValue(), 5) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 				
-				getProperty("echo %username%", 3);
+				getProperty("wmic bios get serialnumber", 2); //calling method with command needed to be ran and number referencing this is the second command
 				
-				u = serialNumbers.size();
+				b = serialNumbers.size(); //variable to get current size of arraylist (used as boundaries later on)
 				
 				if (increment(prbrInstall.getValue(), 5) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 				
-				getProperty("getmac", 4);
+				getProperty("echo %username%", 3); //calling method with command needed to be ran and number referencing this is the third command
 				
-				m = serialNumbers.size();
+				u = serialNumbers.size(); //variable to get current size of arraylist (used as boundaries later on)
+				
+				if (increment(prbrInstall.getValue(), 5) == true) //incrementing the progress bar to represent that task has been complete for the user
+					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
+				
+				getProperty("getmac", 4); //calling method with command needed to be ran and number referencing this is the fourth command
+				
+				m = serialNumbers.size(); //variable to get current size of arraylist (used as boundaries later on)
 				
 				if (increment(prbrInstall.getValue(), 5) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 				
 				lblProgress.setText("Securing information..."); //informing the user of a task change
 
-				startTime = System.currentTimeMillis();				
-				while ((System.currentTimeMillis()-startTime) < 5)
+				for (int tmp = 0; tmp > 15; tmp ++) //ensuring 15 "mac" addresses are generated to obscure original values
 				{
-					Long rndLong = ThreadLocalRandom.current().nextLong(100100100100100L, 255255255255255L);
+					Long rndLong = ThreadLocalRandom.current().nextLong(100100100100100L, 255255255255255L); //declaring range of mac address number
+					String temp = Long.toString(rndLong); //putting into string variable so substring can be used
 					
-					serialNumbers.add(Long.toString(rndLong));
+					serialNumbers.add(temp.substring(0,2)+"."+temp.substring(3,5)+"."+temp.substring(6,8)+"."+temp.substring(9,11)+"."+temp.substring(12,14)); //formatting and adding number to ArrayList to make it look like mac address
 				}
 				
-				int ele = 0;
-				for (String prop : serialNumbers)
+				int ele = 0; //element number in relation to arraylist
+				for (String prop : serialNumbers) //for every variable in the arraylist
 				{
 					try 
 					{
-						String sha = SHAHash(prop);
-						//System.out.println(sha);
-						if (ele < h)
-							serialNumbers.set(ele, "%"+sha);
-						else if (ele < b)
-							serialNumbers.set(ele, "^"+sha);
-						else if (ele < u)
-							serialNumbers.set(ele, "&"+sha);
-						else if (ele < m)
-							serialNumbers.set(ele, "*"+sha);
-						else if (ele < serialNumbers.size())
+						String sha = SHAHash(prop); //hash the variable
+
+						if (ele < h) //if the current element is in the first boundary
+							serialNumbers.set(ele, "%"+sha); //set corresponding element to "%" & hashed value -  "%" means disk drive number
+						else if (ele < b) //if the current element is in the second boundary
+							serialNumbers.set(ele, "^"+sha); //set corresponding element to "^" & hashed value -  "^" means bios number
+						else if (ele < u) //if the current element is in the third boundary
+							serialNumbers.set(ele, "&"+sha); //set corresponding element to "&" & hashed value -  "&" means username
+						else if (ele < m) //if the current element is in the fourth boundary
+							serialNumbers.set(ele, "*"+sha); //set corresponding element to "*" & hashed value -  "*" means mac address
+						else if (ele < serialNumbers.size()) //if the current element is past the other boundaries (the auto-generated MAC addresses)
 						{
-							Random rnd = new Random();
+							Random rnd = new Random(); //declaring a random for assigning a random symbol
 							
-							switch (rnd.nextInt(6))
+							switch (rnd.nextInt(6)) //get next random number (max is 6)
 							{
 							case 0:
-								serialNumbers.set(ele, "!"+sha);
+								serialNumbers.set(ele, "!"+sha); //set corresponding element to "!" & hashed value -  "!" means random generated address
 								break;
 							case 1:
-								serialNumbers.set(ele, "\""+sha);
+								serialNumbers.set(ele, "\""+sha); //set corresponding element to "\" & hashed value -  "\" means random generated address
 								break;
 							case 2:
-								serialNumbers.set(ele, "£"+sha);
+								serialNumbers.set(ele, "£"+sha); //set corresponding element to "£" & hashed value -  "£" means random generated address
 								break;
 							case 3:
-								serialNumbers.set(ele, "$"+sha);
-								break;
+								serialNumbers.set(ele, "$"+sha); //set corresponding element to "$" & hashed value -  "$" means random generated address
+								break; 
 							case 4:
-								serialNumbers.set(ele, "@"+sha);
+								serialNumbers.set(ele, "@"+sha); //set corresponding element to "@" & hashed value -  "@" means random generated address
 								break;
 							default:
-								serialNumbers.set(ele, "#"+sha);
+								serialNumbers.set(ele, "#"+sha); //set corresponding element to "#" & hashed value -  "#" means random generated address
 							}
 						}
 					} 
@@ -785,39 +785,40 @@ public class Installation extends JFrame implements PropertyChangeListener
 				if (increment(prbrInstall.getValue(), 4) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 
-				File cfgFile = new File(mainDirectory+"\\sys\\config\\sys_cfg.txt");
-				while (!cfgFile.getParentFile().getParentFile().exists())
-					cfgFile.getParentFile().getParentFile().mkdir();
+				File cfgFile = new File(mainDirectory+"\\sys\\config\\sys_cfg.txt"); //declaring location of config file
+				while (!cfgFile.getParentFile().getParentFile().exists()) //while the "sys" directory doesn't exist
+					cfgFile.getParentFile().getParentFile().mkdir(); //create directory
 				
-				while (!cfgFile.getParentFile().exists())
-					cfgFile.getParentFile().mkdir();
+				while (!cfgFile.getParentFile().exists()) //while the "config" directory doesn't exist
+					cfgFile.getParentFile().mkdir(); //create directory
 				
+				//shuffle the arraylist twice so that the information is in a different order (reason for keys that were assigned above)
 				Collections.shuffle(serialNumbers);
 				Collections.shuffle(serialNumbers);
 				
-				String largest = "";
-				String temp = "";
+				String largest = ""; //will hold longest variable - variable length used later
+				String temp = ""; //name of variable that holds what is written into the text file
 				
 				try
 				{
-					PrintWriter writer = new PrintWriter(cfgFile, "UTF-8");
-					for (String i : serialNumbers)
-						if (i.length() > largest.length())
-							largest = i;
+					PrintWriter writer = new PrintWriter(cfgFile, "UTF-8"); //declaring print writer, uses file location & char-set
+					for (String i : serialNumbers) //for every variable in array list
+						if (i.length() > largest.length()) //if current variable longer than length of largest...
+							largest = i; //set current variable to "largest" - used to find longest string in array list...
 					
-					for (int j = 0; j < largest.length(); j++)
+					for (int j = 0; j < largest.length(); j++) //counts up to largest character length
 					{
-							for (String k : serialNumbers)
-								if (j < k.length())
-									temp = temp + k.charAt(j);
+							for (String k : serialNumbers) //for every variable in array list
+								if (j < k.length()) //if character is within string length
+									temp = temp + k.charAt(j); //add single character to contents of temp
 								else
-									temp = temp + "-";
+									temp = temp + "-"; //if variable is shorter than others, add "-" in place to preserve hash
 							
-						writer.println(temp);
-						temp = "";
+						writer.println(temp); //print writer is outputting to the previously specified file
+						temp = ""; //resetting value of temp
 					}	
 					
-					writer.close();
+					writer.close(); //close print writer to commit information to txt file.
 				}
 				catch(Throwable t)
 				{}
@@ -825,19 +826,26 @@ public class Installation extends JFrame implements PropertyChangeListener
 				if (increment(prbrInstall.getValue(), 4) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 				
-				if (winOS == true)
+				if (winOS == true) //if on a windows system
 					try
 					{
-						Process p = Runtime.getRuntime().exec("attrib +H +R" + cfgFile.getPath());
+						Process p = Runtime.getRuntime().exec("attrib +H +R" + cfgFile.getPath()); //use cmd to protect the config file with hidden and read only tags
 						p.waitFor();
 					}
 					catch (Throwable t)
 					{}
-				else
-					cfgFile.renameTo(new File(cfgFile.getParent(), "."+cfgFile.getName()));
+				else //if Unix based system
+					cfgFile.renameTo(new File(cfgFile.getParent(), "."+cfgFile.getName())); //add "." in front of file to hide it
 				
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
+				
+				lblProgress.setText("Validating files..."); //informing the user of a task change
+				
+				if (!mainDirectory.exists())
+				{
+					
+				}
 				
 				//very last things to happen (prevents user going back and restarting install, ends current task)
 				btnBackCancel.setEnabled(false);
@@ -960,7 +968,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				}
 		}
 		
-		public void getProperty (String cmd, int cmdNum)
+		public void getProperty (String cmd, int cmdNum) //code to collect unique identifier information
 		{
 			try
 			{
@@ -971,38 +979,38 @@ public class Installation extends JFrame implements PropertyChangeListener
 				);
 				
 				String line;
-				Pattern pat = Pattern.compile("[^ ]", Pattern.CASE_INSENSITIVE);
+				Pattern pat = Pattern.compile("[ \t]", Pattern.CASE_INSENSITIVE); //regex pattern to remove blank lines
 				
-				while ((line = reader.readLine()) != null)
+				while ((line = reader.readLine()) != null) //ensuring that all results are covered
 				{
-					Matcher match = pat.matcher(line.substring(0));
-					if (cmdNum == 1)
-						if (!line.equals("") && match.find() && !line.equals("SerialNumber       "))
-							serialNumbers.add(line);
-					if (cmdNum == 2)
-						if (!line.equals("") && match.find() && !line.equals("SerialNumber  "))
-							serialNumbers.add(line);
-					if (cmdNum == 3)
-							serialNumbers.add(line);
-					if (cmdNum == 4)
-						if (!line.equals("") && match.find() && !line.equals("Physical Address    Transport Name                                            ") && !line.equals("=================== =========================================================="))
-							if (line.substring(0, 17).contains("N/A"))
-								serialNumbers.add(line.substring(0, 3));
-							else
-								serialNumbers.add(line.substring(0, 17));
+					Matcher match = pat.matcher(line.substring(0)); //declaring matcher to check the entirety of the line
+					if (cmdNum == 1) //if first command
+						if (!line.equals("") && match.find() && !line.equals("SerialNumber       ")) //makes sure not a blank line or the title of the command
+							serialNumbers.add(line); //will add all valid serial numbers
+					if (cmdNum == 2) //if second command
+						if (!line.equals("") && match.find() && !line.equals("SerialNumber  ")) //makes sure not a blank line or the title of the command
+							serialNumbers.add(line); //will add all valid serial numbers
+					if (cmdNum == 3) //if third command
+							serialNumbers.add(line); //will add user name as is first thing returned
+					if (cmdNum == 4) //if fourth command
+						if (!line.equals("") && match.find() && !line.equals("Physical Address    Transport Name                                            ") && !line.equals("=================== ==========================================================")) //makes sure not blank line, title of output or separating line
+							if (line.substring(0, 17).contains("N/A")) //if the line is "N/A"
+								serialNumbers.add(line.substring(0, 3)); //only add "N/A" rather than extending to include excessive spacing after it
+							else //else
+								serialNumbers.add(line.substring(0, 17)); //only add first 17 characters of line (the user's MAC address)
 				}
 			}
-			catch (IOException | InterruptedException e)
+			catch (IOException | InterruptedException e) //catch any errors that may occur
 			{
-				JOptionPane.showMessageDialog(null, "<html><center>Unique Identifier information not retrieved!<br></center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "<html><center>Unique Identifier information not retrieved!<br></center></html>", "Warning", JOptionPane.WARNING_MESSAGE); //throw information that an error has occurred
 			}
 		}
 
-		public String SHAHash (String input) throws NoSuchAlgorithmException
+		public String SHAHash (String input) throws NoSuchAlgorithmException //method for hashing information using SHA-256
 		{
-			MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-			messageDigest.update(input.getBytes(Charset.forName("UTF-8")), 0, input.length());
-			return new BigInteger(1, messageDigest.digest()).toString(16);
+			MessageDigest messageDigest = MessageDigest.getInstance("SHA-256"); //message digest finding hash information
+			messageDigest.update(input.getBytes(Charset.forName("UTF-8")), 0, input.length()); //updating message digest with necessary information for hash
+			return new BigInteger(1, messageDigest.digest()).toString(16); //returning input as a hashed value
 		}
 	}
 }

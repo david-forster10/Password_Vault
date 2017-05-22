@@ -1,0 +1,13 @@
+!SESSION 2017-05-22 11:46:13.882 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.jee.product C:\Users\DFORSTER\Desktop\Delivery.docx
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product C:\Users\DFORSTER\Desktop\Delivery.docx
+
+!ENTRY org.eclipse.jface.text 2 0 2017-05-22 13:59:52.285
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-05-22 13:59:52.307
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
