@@ -15,6 +15,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -50,6 +51,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
+import org.apache.commons.io.FileUtils;
+
 public class Installation extends JFrame implements PropertyChangeListener
 {	
 	/**
@@ -70,7 +73,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		initComponents();
 	}
 	
-	private void initComponents() //method to build initial view for user for installation
+	private void initComponents () //method to build initial view for user for installation
 	{
 		//instantiating elements of the GUI
 		pnlMain = new JPanel();
@@ -93,7 +96,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		try
 		{
-			Image frameIcon = ImageIO.read(new File(runDir+"\\img\\Logo.png"));
+			Image frameIcon = ImageIO.read(new File(runDir+"\\main\\assets_pv1.0\\Logo.png"));
 			setIconImage(frameIcon); //trying to read and add the logo to the application
 		}
 		catch (IOException e)
@@ -106,7 +109,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setLayout(null); //ensuring I can specify element positions
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon(runDir+"\\img\\topArt.jpg");
+		Icon topArt = new ImageIcon(runDir+"\\main\\assets_pv1.0\\topArt.jpg");
 		lblArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 			
 		lblArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
@@ -122,11 +125,11 @@ public class Installation extends JFrame implements PropertyChangeListener
 				+ "<br><br><br>"
 				+ "This installation process shouldn't take more than a few minutes and you can continue to use your computer while this takes place."
 				+ "<br><br><br>"
-				+ "Click 'Start' to begin the installation."
+				+ "Click 'Next' to continue."
 				+ "<br><br>"
 				+ "</html>"); //main label that explains what happens, html used for formatting
 		lblMainTxt.setFont(lblMainTxt.getFont().deriveFont(16.0f)); //changing font size to 16
-		lblMainTxt.setBounds(10, 180, 730, 194); //setting position and measurements
+		lblMainTxt.setBounds(20, 180, 730, 194); //setting position and measurements
 		add(lblMainTxt); //adding label to JFrame
 		
 		lblDivider.setText(""); //ensuring no text in label
@@ -134,7 +137,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
 		add(lblDivider); //adding it to JFrame
 		
-		btnStartNext.setText("Start"); //adding text to button for starting
+		btnStartNext.setText("Next"); //adding text to button for starting
 		btnStartNext.setFont(lblMainTxt.getFont().deriveFont(14.0f)); //setting font size
 		btnStartNext.setBounds(645, 415, 80, 35); //positioning start button
 		
@@ -192,7 +195,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		try
 		{
-			Image frameIcon = ImageIO.read(new File(runDir+"\\img\\Logo.png"));
+			Image frameIcon = ImageIO.read(new File(runDir+"\\main\\assets_pv1.0\\Logo.png"));
 			setIconImage(frameIcon); //trying to read and add the logo to the application
 		}
 		catch (IOException e)
@@ -205,7 +208,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setLayout(null); //ensuring I can specify element positions
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon(runDir+"\\img\\topArt.jpg");
+		Icon topArt = new ImageIcon(runDir+"\\main\\assets_pv1.0\\topArt.jpg");
 		lblArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 			
 		lblArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
@@ -217,19 +220,19 @@ public class Installation extends JFrame implements PropertyChangeListener
 		lblWelcome.setBounds(208, 125, 334, 25); //setting position and measurements
 		add(lblWelcome); //adding label to form
 		
-		lblMainTxt.setText("<html>Please select the shortcuts you'd like installed: </html>"); //changing text assigned to the label
+		lblMainTxt.setText("<html>Please select the shortcuts you'd like installed before hitting 'Start' to begin the installation: </html>"); //changing text assigned to the label
 		lblMainTxt.setFont(lblMainTxt.getFont().deriveFont(16.0f)); //ensuring same font as before
-		lblMainTxt.setBounds(10, 179, 730, 19); //setting bounds and position
+		lblMainTxt.setBounds(20, 179, 720, 19); //setting bounds and position
 		add(lblMainTxt); //adding it to the form
 		
 		chkbxDesktop.setSelected(true);
 		chkbxDesktop.setFont(lblMainTxt.getFont().deriveFont(16.0f));
-		chkbxDesktop.setBounds(75, 225, 150, 19);
+		chkbxDesktop.setBounds(50, 225, 150, 19);
 		add(chkbxDesktop);
 		
 		chkbxQuick.setSelected(true);
 		chkbxQuick.setFont(lblMainTxt.getFont());
-		chkbxQuick.setBounds(75, 280, 150, 19);
+		chkbxQuick.setBounds(50, 280, 150, 19);
 		add(chkbxQuick);
 		
 		lblDivider.setText(""); //ensuring no text in label
@@ -237,22 +240,26 @@ public class Installation extends JFrame implements PropertyChangeListener
 		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
 		add(lblDivider); //adding it to JFrame
 		
-		btnStartNext.setText("Next"); //adding text to button for starting
+		btnStartNext.setText("Start"); //adding text to button for starting
 		btnStartNext.setFont(lblMainTxt.getFont().deriveFont(14.0f)); //setting font size
 		btnStartNext.setBounds(645, 415, 80, 35); //positioning start button
-		btnStartNext.setEnabled(false); //prevents user from continuing before installation is complete
 		
 		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
 		{
 			public void actionPerformed (ActionEvent evt) 
 			{
+				if (chkbxDesktop.isSelected())
+					bDesktop = true;
+				if (chkbxQuick.isSelected())
+					bQuick = true;
+				
 				btnStartActionPerformed(); //running next method
 			}
 		});
 		
 		add(btnStartNext); //adding button to JFrame
 		
-		btnBackCancel.setText("Cancel"); //adding text to button for exiting
+		btnBackCancel.setText("Back"); //adding text to button for exiting
 		btnBackCancel.setFont(btnStartNext.getFont()); //getting font from start button
 		btnBackCancel.setBounds(20, 415, 80, 35); //positioning on form
 		
@@ -260,7 +267,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		{
 			public void actionPerformed (ActionEvent evt)
 			{
-				btnBackActionPerformed(evt); //running cancel method (same method as hitting the "x" button on the form)
+				btnBackActionPerformed(); //running cancel method (same method as hitting the "x" button on the form)
 			}
 		});
 		
@@ -270,11 +277,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 		revalidate(); //revalidate the elements that will be displayed
 		pack(); //packaging everything up to use
 		
+		btnStartNext.requestFocusInWindow();
+		
 		setLocationRelativeTo(null); //setting form position central
 	}
 		
-	private void btnStartActionPerformed() //code for third screen of installation (instigates installation)
-	{
+	private void btnStartActionPerformed () //code for third screen of installation (instigates installation)
+	{	
 		pnlSecond = new JPanel();
 		lblArtTop = new JLabel();
 		lblWelcome = new JLabel();
@@ -297,7 +306,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		try
 		{
-			Image frameIcon = ImageIO.read(new File(runDir+"\\img\\Logo.png"));
+			Image frameIcon = ImageIO.read(new File(runDir+"\\main\\assets_pv1.0\\Logo.png"));
 			setIconImage(frameIcon); //trying to read and add the logo to the application
 		}
 		catch (IOException e)
@@ -310,7 +319,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setLayout(null); //ensuring I can specify element positions
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon(runDir+"\\img\\topArt.jpg");
+		Icon topArt = new ImageIcon(runDir+"\\main\\assets_pv1.0\\topArt.jpg");
 		lblArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 			
 		lblArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
@@ -374,7 +383,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		{
 			public void actionPerformed (ActionEvent evt)
 			{
-				btnBackActionPerformed(evt); //running cancel method (same method as hitting the "x" button on the form)
+				btnBackInstallActionPerformed(); //running cancel method (same method as hitting the "x" button on the form)
 			}
 		});
 		
@@ -407,13 +416,19 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 	}
 	
-	private void btnFinalActionPerformed() //code for final screen of installation
+	private void btnFinalActionPerformed () //code for final screen of installation
 	{
 		
 	}
 	
+	private void btnBackActionPerformed ()
+	{
+		getContentPane().removeAll(); //removing everything from the frame
+		initComponents();
+	}
+	
 	@SuppressWarnings("static-access")
-	private void btnBackActionPerformed (ActionEvent evt) //code for returning to the first screen from the installation section
+	private void btnBackInstallActionPerformed () //code for returning to the first screen from the installation section
 	{
 		backMsg = new JOptionPane(); //linking the option pane to a variable so that it can be referenced at a later point
 		if (backMsg.showConfirmDialog(null, "<html><center>WARNING!<br>This will cancel installation<br>Are you sure you want to do this?</center></html>", "WARNING!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION)
@@ -429,7 +444,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 	}
 	
 	@SuppressWarnings("static-access")
-	private void btnCancelActionPerformed() //code for when the user presses the "Cancel" button or the "x" on the form
+	private void btnCancelActionPerformed () //code for when the user presses the "Cancel" button or the "x" on the form
 	{
 		mainDirectory = new File(Global_Vars.getWorkingDirectory()); //declaring a variable for the main directory of where the app is stored.
 		exitMsg = new JOptionPane(); //linking the option pane to a variable so it can be referenced at a later point
@@ -473,7 +488,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 			exitMsg = null; //reset the variable name to null for use in the future
 	}
 
-	public void propertyChange(PropertyChangeEvent evt) //code to detect update for progress bar
+	public void propertyChange (PropertyChangeEvent evt) //code to detect update for progress bar
 	{
 		if ("progress" == evt.getPropertyName()) //detecting when a change from the background thread is pushed
 		{
@@ -493,7 +508,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		file.delete(); //if the list is empty (no files in a directory) then delete the file
 	}
 		
-	public static void main(String args[]) //method for setting the look of the UI and first part that is ran in the class
+	public static void main (String args[]) //method for setting the look of the UI and first part that is ran in the class
 	{
 		try
 		{
@@ -525,12 +540,12 @@ public class Installation extends JFrame implements PropertyChangeListener
 		});
 	}
 		
-	public void progressStop() //method that can be called from the thread that runs in background to stop itself
+	public void progressStop () //method that can be called from the thread that runs in background to stop itself
 	{
 		task.cancel(true); //cancels the background task
 	}
 		
-	public boolean dirExists() //check if the mainDirectory exists again
+	public boolean dirExists () //check if the mainDirectory exists again
 	{
 		if (backMsg != null || exitMsg != null) //uses variables linked to JOptionPanes to see if any are displaying, if one is showing...
 			while (true) //constantly run
@@ -575,6 +590,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 	public static JOptionPane backMsg;
 	public static JOptionPane exitMsg;
 	public File mainDirectory;
+	private File exec;
 	public boolean winOS;
 	public boolean tskDone = false;
 	public boolean tskCancelled = false;
@@ -582,13 +598,17 @@ public class Installation extends JFrame implements PropertyChangeListener
 	public String runDir = ""; //getting directory app was ran from
 	public String foundDir = "";
 	public ArrayList<String> serialNumbers = new ArrayList<String>();
+	public boolean bDesktop = false;
+	public boolean bQuick = false;
 	
 	class Task extends SwingWorker<Void, Void> //swing worker to handle the background task
 	{
 		File vaultDir;
 		File keyDir;
+		File assetDir;
 		File newVaultDir;
 		File newKeyDir;
+		File newAssetDir;
 		
 		int h = 0;
 		int b = 0;
@@ -637,6 +657,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 				
 				mainDirectory = new File(Global_Vars.getWorkingDirectory()); //getting main directory for use in this thread
+				exec = new File(mainDirectory+"\\Password_Vault.bat");
 				
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
@@ -675,10 +696,11 @@ public class Installation extends JFrame implements PropertyChangeListener
 				//defining where the files will be moved to in the Appdata directory
 				newVaultDir = new File (mainDirectory+"\\apps\\Password_Vault.jar");
 				newKeyDir = new File (mainDirectory+"\\apps\\Password_Key.jar");
+				newAssetDir = new File (mainDirectory+"\\apps\\assets_pv1.0");
 				
 				lblProgress.setText("Finding dependancies..."); //informing the user of a task change
 				
-				if (runDir.contains("Password_Vault_setup"))
+				if (runDir.contains("setup"))
 				{
 					if (increment(prbrInstall.getValue(), 5) == true) //incrementing the progress bar to represent that task has been complete for the user
 						return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
@@ -686,9 +708,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 					//if the user has ran the setup from the install file, add further directory stuff to get to jars
 					vaultDir = new File (runDir+"\\main\\Password_Vault.jar");
 					keyDir = new File (runDir+"\\main\\Password_Key.jar");
+					assetDir = new File (runDir+"\\main\\assets_pv1.0");
 			
 					//validating the files exist before using them and possible causing an error
-					if (!vaultDir.exists() || !keyDir.exists())
+					if (!vaultDir.exists() || !keyDir.exists() || !assetDir.exists())
 					{
 						//if .jars don't exist then output message for user to reinstall 
 						lblProgress.setText("Error...");
@@ -709,54 +732,70 @@ public class Installation extends JFrame implements PropertyChangeListener
 					else
 					{
 						//if not null then found file
-						
 						if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 							return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 						
 						vaultDir = new File(vaultDirString); //creating file object from Path that was found in the search
+					}
+					
+					File tempKeyDir = new File(vaultDirString.substring(0, vaultDirString.length()-9)+"Key.jar"); //if one jar is at the path, seeing if the other is there as well
+					keyDir = new File ("");
 						
-						File tempKeyDir = new File(vaultDirString.substring(0, vaultDirString.length()-9)+"Key.jar"); //if one jar is at the path, seeing if the other is there as well
-						keyDir = new File ("");
-						
-						if (!tempKeyDir.exists()) //if file isn't with other jar
+					if (!tempKeyDir.exists()) //if file isn't with other jar
+					{
+						String keyDirString = findDir("Password_Key.jar"); //calls method to search all hard drives for needed file
+						if (keyDirString.equals(null)) //if nothing is returned
 						{
-							String keyDirString = findDir("Password_Key.jar"); //calls method to search all hard drives for needed file
-							if (keyDirString.equals(null)) //if nothing is returned
-							{
-								//informing user the second .jar can't be found, meaning failed installation, re-download installation and follow steps in readme.txt 
-								lblProgress.setText("Error...");
-								JOptionPane.showMessageDialog(null, "<html><center>Installation files cannot be found!<br>Please re-download the setup folder and re-run the setup application, following the instructions in the \"Readme\"</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
-								System.exit(0);
-							}
-							else //if file is found
-							{
-								if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
-									return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
-							
-								keyDir = new File (keyDirString); //create file object from Path that was found in the search
-							}
+							//informing user the second .jar can't be found, meaning failed installation, re-download installation and follow steps in readme.txt 
+							lblProgress.setText("Error...");
+							JOptionPane.showMessageDialog(null, "<html><center>Installation files cannot be found!<br>Please re-download the setup folder and re-run the setup application, following the instructions in the \"Readme\"</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+							System.exit(0);
 						}
-						else //if the file was with the other jar
+						else //if file is found				
+							keyDir = new File (keyDirString); //create file object from Path that was found in the search
+					}
+					else //if the file was with the other jar
+						keyDir = tempKeyDir; //create file object from Path
+					
+					if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
+						return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
+					
+					File tempAssetDir = new File(vaultDir.getParentFile()+"\\assets_pv1.0");
+					
+					assetDir = new File ("");
+					
+					if (!tempAssetDir.exists()) //if file isn't with other jar
+					{
+						String assetDirString = findDir("\\assets_pv1.0"); //calls method to search all hard drives for needed file
+						if (assetDirString.equals(null)) //if nothing is returned
 						{
-							keyDir = tempKeyDir; //create file object from Path
-							
-							if (increment(prbrInstall.getValue(), 3) == true) //incrementing the progress bar to represent that task has been complete for the user
-								return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
+							//informing user the second .jar can't be found, meaning failed installation, re-download installation and follow steps in readme.txt 
+							lblProgress.setText("Error...");
+							JOptionPane.showMessageDialog(null, "<html><center>Installation files cannot be found!<br>Please re-download the setup folder and re-run the setup application, following the instructions in the \"Readme\"</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+							System.exit(0);
 						}
-					}		
+						else //if file is found				
+							assetDir = new File (assetDirString); //create file object from Path that was found in the search
+					}
+					else //if the file was with the other jar
+						assetDir = tempAssetDir; //create file object from Path
+					
+					if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
+						return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 				}
 				
 				lblProgress.setText("Moving dependancies..."); //informing the user of a task change
 				
 				boolean btemp1 = false; //variables ensuring move is complete
 				boolean btemp2 = false;
+				boolean btemp3 = false;
 				
 				newVaultDir.getParentFile().mkdir();
 				newKeyDir.getParentFile().mkdir();
 				
 				long startTime = System.currentTimeMillis(); //defining a variable for current time to act as a timeout
 				
-				while (!btemp1 && !btemp2 || (System.currentTimeMillis()-startTime) < 10000) //while the tasks aren't complete and it hasn't been 10 seconds
+				while (!btemp1 && !btemp2 && !btemp3 || (System.currentTimeMillis()-startTime) < 10000) //while the tasks aren't complete and it hasn't been 10 seconds
 				{
 					if (!btemp1) //ensuring the task isn't ran more than once
 						try 
@@ -770,7 +809,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 									LinkOption.NOFOLLOW_LINKS);
 							btemp1 = true; //when task complete set true so not reran
 							
-							if (increment(prbrInstall.getValue(), 5) == true) //incrementing the progress bar to represent that task has been complete for the user
+							if (increment(prbrInstall.getValue(), 3) == true) //incrementing the progress bar to represent that task has been complete for the user
 								return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 						} 
 						catch (IOException e) 
@@ -790,16 +829,30 @@ public class Installation extends JFrame implements PropertyChangeListener
 									LinkOption.NOFOLLOW_LINKS);
 							btemp2 = true; //when task complete set true so not reran
 							
-							if (increment(prbrInstall.getValue(), 5) == true) //incrementing the progress bar to represent that task has been complete for the user
+							if (increment(prbrInstall.getValue(), 3) == true) //incrementing the progress bar to represent that task has been complete for the user
 								return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 						}
 						catch (IOException e) 
 						{
 							e.printStackTrace();
 						}
+					
+					if (!btemp3)
+						try 
+						{
+							FileUtils.copyDirectory(assetDir, newAssetDir);
+							btemp3 = true; //when task complete set true so not reran
+						
+							if (increment(prbrInstall.getValue(), 4) == true) //incrementing the progress bar to represent that task has been complete for the user
+								return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
+						} 
+						catch (IOException e) 
+						{
+							e.printStackTrace();
+						}
 				}
 				
-				if (!btemp1 || !btemp2) //if task wasn't complete and timed out
+				if (!btemp1 || !btemp2 || !btemp3) //if task wasn't complete and timed out
 				{
 					//informing user of error and getting them to start again
 					lblProgress.setText("Error...");
@@ -839,7 +892,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				
 				lblProgress.setText("Securing information..."); //informing the user of a task change
 
-				for (int tmp = 0; tmp > 15; tmp ++) //ensuring 15 "mac" addresses are generated to obscure original values
+				for (int tmp = 0; tmp < 250; tmp ++) //ensuring 15 "mac" addresses are generated to obscure original values
 				{
 					Long rndLong = ThreadLocalRandom.current().nextLong(100100100100100L, 255255255255255L); //declaring range of mac address number
 					String temp = Long.toString(rndLong); //putting into string variable so substring can be used
@@ -979,9 +1032,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 				if (increment(prbrInstall.getValue(), 5) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 				
-				lblProgress.setText("Creating executable...");
-
-				File exec = new File(mainDirectory+"\\Password_Vault.bat");
+				if (bDesktop || bQuick)
+					lblProgress.setText("Creating executable and shortcuts...");
+				else
+					lblProgress.setText("Creating executable...");
+				
+				if (bDesktop)
+					desktopShortcut();
 				
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
@@ -1226,7 +1283,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 			return new BigInteger(1, messageDigest.digest()).toString(16); //returning input as a hashed value
 		}
 	
-		public boolean keyTest()
+		public boolean keyTest ()
 		{
 			try
 			{
@@ -1260,6 +1317,25 @@ public class Installation extends JFrame implements PropertyChangeListener
 				return false; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
 			
 			return true;
+		}
+	
+		public void desktopShortcut ()
+		{
+			findDir("Desktop");
+			JOptionPane.showMessageDialog(null, foundDir);
+			try
+			{
+				FileWriter fw = new FileWriter(foundDir);
+				fw.write("[InternetShortcut]\n");
+				fw.write("URL=" + exec + "\n");
+				fw.write("IconFile=" + assetDir + "\\Logo.png" + "\n");  
+				fw.flush();
+				fw.close();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
 		}
 	}
 }

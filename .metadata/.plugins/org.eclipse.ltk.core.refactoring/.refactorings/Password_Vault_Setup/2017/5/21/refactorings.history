@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;com.df.Password_Vault_Setup.Installation.btnBackActionPerformed()&apos; to &apos;btnBackInstallActionPerformed&apos;&#x0D;&#x0A;- Original project: &apos;Password_Vault_Setup&apos;&#x0D;&#x0A;- Original element: &apos;com.df.Password_Vault_Setup.Installation.btnBackActionPerformed()&apos;&#x0D;&#x0A;- Renamed element: &apos;com.df.Password_Vault_Setup.Installation.btnBackInstallActionPerformed()&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;btnBackActionPerformed&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src\/main\/java&lt;com.df.Password_Vault_Setup{Installation.java[Installation~btnBackActionPerformed" name="btnBackInstallActionPerformed" references="true" stamp="1495611735586" version="1.0"/>
+</session>
