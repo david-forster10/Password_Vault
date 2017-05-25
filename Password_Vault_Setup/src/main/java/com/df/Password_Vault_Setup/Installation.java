@@ -15,7 +15,6 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -614,6 +613,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		int b = 0;
 		int u = 0;
 		int m = 0;
+		String userTemp = "";
 		
 		@Override
 		public Void doInBackground () //overriding background thread which is method that handles the tasks to be completed
@@ -721,7 +721,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				}
 				else //if not in setup directory, hopefully still have necessary files on their drive somewhere
 				{
-					String vaultDirString = findDir("Password_Vault.jar"); //calls method to search all hard drives for needed file
+					String vaultDirString = findDir("Password_Vault.jar", true); //calls method to search all hard drives for needed file
 					if (vaultDirString.equals(null)) //if nothing is returned
 					{
 						//informing user the first .jar can't be found, meaning failed installation,  re-download installation and follow steps in readme.txt
@@ -743,7 +743,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 						
 					if (!tempKeyDir.exists()) //if file isn't with other jar
 					{
-						String keyDirString = findDir("Password_Key.jar"); //calls method to search all hard drives for needed file
+						String keyDirString = findDir("Password_Key.jar", true); //calls method to search all hard drives for needed file
 						if (keyDirString.equals(null)) //if nothing is returned
 						{
 							//informing user the second .jar can't be found, meaning failed installation, re-download installation and follow steps in readme.txt 
@@ -766,7 +766,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					
 					if (!tempAssetDir.exists()) //if file isn't with other jar
 					{
-						String assetDirString = findDir("\\assets_pv1.0"); //calls method to search all hard drives for needed file
+						String assetDirString = findDir("\\assets_pv1.0", true); //calls method to search all hard drives for needed file
 						if (assetDirString.equals(null)) //if nothing is returned
 						{
 							//informing user the second .jar can't be found, meaning failed installation, re-download installation and follow steps in readme.txt 
@@ -1002,7 +1002,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					catch (Throwable t)
 					{}
 				else //if Unix based system
-					cfgFile.renameTo(new File(cfgFile.getParent(), "."+cfgFile.getName())); //add "." in front of file to hide it
+					cfgFile.renameTo(new File(cfgFile.getParent(), "." + cfgFile.getName())); //add "." in front of file to hide it
 				
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
@@ -1169,8 +1169,9 @@ public class Installation extends JFrame implements PropertyChangeListener
 			{}
 		}
 		
-		public String findDir (String target) //first method called to search entire drive (file passed in is what is being searched for)
+		public String findDir (String target, boolean output) //first method called to search entire drive (file passed in is what is being searched for)
 		{
+			foundDir = "";
 			File[] tempPaths; //File array used while putting C to the top of the search list
 			File[] paths = File.listRoots(); //File array that will contain the ordered disk drives before searching 
 
@@ -1191,14 +1192,14 @@ public class Installation extends JFrame implements PropertyChangeListener
 			
 			for(File path:paths) // for each pathname in pathname array
 			{
-				findDir(target, path); //call overload method to search specific drive for file
+				findDir(target, path, output); //call overload method to search specific drive for file
 				if (!foundDir.equals(null)) //if null isn't returned
 					return foundDir; //return the string that has the path
 			}
 			return null; //if nothing found return null
 		}
 		
-		public void findDir (String target, File drive) //overload method of findDir for second iterative step of finding
+		public void findDir (String target, File drive, boolean output) //overload method of findDir for second iterative step of finding
 		{
 			ArrayList<File> contents = new ArrayList<File>(); //arraylist for handling contents of current directory being searched
 			
@@ -1221,13 +1222,14 @@ public class Installation extends JFrame implements PropertyChangeListener
 			if (contents.size() != 0) //if there are files in the list then...
 				for (File f : contents) //for every file in the list
 				{
-					findDir(target, f); //pass it into the current method for another iteration
+					findDir(target, f, output); //pass it into the current method for another iteration
 					if (foundDir != "") //if file found drop out of loop
 						break;
 				}
 					
-			if (foundDir == "")
-				lblSearching.setText(drive.getPath());
+			if (output = true)
+				if (foundDir == "")
+					lblSearching.setText(drive.getPath());
 			
 			if (drive.getPath().length() > target.length()) //ensuring that drive is longer than target address so no errors when using substring
 				if (drive.getPath().substring(drive.getPath().length() - target.length()).equals(target)) //if last part of path matches target file
@@ -1260,7 +1262,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 						if (!line.equals("") && match.find() && !line.equals("SerialNumber  ")) //makes sure not a blank line or the title of the command
 							serialNumbers.add(line); //will add all valid serial numbers
 					if (cmdNum == 3) //if third command
+					{
 							serialNumbers.add(line); //will add user name as is first thing returned
+							userTemp = line;
+					}
 					if (cmdNum == 4) //if fourth command
 						if (!line.equals("") && match.find() && !line.equals("Physical Address    Transport Name                                            ") && !line.equals("=================== ==========================================================")) //makes sure not blank line, title of output or separating line
 							if (line.substring(0, 17).contains("N/A")) //if the line is "N/A"
@@ -1320,22 +1325,41 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 	
 		public void desktopShortcut ()
-		{
-			findDir("Desktop");
-			JOptionPane.showMessageDialog(null, foundDir);
+		{		
 			try
 			{
-				FileWriter fw = new FileWriter(foundDir);
-				fw.write("[InternetShortcut]\n");
-				fw.write("URL=" + exec + "\n");
-				fw.write("IconFile=" + assetDir + "\\Logo.png" + "\n");  
-				fw.flush();
-				fw.close();
+				PrintWriter writer = new PrintWriter("createShortcut.bat", "UTF-8"); //declaring print writer, uses file location & char-set
+				
+				writer.println ("@echo off"); //print writer is outputting to the previously specified file
+				writer.println("echo Set oWS = WScript.CreateObject(\"WScript.Shell\") > CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+				writer.println("echo sLinkFile = \"%HOMEDRIVE%%HOMEPATH%\\Desktop\\Password_Vault.lnk\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+				writer.println("echo Set oLink = oWS.CreateShortcut(sLinkFile) >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+				writer.println("echo oLink.TargetPath = \"" + exec.getAbsolutePath() + "\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+				writer.println("echo oLink.IconLocation = \""+ newAssetDir+"\\Logo.ico\"  >> CreateShortcut.vbs");
+				writer.println("echo oLink.Save >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+				writer.println("cscript CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+				writer.println("del CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+				writer.println("exit");
+				
+				writer.close(); //close print writer to commit information to txt file.
+				Thread.sleep(25);
 			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
+			catch(Throwable t)
+			{}
+			
+//			try 
+//			{
+//				Process p = Runtime.getRuntime().exec("cmd /c start createShortcut.bat");
+//				p.waitFor();
+//			} 
+//			catch (IOException | InterruptedException e) 
+//			{
+//				e.printStackTrace();
+//			}
+
+			File bat = new File ("createShortcut.bat");
+			
+			bat.delete();
 		}
 	}
 }
