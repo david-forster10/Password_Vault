@@ -470,8 +470,14 @@ public class Installation extends JFrame implements PropertyChangeListener
 			
 			if (notDelete != true)
 				if (mainDirectory.exists()) //check if some of the installation has started already, if so...
+				{
 					deleteDir(mainDirectory); //delete the entirety of the Password_Vault app folder
-			
+					
+					findDir(userTemp+"\\Desktop", false);
+					File shortcut = new File(foundDir+"\\Password_Vault.lnk"); 
+					shortcut.delete();
+				}
+					
 			try
 			{
 				Runtime.getRuntime().exec("taskkill /f /im cmd.exe"); //try to close all open cmd windows
@@ -570,6 +576,181 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 		return true; //return true to continue
 	}
+
+	private void randWait () //method for pausing the thread for a random amount of time (max is 2 seconds)
+	{			
+		Random rnd = new Random(); //declaring random for use with task lengths
+
+		try
+		{
+			Thread.sleep(rnd.nextInt(2000)); //randomly increasing the length of the task
+		}
+		catch (InterruptedException ignore)
+		{}
+	}
+	
+	public String findDir (String target, boolean output) //first method called to search entire drive (file passed in is what is being searched for)
+	{
+		foundDir = "";
+		File[] tempPaths; //File array used while putting C to the top of the search list
+		File[] paths = File.listRoots(); //File array that will contain the ordered disk drives before searching 
+
+		// returns pathnames for files and directory
+		tempPaths = File.listRoots();
+
+		int i = 0;
+		File c = new File("C:\\"); //used with assigning C drive to be first searched drive as most likely location of file
+		for (File temp : tempPaths) //for each drive in the available drives
+			if (temp.equals(c)) //if c drive is selected
+				paths[0] = temp; //place c path into first element of File array
+			else //if not
+			{
+				i =+ 1; //counter to ensure drives don't over write older drives
+				paths[i] = temp; //adding drive to last element in File array
+			}
+				
+		
+		for(File path:paths) // for each pathname in pathname array
+		{
+			findDir(target, path, output); //call overload method to search specific drive for file
+			if (!foundDir.equals(null)) //if null isn't returned
+				return foundDir; //return the string that has the path
+		}
+		return null; //if nothing found return null
+	}
+	
+	public void findDir (String target, File drive, boolean output) //overload method of findDir for second iterative step of finding
+	{
+		ArrayList<File> contents = new ArrayList<File>(); //arraylist for handling contents of current directory being searched
+		
+		File[] driveList = drive.listFiles(); //File array that gets full list of drive contents
+		
+		if (driveList != null) //listFiles will return null if item is a single file, if files are within the drive
+			for (File item : driveList) //for every item in drive
+				if (System.getProperty("os.name").toUpperCase().contains("WIN")) //check on windows
+					if (item.getPath().substring(1).equals(":\\Users")) //most common place for file to be stored is "Users" directory, without including drive letter allows reordering across entire system
+					{
+						File temp = contents.get(0); //temporarily store current value of contents element 0
+						contents.set(0, item); //put "users" directory to be searched first
+						contents.add(temp); //add value that was originally first to end of list
+					}
+					else
+						contents.add(item); //just add to list if doesn't match if
+				else
+					contents.add(item); //just add to list if doesn't match if
+		
+		if (contents.size() != 0) //if there are files in the list then...
+			for (File f : contents) //for every file in the list
+			{
+				findDir(target, f, output); //pass it into the current method for another iteration
+				if (foundDir != "") //if file found drop out of loop
+					break;
+			}
+				
+		if (output = true)
+			if (foundDir == "")
+				lblSearching.setText(drive.getPath());
+		
+		if (drive.getPath().length() > target.length()) //ensuring that drive is longer than target address so no errors when using substring
+			if (drive.getPath().substring(drive.getPath().length() - target.length()).equals(target)) //if last part of path matches target file
+			{
+				foundDir = drive.getPath(); //add found directory to variable to be passed back
+				lblSearching.setText("");
+			}
+	}
+	
+	public void getProperty (String cmd, int cmdNum) //code to collect unique identifier information
+	{
+		try
+		{
+			Process p = Runtime.getRuntime().exec("cmd /c " + cmd); //running cmd command to retrieve disk serialnumbers
+			p.waitFor();
+			BufferedReader reader = new BufferedReader( //buffered reader to read output from cmd command
+					new InputStreamReader(p.getInputStream())
+			);
+			
+			String line;
+			Pattern pat = Pattern.compile("[ \t]", Pattern.CASE_INSENSITIVE); //regex pattern to remove blank lines
+			
+			while ((line = reader.readLine()) != null) //ensuring that all results are covered
+			{
+				Matcher match = pat.matcher(line.substring(0)); //declaring matcher to check the entirety of the line
+				if (cmdNum == 1) //if first command
+					if (!line.equals("") && match.find() && !line.equals("SerialNumber       ")) //makes sure not a blank line or the title of the command
+						serialNumbers.add(line); //will add all valid serial numbers
+				if (cmdNum == 2) //if second command
+					if (!line.equals("") && match.find() && !line.equals("SerialNumber  ")) //makes sure not a blank line or the title of the command
+					{
+						serialNumbers.add(line); //will add all valid serial numbers
+						userTemp = line;
+					}
+				if (cmdNum == 3) //if third command
+				{
+						serialNumbers.add(line); //will add user name as is first thing returned
+						userTemp = line;
+				}
+				if (cmdNum == 4) //if fourth command
+					if (!line.equals("") && match.find() && !line.equals("Physical Address    Transport Name                                            ") && !line.equals("=================== ==========================================================")) //makes sure not blank line, title of output or separating line
+						if (line.substring(0, 17).contains("N/A")) //if the line is "N/A"
+							serialNumbers.add(line.substring(0, 3)); //only add "N/A" rather than extending to include excessive spacing after it
+						else //else
+							serialNumbers.add(line.substring(0, 17)); //only add first 17 characters of line (the user's MAC address)
+			}
+		}
+		catch (IOException | InterruptedException e) //catch any errors that may occur
+		{
+			JOptionPane.showMessageDialog(null, "<html><center>Unique Identifier information not retrieved!<br></center></html>", "Warning", JOptionPane.WARNING_MESSAGE); //throw information that an error has occurred
+			lblProgress.setText("Error...");
+		}
+	}
+
+	public String SHAHash (String input) throws NoSuchAlgorithmException //method for hashing information using SHA-256
+	{
+		MessageDigest messageDigest = MessageDigest.getInstance("SHA-256"); //message digest finding hash information
+		messageDigest.update(input.getBytes(Charset.forName("UTF-8")), 0, input.length()); //updating message digest with necessary information for hash
+		return new BigInteger(1, messageDigest.digest()).toString(16); //returning input as a hashed value
+	}
+
+	public void dqShortcut (boolean Desktop)
+	{		
+		try
+		{
+			PrintWriter writer = new PrintWriter("createShortcut.bat", "UTF-8"); //declaring print writer, uses file location & char-set
+			
+			writer.println ("@echo off"); //print writer is outputting to the previously specified file
+			writer.println("echo Set oWS = WScript.CreateObject(\"WScript.Shell\") > CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+			if (Desktop)
+				writer.println("echo sLinkFile = \"%HOMEDRIVE%%HOMEPATH%\\Desktop\\Password_Vault.lnk\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+			else
+				writer.println("echo sLinkFile = \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Password_Vault.lnk\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+			writer.println("echo Set oLink = oWS.CreateShortcut(sLinkFile) >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+			writer.println("echo oLink.TargetPath = \"" + exec.getAbsolutePath() + "\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+			writer.println("echo oLink.IconLocation = \""+ newAssetDir+"\\Logo.ico\"  >> CreateShortcut.vbs");
+			writer.println("echo oLink.Save >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+			writer.println("cscript CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+			writer.println("del CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+			writer.println("exit");
+			
+			writer.close(); //close print writer to commit information to txt file.
+			Thread.sleep(1000);
+		}
+		catch(Throwable t)
+		{}
+		
+		try 
+		{
+			Process p = Runtime.getRuntime().exec("cmd /c "+runDir+"\\createShortcut.bat\"");
+			p.waitFor();
+		} 
+		catch (IOException | InterruptedException e) 
+		{
+			e.printStackTrace();
+		}
+
+		File bat = new File ("createShortcut.bat");
+		
+		bat.delete();
+	}
 	
 	private JPanel pnlMain;
 	private JPanel pnlSecond;
@@ -589,6 +770,12 @@ public class Installation extends JFrame implements PropertyChangeListener
 	public static JOptionPane backMsg;
 	public static JOptionPane exitMsg;
 	public File mainDirectory;
+	public File vaultDir;
+	public File keyDir;
+	public File assetDir;
+	public File newVaultDir;
+	public File newKeyDir;
+	public File newAssetDir;
 	private File exec;
 	public boolean winOS;
 	public boolean tskDone = false;
@@ -596,19 +783,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 	public int progressVal;
 	public String runDir = ""; //getting directory app was ran from
 	public String foundDir = "";
+	public String userTemp = "";
 	public ArrayList<String> serialNumbers = new ArrayList<String>();
 	public boolean bDesktop = false;
 	public boolean bQuick = false;
 	
 	class Task extends SwingWorker<Void, Void> //swing worker to handle the background task
-	{
-		File vaultDir;
-		File keyDir;
-		File assetDir;
-		File newVaultDir;
-		File newKeyDir;
-		File newAssetDir;
-		
+	{	
 		int h = 0;
 		int b = 0;
 		int u = 0;
@@ -1038,7 +1219,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 					lblProgress.setText("Creating executable...");
 				
 				if (bDesktop)
-					desktopShortcut();
+					dqShortcut(true); //true for desktop shortcut
+				
+				if (bQuick)
+					dqShortcut(false); //false for quick start shortcut
 				
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
@@ -1157,142 +1341,11 @@ public class Installation extends JFrame implements PropertyChangeListener
 			return false; //return false when complete
 		}
 	
-		private void randWait () //method for pausing the thread for a random amount of time (max is 2 seconds)
-		{			
-			Random rnd = new Random(); //declaring random for use with task lengths
-
-			try
-			{
-				Thread.sleep(rnd.nextInt(2000)); //randomly increasing the length of the task
-			}
-			catch (InterruptedException ignore)
-			{}
-		}
-		
-		public String findDir (String target, boolean output) //first method called to search entire drive (file passed in is what is being searched for)
-		{
-			foundDir = "";
-			File[] tempPaths; //File array used while putting C to the top of the search list
-			File[] paths = File.listRoots(); //File array that will contain the ordered disk drives before searching 
-
-			// returns pathnames for files and directory
-			tempPaths = File.listRoots();
-
-			int i = 0;
-			File c = new File("C:\\"); //used with assigning C drive to be first searched drive as most likely location of file
-			for (File temp : tempPaths) //for each drive in the available drives
-				if (temp.equals(c)) //if c drive is selected
-					paths[0] = temp; //place c path into first element of File array
-				else //if not
-				{
-					i =+ 1; //counter to ensure drives don't over write older drives
-					paths[i] = temp; //adding drive to last element in File array
-				}
-					
-			
-			for(File path:paths) // for each pathname in pathname array
-			{
-				findDir(target, path, output); //call overload method to search specific drive for file
-				if (!foundDir.equals(null)) //if null isn't returned
-					return foundDir; //return the string that has the path
-			}
-			return null; //if nothing found return null
-		}
-		
-		public void findDir (String target, File drive, boolean output) //overload method of findDir for second iterative step of finding
-		{
-			ArrayList<File> contents = new ArrayList<File>(); //arraylist for handling contents of current directory being searched
-			
-			File[] driveList = drive.listFiles(); //File array that gets full list of drive contents
-			
-			if (driveList != null) //listFiles will return null if item is a single file, if files are within the drive
-				for (File item : driveList) //for every item in drive
-					if (System.getProperty("os.name").toUpperCase().contains("WIN")) //check on windows
-						if (item.getPath().substring(1).equals(":\\Users")) //most common place for file to be stored is "Users" directory, without including drive letter allows reordering across entire system
-						{
-							File temp = contents.get(0); //temporarily store current value of contents element 0
-							contents.set(0, item); //put "users" directory to be searched first
-							contents.add(temp); //add value that was originally first to end of list
-						}
-						else
-							contents.add(item); //just add to list if doesn't match if
-					else
-						contents.add(item); //just add to list if doesn't match if
-			
-			if (contents.size() != 0) //if there are files in the list then...
-				for (File f : contents) //for every file in the list
-				{
-					findDir(target, f, output); //pass it into the current method for another iteration
-					if (foundDir != "") //if file found drop out of loop
-						break;
-				}
-					
-			if (output = true)
-				if (foundDir == "")
-					lblSearching.setText(drive.getPath());
-			
-			if (drive.getPath().length() > target.length()) //ensuring that drive is longer than target address so no errors when using substring
-				if (drive.getPath().substring(drive.getPath().length() - target.length()).equals(target)) //if last part of path matches target file
-				{
-					foundDir = drive.getPath(); //add found directory to variable to be passed back
-					lblSearching.setText("");
-				}
-		}
-		
-		public void getProperty (String cmd, int cmdNum) //code to collect unique identifier information
-		{
-			try
-			{
-				Process p = Runtime.getRuntime().exec("cmd /c " + cmd); //running cmd command to retrieve disk serialnumbers
-				p.waitFor();
-				BufferedReader reader = new BufferedReader( //buffered reader to read output from cmd command
-						new InputStreamReader(p.getInputStream())
-				);
-				
-				String line;
-				Pattern pat = Pattern.compile("[ \t]", Pattern.CASE_INSENSITIVE); //regex pattern to remove blank lines
-				
-				while ((line = reader.readLine()) != null) //ensuring that all results are covered
-				{
-					Matcher match = pat.matcher(line.substring(0)); //declaring matcher to check the entirety of the line
-					if (cmdNum == 1) //if first command
-						if (!line.equals("") && match.find() && !line.equals("SerialNumber       ")) //makes sure not a blank line or the title of the command
-							serialNumbers.add(line); //will add all valid serial numbers
-					if (cmdNum == 2) //if second command
-						if (!line.equals("") && match.find() && !line.equals("SerialNumber  ")) //makes sure not a blank line or the title of the command
-							serialNumbers.add(line); //will add all valid serial numbers
-					if (cmdNum == 3) //if third command
-					{
-							serialNumbers.add(line); //will add user name as is first thing returned
-							userTemp = line;
-					}
-					if (cmdNum == 4) //if fourth command
-						if (!line.equals("") && match.find() && !line.equals("Physical Address    Transport Name                                            ") && !line.equals("=================== ==========================================================")) //makes sure not blank line, title of output or separating line
-							if (line.substring(0, 17).contains("N/A")) //if the line is "N/A"
-								serialNumbers.add(line.substring(0, 3)); //only add "N/A" rather than extending to include excessive spacing after it
-							else //else
-								serialNumbers.add(line.substring(0, 17)); //only add first 17 characters of line (the user's MAC address)
-				}
-			}
-			catch (IOException | InterruptedException e) //catch any errors that may occur
-			{
-				JOptionPane.showMessageDialog(null, "<html><center>Unique Identifier information not retrieved!<br></center></html>", "Warning", JOptionPane.WARNING_MESSAGE); //throw information that an error has occurred
-				lblProgress.setText("Error...");
-			}
-		}
-
-		public String SHAHash (String input) throws NoSuchAlgorithmException //method for hashing information using SHA-256
-		{
-			MessageDigest messageDigest = MessageDigest.getInstance("SHA-256"); //message digest finding hash information
-			messageDigest.update(input.getBytes(Charset.forName("UTF-8")), 0, input.length()); //updating message digest with necessary information for hash
-			return new BigInteger(1, messageDigest.digest()).toString(16); //returning input as a hashed value
-		}
-	
 		public boolean keyTest ()
 		{
 			try
 			{
-				Process p = Runtime.getRuntime().exec("cmd /c start cmd.exe /k java -jar \"C:\\Users\\DFORSTER\\AppData\\Roaming\\Password_Vault\\Password_Key.jar\"");
+				Process p = Runtime.getRuntime().exec("cmd /c start cmd.exe /k java -jar \"" + newKeyDir + "\"");
 				p.waitFor();
 			}
 			catch (Throwable t)
@@ -1322,44 +1375,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 				return false; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
 			
 			return true;
-		}
-	
-		public void desktopShortcut ()
-		{		
-			try
-			{
-				PrintWriter writer = new PrintWriter("createShortcut.bat", "UTF-8"); //declaring print writer, uses file location & char-set
-				
-				writer.println ("@echo off"); //print writer is outputting to the previously specified file
-				writer.println("echo Set oWS = WScript.CreateObject(\"WScript.Shell\") > CreateShortcut.vbs"); //print writer is outputting to the previously specified file
-				writer.println("echo sLinkFile = \"%HOMEDRIVE%%HOMEPATH%\\Desktop\\Password_Vault.lnk\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
-				writer.println("echo Set oLink = oWS.CreateShortcut(sLinkFile) >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
-				writer.println("echo oLink.TargetPath = \"" + exec.getAbsolutePath() + "\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
-				writer.println("echo oLink.IconLocation = \""+ newAssetDir+"\\Logo.ico\"  >> CreateShortcut.vbs");
-				writer.println("echo oLink.Save >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
-				writer.println("cscript CreateShortcut.vbs"); //print writer is outputting to the previously specified file
-				writer.println("del CreateShortcut.vbs"); //print writer is outputting to the previously specified file
-				writer.println("exit");
-				
-				writer.close(); //close print writer to commit information to txt file.
-				Thread.sleep(25);
-			}
-			catch(Throwable t)
-			{}
-			
-//			try 
-//			{
-//				Process p = Runtime.getRuntime().exec("cmd /c start createShortcut.bat");
-//				p.waitFor();
-//			} 
-//			catch (IOException | InterruptedException e) 
-//			{
-//				e.printStackTrace();
-//			}
-
-			File bat = new File ("createShortcut.bat");
-			
-			bat.delete();
 		}
 	}
 }
