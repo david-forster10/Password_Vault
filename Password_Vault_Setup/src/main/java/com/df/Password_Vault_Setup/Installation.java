@@ -473,9 +473,17 @@ public class Installation extends JFrame implements PropertyChangeListener
 				{
 					deleteDir(mainDirectory); //delete the entirety of the Password_Vault app folder
 					
-					findDir(userTemp+"\\Desktop", false);
-					File shortcut = new File(foundDir+"\\Password_Vault.lnk"); 
-					shortcut.delete();
+					String desktop = System.getProperty("user.home") + "\\Desktop";
+					
+					File shortcut = new File(desktop+"\\Password_Vault.lnk"); 
+					
+					if (new File(desktop).exists())
+						shortcut.delete();
+					else
+					{
+						JOptionPane.showMessageDialog(null, "<html><center>App could not find Desktop based on home directory!<br>Do you want the app to search for the Desktop shortcut? (This can take a while if you have multiple hard drives)</center></html>", "Warning", JOptionPane.OK_OPTION);
+						findDir(userTemp+"\\Desktop", false);
+					}
 				}
 					
 			try
