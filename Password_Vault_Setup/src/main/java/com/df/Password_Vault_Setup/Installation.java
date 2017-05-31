@@ -473,16 +473,21 @@ public class Installation extends JFrame implements PropertyChangeListener
 				{
 					deleteDir(mainDirectory); //delete the entirety of the Password_Vault app folder
 					
-					String desktop = System.getProperty("user.home") + "\\Desktop";
+					File shortcut = new File(dsktpShortcut); 
 					
-					File shortcut = new File(desktop+"\\Password_Vault.lnk"); 
-					
-					if (new File(desktop).exists())
+					if (shortcut.exists())
 						shortcut.delete();
 					else
 					{
-						JOptionPane.showMessageDialog(null, "<html><center>App could not find Desktop based on home directory!<br>Do you want the app to search for the Desktop shortcut? (This can take a while if you have multiple hard drives)</center></html>", "Warning", JOptionPane.OK_OPTION);
-						findDir(userTemp+"\\Desktop", false);
+						if (JOptionPane.showConfirmDialog(null, "<html><center>App could not find Desktop based on home directory!<br>Do you want the app to search for the Desktop shortcut? (This can take a while if you have multiple hard drives)</center></html>", "Warning", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+						{
+							findDir(userTemp+"\\Desktop", false);
+							shortcut = new File(foundDir+"\\Password_Vault.lnk");
+							if (shortcut.exists())
+								shortcut.delete();
+							else
+								JOptionPane.showMessageDialog(null, "<html><center>App could not find Desktop!<br>Desktop shortcut not deleted!</center></html>", "Warning", JOptionPane. OK_OPTION);
+						}
 					}
 				}
 					
@@ -727,10 +732,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 			
 			writer.println ("@echo off"); //print writer is outputting to the previously specified file
 			writer.println("echo Set oWS = WScript.CreateObject(\"WScript.Shell\") > CreateShortcut.vbs"); //print writer is outputting to the previously specified file
-			if (Desktop)
-				writer.println("echo sLinkFile = \"%HOMEDRIVE%%HOMEPATH%\\Desktop\\Password_Vault.lnk\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
-			else
-				writer.println("echo sLinkFile = \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Password_Vault.lnk\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+			writer.println("echo sLinkFile = \"%HOMEDRIVE%%HOMEPATH%\\Desktop\\Password_Vault.lnk\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
 			writer.println("echo Set oLink = oWS.CreateShortcut(sLinkFile) >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
 			writer.println("echo oLink.TargetPath = \"" + exec.getAbsolutePath() + "\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
 			writer.println("echo oLink.IconLocation = \""+ newAssetDir+"\\Logo.ico\"  >> CreateShortcut.vbs");
@@ -743,6 +745,25 @@ public class Installation extends JFrame implements PropertyChangeListener
 			Thread.sleep(1000);
 		}
 		catch(Throwable t)
+		{}
+		
+		try
+		{
+			Process p = Runtime.getRuntime().exec("cmd /c echo %HOMEDRIVE%%HOMEPATH%\\Desktop\\Password_Vault.lnk"); //running cmd command to retrieve disk serialnumbers
+			p.waitFor();
+			BufferedReader reader = new BufferedReader( //buffered reader to read output from cmd command
+					new InputStreamReader(p.getInputStream())
+			);
+			
+			String line;
+			
+			while ((line = reader.readLine()) != null) //ensuring that all results are covered
+			{
+				if (line.contains("Password_Vault.lnk"))
+					dsktpShortcutFile = new File (line);
+			}
+		}
+		catch (IOException | InterruptedException e)
 		{}
 		
 		try 
@@ -758,6 +779,25 @@ public class Installation extends JFrame implements PropertyChangeListener
 		File bat = new File ("createShortcut.bat");
 		
 		bat.delete();
+		
+		if (!Desktop)
+		{
+			File quickShortcut = new File ("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Password_Vault.lnk");
+			try 
+			{
+				@SuppressWarnings("unused")
+				Path vaultBytes = Files.copy( //try copying the entire file from:
+						dsktpShortcutFile.toPath(), //current position
+						quickShortcut.toPath(), //to Appdata position
+						StandardCopyOption.REPLACE_EXISTING, //replace any duplicates in there
+						StandardCopyOption.COPY_ATTRIBUTES, //ensure all attributes are the same
+						LinkOption.NOFOLLOW_LINKS);
+			} 
+			catch (IOException e) 
+			{
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	private JPanel pnlMain;
@@ -784,6 +824,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 	public File newVaultDir;
 	public File newKeyDir;
 	public File newAssetDir;
+	public File dsktpShortcutFile;
 	private File exec;
 	public boolean winOS;
 	public boolean tskDone = false;
@@ -792,6 +833,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 	public String runDir = ""; //getting directory app was ran from
 	public String foundDir = "";
 	public String userTemp = "";
+	public String dsktpShortcut;
 	public ArrayList<String> serialNumbers = new ArrayList<String>();
 	public boolean bDesktop = false;
 	public boolean bQuick = false;
@@ -1226,11 +1268,11 @@ public class Installation extends JFrame implements PropertyChangeListener
 				else
 					lblProgress.setText("Creating executable...");
 				
-				if (bDesktop)
-					dqShortcut(true); //true for desktop shortcut
-				
 				if (bQuick)
 					dqShortcut(false); //false for quick start shortcut
+				
+				if (bDesktop)
+					dqShortcut(true); //true for desktop shortcut
 				
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
