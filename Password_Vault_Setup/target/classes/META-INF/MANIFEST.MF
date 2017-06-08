@@ -2,24 +2,4 @@ Manifest-Version: 1.0
 Built-By: DFORSTER
 Build-Jdk: 1.8.0_131
 Created-By: Maven Integration for Eclipse
-Executable: setup.jar
-Manifest: MANIFEST.MF
-Password_Vault setup manifest file:
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0"> 
-  <assemblyIdentity version="1.0.0.0"
-     processorArchitecture="X86"
-     name="MANIFEST"
-     type="win32"/> 
-  <description>Installation application for Password_Vault system</description> 
-  <!-- Identify the application security requirements. -->
-  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
-    <security>
-      <requestedPrivileges>
-        <requestedExecutionLevel
-          level="requireAdministrator"
-          uiAccess="true"/>
-        </requestedPrivileges>
-       </security>
-  </trustInfo>
-</assembly>
+

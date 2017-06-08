@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="progressVal" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="progressVal"/>
 			<item value="DFORSTER"/>
 			<item value="assetDir"/>
 			<item value="Password_Vault_setup"/>
@@ -15,7 +16,6 @@
 			<item value="assets"/>
 			<item value="newVaultDir"/>
 			<item value="setup"/>
-			<item value="JOptionPane"/>
 		</list>
 		<list key="replacehistory">
 			<item value="\\assets_pv1.0"/>
