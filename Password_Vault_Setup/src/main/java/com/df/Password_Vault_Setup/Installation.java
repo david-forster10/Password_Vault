@@ -102,10 +102,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setPreferredSize(new Dimension(750, 500)); //setting measurements of jframe
 		
 		runDir = System.getProperty("user.dir");
+		imgDir = runDir.substring(0, runDir.length()-4);
+		imgDir = imgDir + "assets\\assets_pv1.0";
+		appDir = imgDir.substring(0, imgDir.length()-13);
 		
 		try
 		{
-			Image frameIcon = ImageIO.read(new File(runDir+"\\main\\assets_pv1.0\\Logo.png"));
+			Image frameIcon = ImageIO.read(new File(imgDir + "\\Logo.png"));
 			setIconImage(frameIcon); //trying to read and add the logo to the application
 		}
 		catch (IOException e)
@@ -118,7 +121,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setLayout(null); //ensuring I can specify element positions
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon(runDir+"\\main\\assets_pv1.0\\topArt.jpg");
+		Icon topArt = new ImageIcon(imgDir+"\\topArt.jpg");
 		lblArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 			
 		lblArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
@@ -190,7 +193,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		lblDivider = new JLabel();
 		btnStartNext = new JButton();
 		btnBackCancel = new JButton();
-		chkbxDesktop = new JCheckBox("Desktop");
+		chkbxDesktopRun = new JCheckBox("Desktop");
 		chkbxQuick = new JCheckBox("Quick Start Menu");
 		
 		getContentPane().removeAll();
@@ -205,7 +208,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		try
 		{
-			Image frameIcon = ImageIO.read(new File(runDir+"\\main\\assets_pv1.0\\Logo.png"));
+			Image frameIcon = ImageIO.read(new File(imgDir + "\\Logo.png"));
 			setIconImage(frameIcon); //trying to read and add the logo to the application
 		}
 		catch (IOException e)
@@ -218,7 +221,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setLayout(null); //ensuring I can specify element positions
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon(runDir+"\\main\\assets_pv1.0\\topArt.jpg");
+		Icon topArt = new ImageIcon(imgDir + "\\topArt.jpg");
 		lblArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 			
 		lblArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
@@ -235,13 +238,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 		lblMainTxt.setBounds(20, 179, 720, 19); //setting bounds and position
 		add(lblMainTxt); //adding it to the form
 		
-		chkbxDesktop.setSelected(true);
-		chkbxDesktop.setFont(lblMainTxt.getFont().deriveFont(16.0f));
-		chkbxDesktop.setBounds(50, 225, 150, 19);
-		add(chkbxDesktop);
+		chkbxDesktopRun.setSelected(true);
+		chkbxDesktopRun.setFont(lblMainTxt.getFont().deriveFont(16.0f));
+		chkbxDesktopRun.setBounds(50, 225, 150, 19);
+		add(chkbxDesktopRun);
 		
 		if (!bDesktop)
-			chkbxDesktop.setSelected(false);
+			chkbxDesktopRun.setSelected(false);
 			
 		chkbxQuick.setSelected(true);
 		chkbxQuick.setFont(lblMainTxt.getFont());
@@ -264,7 +267,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		{
 			public void actionPerformed (ActionEvent evt) 
 			{
-				if (!chkbxDesktop.isSelected())
+				if (!chkbxDesktopRun.isSelected())
 					bDesktop = false;
 				else
 					bDesktop = true;
@@ -288,7 +291,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		{
 			public void actionPerformed (ActionEvent evt)
 			{
-				if (!chkbxDesktop.isSelected())
+				if (!chkbxDesktopRun.isSelected())
 					bDesktop = false;
 				else
 					bDesktop = true;
@@ -338,7 +341,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		try
 		{
-			Image frameIcon = ImageIO.read(new File(runDir+"\\main\\assets_pv1.0\\Logo.png"));
+			Image frameIcon = ImageIO.read(new File(imgDir+"\\Logo.png"));
 			setIconImage(frameIcon); //trying to read and add the logo to the application
 		}
 		catch (IOException e)
@@ -351,7 +354,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setLayout(null); //ensuring I can specify element positions
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon(runDir+"\\main\\assets_pv1.0\\topArt.jpg");
+		Icon topArt = new ImageIcon(imgDir+"\\topArt.jpg");
 		lblArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 			
 		lblArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
@@ -462,6 +465,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		lblMainTxt = new JLabel();
 		lblDivider = new JLabel();
 		btnStartNext = new JButton();
+		chkbxDesktopRun = new JCheckBox("Run Password_Vault");
 		
 		getContentPane().removeAll();
 		pnlFinal.setVisible(true);
@@ -474,7 +478,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		try
 		{
-			Image frameIcon = ImageIO.read(new File(runDir+"\\main\\assets_pv1.0\\Logo.png"));
+			Image frameIcon = ImageIO.read(new File(imgDir+"\\Logo.png"));
 			setIconImage(frameIcon); //trying to read and add the logo to the application
 		}
 		catch (IOException e)
@@ -487,7 +491,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setLayout(null); //ensuring I can specify element positions
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon(runDir+"\\main\\assets_pv1.0\\topArt.jpg");
+		Icon topArt = new ImageIcon(imgDir+"\\topArt.jpg");
 		lblArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 			
 		lblArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
@@ -506,6 +510,11 @@ public class Installation extends JFrame implements PropertyChangeListener
 		lblMainTxt.setBounds(10, 179, 730, 77); //setting bounds and position
 		add(lblMainTxt); //adding it to the form
 		
+		chkbxDesktopRun.setSelected(true);
+		chkbxDesktopRun.setFont(lblMainTxt.getFont().deriveFont(16.0f));
+		chkbxDesktopRun.setBounds(50, 275, 250, 19);
+		add(chkbxDesktopRun);
+		
 		lblDivider.setText(""); //ensuring no text in label
 		lblDivider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
 		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
@@ -519,7 +528,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 		{
 			public void actionPerformed (ActionEvent evt) 
 			{
-				btnEndActionPerformed(); //running next method
+				if (chkbxDesktopRun.isSelected())
+					btnEndActionPerformed(true); //running next method
+				else
+					btnEndActionPerformed(false); //running next method
 			}
 		});
 		
@@ -532,9 +544,22 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setLocationRelativeTo(null); //setting form position central
 	}
 	
-	private void btnEndActionPerformed()
+	private void btnEndActionPerformed(boolean run)
 	{
+		if (run)
+		{
+			try
+			{
+				Process p = Runtime.getRuntime().exec("cmd /c start \"\" \""+exec.getAbsolutePath()+"\"");
+				p.waitFor();
+			}
+			catch (Throwable t)
+			{
+				JOptionPane.showMessageDialog(null, "Failed to run Password_Vault! Please manually run the application.", "Error!", JOptionPane.OK_OPTION);
+			}
+		}
 		
+		System.exit(0);
 	}
 	
 	private void btnBackActionPerformed ()
@@ -574,7 +599,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 			}
 			else if (lblMainTxt.getText().substring(0, 9).equals("<html>Ple"))
 			{
-				if (!chkbxDesktop.isSelected())
+				if (!chkbxDesktopRun.isSelected())
 					bDesktop = false;
 				else
 					bDesktop = true;
@@ -604,20 +629,43 @@ public class Installation extends JFrame implements PropertyChangeListener
 			{
 				deleteDir(mainDirectory); //delete the entirety of the Password_Vault app folder
 				
-				File shortcut = new File(dsktpShortcut); //declare file for desktop location
-				
-				if (shortcut.exists()) //if desktop shortcut exists
-					shortcut.delete(); //delete it
-				else
+				if (bDesktop && dsktpShortcut != "")
 				{
-					if (JOptionPane.showConfirmDialog(null, "<html><center>App could not find Desktop based on home directory!<br>Do you want the app to search for the Desktop shortcut? (This can take a while if you have multiple hard drives)</center></html>", "Warning", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) //if can't find desktop shortcut
+					File shortcut = new File(dsktpShortcut); //declare file for desktop location
+				
+					if (shortcut.exists()) //if desktop shortcut exists
+						shortcut.delete(); //delete it
+					else
 					{
-						findDir(userTemp+"\\Desktop", false); //find location of desktop (nothing outputted to user)
-						shortcut = new File(foundDir+"\\Password_Vault.lnk"); //create variable based on found desktop icon
-						if (shortcut.exists()) //if exists
-							shortcut.delete(); //delete directory
-						else //else
-							JOptionPane.showMessageDialog(null, "<html><center>App could not find Desktop!<br>Desktop shortcut not deleted!</center></html>", "Warning", JOptionPane. OK_OPTION); //warn user of remaining desktop icon as could not find it.
+						if (JOptionPane.showConfirmDialog(null, "<html><center>App could not find Desktop based on home directory!<br>Do you want the app to search for the Desktop shortcut? (This can take a while if you have multiple hard drives)</center></html>", "Warning", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) //if can't find desktop shortcut
+						{
+							findDir(userTemp+"\\Desktop", false); //find location of desktop (nothing outputted to user)
+							shortcut = new File(foundDir+"\\Password_Vault.lnk"); //create variable based on found desktop icon
+							if (shortcut.exists()) //if exists
+								shortcut.delete(); //delete directory
+							else //else
+								JOptionPane.showMessageDialog(null, "<html><center>App could not find Desktop!<br>Desktop shortcut not deleted!</center></html>", "Warning", JOptionPane. OK_OPTION); //warn user of remaining desktop icon as could not find it.
+						}
+					}
+				}
+				
+				if (quickShortcut != "")
+				{
+					File shortcut = new File(quickShortcut); //declare file for desktop location
+					
+					if (shortcut.exists()) //if desktop shortcut exists
+						shortcut.delete(); //delete it
+					else
+					{
+						if (JOptionPane.showConfirmDialog(null, "<html><center>App could not find Start Menu files!<br>Do you want the app to search for the Start Menu shortcut? (This can take a while if you have multiple hard drives)</center></html>", "Warning", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) //if can't find desktop shortcut
+						{
+							findDir("\\Start Menu\\Programs\\Password_Vault.lnk", false); //find location of desktop (nothing outputted to user)
+							shortcut = new File(foundDir + "\\Start Menu\\Programs\\Password_Vault.lnk"); //create variable based on found desktop icon
+							if (shortcut.exists()) //if exists
+								shortcut.delete(); //delete directory
+							else //else
+								JOptionPane.showMessageDialog(null, "<html><center>App could not find Desktop!<br>Desktop shortcut not deleted!</center></html>", "Warning", JOptionPane. OK_OPTION); //warn user of remaining desktop icon as could not find it.
+						}
 					}
 				}
 			}
@@ -863,6 +911,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 
 	public void dqShortcut (boolean Desktop) //method for creating either desktop shortcut or shortcut for the start menu
 	{		
+		File dsktpShortcutFile = null;
 		try
 		{
 			PrintWriter writer = new PrintWriter("createShortcut.bat", "UTF-8"); //declaring print writer, uses file location & char-set
@@ -900,7 +949,16 @@ public class Installation extends JFrame implements PropertyChangeListener
 			while ((line = reader.readLine()) != null) //ensuring that all results are covered
 			{
 				if (line.contains("Password_Vault.lnk")) //ensuring correct directory
+				{
 					dsktpShortcutFile = new File (line); //declaring variable of where desktop shortcut is
+					dsktpShortcut = line;
+				}
+			}
+			
+			if (dsktpShortcutFile == null)
+			{
+				findDir("Desktop\\Password_Vault.lnk", false);
+				dsktpShortcutFile = new File (foundDir);
 			}
 		}
 		catch (IOException | InterruptedException e)
@@ -923,13 +981,14 @@ public class Installation extends JFrame implements PropertyChangeListener
 		//copies desktop shortcut to start menu - requires Admin permissions
 		if (!Desktop)
 		{
-			File quickShortcut = new File ("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Password_Vault.lnk");
+			quickShortcut = "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Password_Vault.lnk";
+			File quickShortcutFile = new File (quickShortcut);
 			try 
 			{
 				@SuppressWarnings("unused")
 				Path vaultBytes = Files.copy( //try copying the entire file from:
 						dsktpShortcutFile.toPath(), //current position
-						quickShortcut.toPath(), //to start menu position
+						quickShortcutFile.toPath(), //to start menu position
 						StandardCopyOption.REPLACE_EXISTING, //replace any duplicates in there
 						StandardCopyOption.COPY_ATTRIBUTES, //ensure all attributes are the same
 						LinkOption.NOFOLLOW_LINKS);
@@ -937,12 +996,14 @@ public class Installation extends JFrame implements PropertyChangeListener
 			catch (IOException e) 
 			{
 				e.printStackTrace();
+				quickShortcut = "";
 			}
 			
 			dsktpShortcutFile.delete(); //deleting desktop icon, if icon is desired, will be created in next instance
 		}
 	}
 	
+	//objects used in UI
 	private JPanel pnlStart;
 	private JPanel pnlShortcut;
 	private JPanel pnlDownload;
@@ -951,38 +1012,48 @@ public class Installation extends JFrame implements PropertyChangeListener
 	private JLabel lblWelcome;
 	private JLabel lblMainTxt;
 	private JLabel lblDivider;
-	public JLabel lblProgress;
-	public JLabel lblSearching;
+	private JLabel lblProgress;
+	private JLabel lblSearching;
 	private JButton btnStartNext;
 	private JButton btnBackCancel;
-	private JCheckBox chkbxDesktop;
+	private JCheckBox chkbxDesktopRun;
 	private JCheckBox chkbxQuick;
-	public JProgressBar prbrInstall;
+	private JProgressBar prbrInstall;
+	private static JOptionPane backMsg;
+	private static JOptionPane exitMsg;
+	
+	//declaring task background task
 	private static Task task;
-	public static JOptionPane dirExistsMsg;
-	public static JOptionPane backMsg;
-	public static JOptionPane exitMsg;
-	public File mainDirectory;
-	public File vaultDir;
-	public File keyDir;
-	public File assetDir;
-	public File newVaultDir;
-	public File newKeyDir;
-	public File newAssetDir;
-	public File dsktpShortcutFile;
+	
+	//variables used when declaring File
+	private String runDir = "";
+	private String imgDir = "";
+	private String appDir = "";
+	private String foundDir = "";
+	private String userTemp = "";
+	private File mainDirectory;
+	private File vaultDir;
+	private File keyDir;
+	private File assetDir;
+	private File newVaultDir;
+	private File newKeyDir;
+	private File newAssetDir;
 	private File exec;
-	public boolean winOS;
-	public boolean tskDone = false;
-	public boolean tskCancelled = false;
-	public int progressVal = 0;
-	public String runDir = ""; //getting directory app was ran from
-	public String foundDir = "";
-	public String userTemp = "";
-	public String dsktpShortcut;
+	
+	//boolean variables for decision making
+	private boolean winOS;
+	private boolean tskDone = false;
+	private boolean tskCancelled = false;
+	private boolean bDesktop = true;
+	private boolean bQuick = true;
+	
+	//variables for main installation
+	private int progressVal = 0;
+	private String dsktpShortcut;
+	private String quickShortcut;
 	private String progressTxt = "Starting...";
-	public ArrayList<String> serialNumbers = new ArrayList<String>();
-	public boolean bDesktop = true;
-	public boolean bQuick = true;
+	private ArrayList<String> serialNumbers = new ArrayList<String>();
+
 	
 	class Task extends SwingWorker<Void, Void> //swing worker to handle the background task
 	{	
@@ -1103,10 +1174,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 						return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 						
 					//if the user has ran the setup from the install file, add further directory stuff to get to jars
-					vaultDir = new File (runDir+"\\main\\Password_Vault.jar");
-					keyDir = new File (runDir+"\\main\\Password_Key.jar");
-					assetDir = new File (runDir+"\\main\\assets_pv1.0");
-				
+					vaultDir = new File (appDir+"\\Password_Vault.jar");
+					keyDir = new File (appDir+"\\Password_Key.jar");
+					assetDir = new File (imgDir);
+					
 					//validating the files exist before using them and possible causing an error
 					if (!vaultDir.exists() || !keyDir.exists() || !assetDir.exists())
 					{
