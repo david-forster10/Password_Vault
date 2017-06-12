@@ -29,6 +29,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -556,7 +557,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 	private void btnEndActionPerformed(boolean run)
 	{
 		if (run)
-		{
+		{			
 			try
 			{
 				Process p = Runtime.getRuntime().exec("cmd /c start \"\" \""+exec.getAbsolutePath()+"\"");
@@ -820,7 +821,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		for(File path:paths) // for each pathname in pathname array
 		{
 			findDir(target, path, output); //call overload method to search specific drive for file
-			if (!foundDir.equals(null)) //if null isn't returned
+			if (!foundDir.equals("")) //if null isn't returned
 				return foundDir; //return the string that has the path
 		}
 		return null; //if nothing found return null
@@ -1188,7 +1189,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					assetDir = new File (imgDir);
 					
 					//validating the files exist before using them and possible causing an error
-					if (!vaultDir.exists() || !keyDir.exists() || !assetDir.exists())
+					if (!vaultDir.exists() || !keyDir.exists() || !assetDir.exists() || vaultDir.listFiles().length <= 0 || keyDir.listFiles().length <= 0 || assetDir.listFiles().length <= 0)
 					{
 						//if .jars don't exist then output message for user to reinstall 
 						lblProgress.setText("Error...");
@@ -1471,7 +1472,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				if (winOS == true) //if on a windows system
 					try
 					{
-						Process p = Runtime.getRuntime().exec("attrib +H +R" + cfgFile.getPath()); //use cmd to protect the config file with hidden and read only tags
+						Process p = Runtime.getRuntime().exec("cmd /c attrib +H +R" + cfgFile.getPath()); //use cmd to protect the config file with hidden and read only tags
 						p.waitFor();
 					}
 					catch (Throwable t)
@@ -1485,8 +1486,11 @@ public class Installation extends JFrame implements PropertyChangeListener
 				lblProgress.setText("Validating files..."); //informing the user of a task change
 					
 				//checking all created files exist, if not outputting error message
-				if (!mainDirectory.exists() || !newVaultDir.exists() || !newKeyDir.exists())
+				if (!vaultDir.exists() || !keyDir.exists() || !assetDir.exists() )//|| vaultDir.listFiles().length <= 0 || keyDir.listFiles().length <= 0 || assetDir.listFiles().length <= 0)
+				{
 					JOptionPane.showMessageDialog(null, "<html><center>Failed to find created files<br>Please ensure you have enough disk space available before re-running the setup application!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+					System.exit(0);
+				}
 					
 				randWait(); //increasing length of task by random time
 					
@@ -1547,8 +1551,15 @@ public class Installation extends JFrame implements PropertyChangeListener
 					
 				try
 				{
-					Process p = Runtime.getRuntime().exec("cmd /c start \"\" \""+exec.getAbsolutePath()+"\"");
-					p.waitFor();
+					Scanner s = new Scanner(Runtime.getRuntime().exec("cmd /c start \"\" \""+exec.getAbsolutePath()+"\"").getInputStream());
+					
+					if (!s.nextLine().equals("-------------------------------------------------------------")) 
+							if (!s.nextLine().equals("                   Welcome to Password_Vault"))
+								if (!s.nextLine().equals("-------------------------------------------------------------"))
+								{
+									JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+									System.exit(0);
+								}
 				}
 				catch (Throwable t)
 				{}
@@ -1556,10 +1567,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 			
-				startTime = System.currentTimeMillis(); //defining a variable for current time to act as a timeout
-					
-				while ((System.currentTimeMillis()-startTime) < 1000) //while the tasks aren't complete and it hasn't been 1 seconds
-				{}
+//				startTime = System.currentTimeMillis(); //defining a variable for current time to act as a timeout
+//					
+//				while ((System.currentTimeMillis()-startTime) < 1000) //while the tasks aren't complete and it hasn't been 1 seconds
+//				{}
 					
 				if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method

@@ -7,11 +7,11 @@ public class Global_Vars
 	public static ArrayList<String> savedSerialProps = new ArrayList<String>(); //variable for file containing stored serial numbers
 	public static String savedMacAddress = ""; //variable for MAC Address from computer (CAN BE NULL)
 	public static String savedBiosProp = ""; //variable for Bios Serial number
-	public static String workingDirectory; //variable for where everything is stored
 	public static String runInput = ""; //variable for validating whether valid run or not
 	
 	public static String getWorkingDirectory()
 	{
+		String workingDirectory; //variable for where everything is stored
 		String OS = (System.getProperty("os.name")).toUpperCase(); //capitalises OS version
 		
 		if (OS.contains("WIN")) //if windows
