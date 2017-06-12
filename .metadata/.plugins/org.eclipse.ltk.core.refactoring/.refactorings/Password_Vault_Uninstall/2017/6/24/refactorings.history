@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.df.Password_Vault_Setup.Installation&apos; to &apos;Uninstall&apos;&#x0D;&#x0A;- Original project: &apos;Password_Vault_Uninstall&apos;&#x0D;&#x0A;- Original element: &apos;com.df.Password_Vault_Setup.Installation&apos;&#x0D;&#x0A;- Renamed element: &apos;com.df.Password_Vault_Setup.Uninstall&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Installation&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.df.Password_Vault_Setup{Installation.java[Installation" matchStrategy="1" name="Uninstall" qualified="false" references="true" similarDeclarations="false" stamp="1497253621538" textual="false" version="1.0"/>
+</session>
