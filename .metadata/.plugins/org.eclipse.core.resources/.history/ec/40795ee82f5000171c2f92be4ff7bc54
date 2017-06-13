@@ -1,0 +1,10 @@
+package Password_Vault;
+
+public class FirstTimeRun 
+{
+	public void firstRun()
+	{
+		System.out.println("First Time Setup:");
+		System.out.println("");
+	}
+}

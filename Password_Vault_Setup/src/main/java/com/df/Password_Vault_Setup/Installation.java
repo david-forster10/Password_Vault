@@ -15,6 +15,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -29,7 +30,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -95,10 +95,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 	{
 		//instantiating elements of the GUI
 		pnlStart = new JPanel();
-		lblArtTop = new JLabel();
-		lblWelcome = new JLabel();
-		lblMainTxt = new JLabel();
-		lblDivider = new JLabel();
+		ArtTop = new JLabel();
+		Welcome = new JLabel();
+		MainTxt = new JLabel();
+		Divider = new JLabel();
 		btnStartNext = new JButton();
 		btnBackCancel = new JButton();
 		
@@ -132,35 +132,35 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setBackground(Color.WHITE); //setting background color
 
 		Icon topArt = new ImageIcon(imgDir+"\\topArt.jpg");
-		lblArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
+		ArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 			
-		lblArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
-		add(lblArtTop); //adding art to frame
+		ArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
+		add(ArtTop); //adding art to frame
 		
-		lblWelcome.setText("Password_Vault Setup Wizard"); //label welcoming user
-		lblWelcome.setFont(lblWelcome.getFont().deriveFont(22.0f)); //changing font size to 22
-		lblWelcome.setFont(lblWelcome.getFont().deriveFont(Font.BOLD)); //changing font style to bold
-		lblWelcome.setBounds(208, 125, 334, 25); //setting position and measurements
-		add(lblWelcome); //adding label to form
+		Welcome.setText("Password_Vault Setup Wizard"); //label welcoming user
+		Welcome.setFont(Welcome.getFont().deriveFont(22.0f)); //changing font size to 22
+		Welcome.setFont(Welcome.getFont().deriveFont(Font.BOLD)); //changing font style to bold
+		Welcome.setBounds(208, 125, 334, 25); //setting position and measurements
+		add(Welcome); //adding label to form
 		
-		lblMainTxt.setText("<html>The following wizard will set up the necessary files and directories on your computer to be used by the Password_Vault system."
+		MainTxt.setText("<html>The following wizard will set up the necessary files and directories on your computer to be used by the Password_Vault system."
 				+ "<br><br><br>"
 				+ "This installation process shouldn't take more than a few minutes and you can continue to use your computer while this takes place."
 				+ "<br><br><br>"
 				+ "Click 'Next' to continue."
 				+ "<br><br>"
 				+ "</html>"); //main label that explains what happens, html used for formatting
-		lblMainTxt.setFont(lblMainTxt.getFont().deriveFont(16.0f)); //changing font size to 16
-		lblMainTxt.setBounds(20, 180, 730, 194); //setting position and measurements
-		add(lblMainTxt); //adding label to JFrame
+		MainTxt.setFont(MainTxt.getFont().deriveFont(16.0f)); //changing font size to 16
+		MainTxt.setBounds(20, 180, 730, 194); //setting position and measurements
+		add(MainTxt); //adding label to JFrame
 		
-		lblDivider.setText(""); //ensuring no text in label
-		lblDivider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
-		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
-		add(lblDivider); //adding it to JFrame
+		Divider.setText(""); //ensuring no text in label
+		Divider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
+		Divider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
+		add(Divider); //adding it to JFrame
 		
 		btnStartNext.setText("Next"); //adding text to button for starting
-		btnStartNext.setFont(lblMainTxt.getFont().deriveFont(14.0f)); //setting font size
+		btnStartNext.setFont(MainTxt.getFont().deriveFont(14.0f)); //setting font size
 		btnStartNext.setBounds(645, 415, 80, 35); //positioning start button
 		
 		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
@@ -197,10 +197,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 	private void btnNextActionPerformed () //code for second screen of installation (selects shortcuts to be installed)
 	{
 		pnlShortcut = new JPanel();
-		lblArtTop = new JLabel();
-		lblWelcome = new JLabel();
-		lblMainTxt = new JLabel();
-		lblDivider = new JLabel();
+		ArtTop = new JLabel();
+		Welcome = new JLabel();
+		MainTxt = new JLabel();
+		Divider = new JLabel();
 		btnStartNext = new JButton();
 		btnBackCancel = new JButton();
 		chkbxDesktopRun = new JCheckBox("Desktop");
@@ -232,24 +232,24 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setBackground(Color.WHITE); //setting background color
 
 		Icon topArt = new ImageIcon(imgDir + "\\topArt.jpg");
-		lblArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
+		ArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 			
-		lblArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
-		add(lblArtTop); //adding art to frame
+		ArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
+		add(ArtTop); //adding art to frame
 		
-		lblWelcome.setText("Password_Vault Setup Wizard"); //label welcoming user
-		lblWelcome.setFont(lblWelcome.getFont().deriveFont(22.0f)); //changing font size to 22
-		lblWelcome.setFont(lblWelcome.getFont().deriveFont(Font.BOLD)); //changing font style to bold
-		lblWelcome.setBounds(208, 125, 334, 25); //setting position and measurements
-		add(lblWelcome); //adding label to form
+		Welcome.setText("Password_Vault Setup Wizard"); //label welcoming user
+		Welcome.setFont(Welcome.getFont().deriveFont(22.0f)); //changing font size to 22
+		Welcome.setFont(Welcome.getFont().deriveFont(Font.BOLD)); //changing font style to bold
+		Welcome.setBounds(208, 125, 334, 25); //setting position and measurements
+		add(Welcome); //adding label to form
 		
-		lblMainTxt.setText("<html>Please select the shortcuts you'd like installed before hitting 'Start' to begin the installation: </html>"); //changing text assigned to the label
-		lblMainTxt.setFont(lblMainTxt.getFont().deriveFont(16.0f)); //ensuring same font as before
-		lblMainTxt.setBounds(20, 179, 720, 19); //setting bounds and position
-		add(lblMainTxt); //adding it to the form
+		MainTxt.setText("<html>Please select the shortcuts you'd like installed before hitting 'Start' to begin the installation: </html>"); //changing text assigned to the label
+		MainTxt.setFont(MainTxt.getFont().deriveFont(16.0f)); //ensuring same font as before
+		MainTxt.setBounds(20, 179, 720, 19); //setting bounds and position
+		add(MainTxt); //adding it to the form
 		
 		chkbxDesktopRun.setSelected(true);
-		chkbxDesktopRun.setFont(lblMainTxt.getFont().deriveFont(16.0f));
+		chkbxDesktopRun.setFont(MainTxt.getFont().deriveFont(16.0f));
 		chkbxDesktopRun.setBounds(50, 225, 150, 19);
 		add(chkbxDesktopRun);
 		
@@ -257,20 +257,20 @@ public class Installation extends JFrame implements PropertyChangeListener
 			chkbxDesktopRun.setSelected(false);
 			
 		chkbxQuick.setSelected(true);
-		chkbxQuick.setFont(lblMainTxt.getFont());
+		chkbxQuick.setFont(MainTxt.getFont());
 		chkbxQuick.setBounds(50, 280, 150, 19);
 		add(chkbxQuick);
 		
 		if (!bQuick)
 			chkbxQuick.setSelected(false);
 		
-		lblDivider.setText(""); //ensuring no text in label
-		lblDivider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
-		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
-		add(lblDivider); //adding it to JFrame
+		Divider.setText(""); //ensuring no text in label
+		Divider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
+		Divider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
+		add(Divider); //adding it to JFrame
 		
 		btnStartNext.setText("Start"); //adding text to button for starting
-		btnStartNext.setFont(lblMainTxt.getFont().deriveFont(14.0f)); //setting font size
+		btnStartNext.setFont(MainTxt.getFont().deriveFont(14.0f)); //setting font size
 		btnStartNext.setBounds(645, 415, 80, 35); //positioning start button
 		
 		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
@@ -329,12 +329,12 @@ public class Installation extends JFrame implements PropertyChangeListener
 	private void btnStartActionPerformed () //code for third screen of installation (instigates installation)
 	{	
 		pnlDownload = new JPanel();
-		lblArtTop = new JLabel();
-		lblWelcome = new JLabel();
-		lblMainTxt = new JLabel();
-		lblProgress = new JLabel();
-		lblSearching = new JLabel();
-		lblDivider = new JLabel();
+		ArtTop = new JLabel();
+		Welcome = new JLabel();
+		MainTxt = new JLabel();
+		Progress = new JLabel();
+		Searching = new JLabel();
+		Divider = new JLabel();
 		btnStartNext = new JButton();
 		btnBackCancel = new JButton();
 		prbrInstall = new JProgressBar();
@@ -365,23 +365,23 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setBackground(Color.WHITE); //setting background color
 
 		Icon topArt = new ImageIcon(imgDir+"\\topArt.jpg");
-		lblArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
+		ArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 			
-		lblArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
-		add(lblArtTop); //adding art to frame
+		ArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
+		add(ArtTop); //adding art to frame
 		
-		lblWelcome.setText("Password_Vault Setup Wizard"); //label welcoming user
-		lblWelcome.setFont(lblWelcome.getFont().deriveFont(22.0f)); //changing font size to 22
-		lblWelcome.setFont(lblWelcome.getFont().deriveFont(Font.BOLD)); //changing font style to bold
-		lblWelcome.setBounds(208, 125, 334, 25); //setting position and measurements
-		add(lblWelcome); //adding label to form
+		Welcome.setText("Password_Vault Setup Wizard"); //label welcoming user
+		Welcome.setFont(Welcome.getFont().deriveFont(22.0f)); //changing font size to 22
+		Welcome.setFont(Welcome.getFont().deriveFont(Font.BOLD)); //changing font style to bold
+		Welcome.setBounds(208, 125, 334, 25); //setting position and measurements
+		add(Welcome); //adding label to form
 		
-		lblMainTxt.setText("<html>The setup wizard is detecting your system settings and setting up files on your local hard drive used in the running of Password_Vault."
+		MainTxt.setText("<html>The setup wizard is detecting your system settings and setting up files on your local hard drive used in the running of Password_Vault."
 				+ "<br><br>"
 				+ "Please do not close the application, installation in progress...</html>"); //changing text assigned to the label
-		lblMainTxt.setFont(lblMainTxt.getFont().deriveFont(16.0f)); //ensuring same font as before
-		lblMainTxt.setBounds(10, 179, 730, 77); //setting bounds and position
-		add(lblMainTxt); //adding it to the form
+		MainTxt.setFont(MainTxt.getFont().deriveFont(16.0f)); //ensuring same font as before
+		MainTxt.setBounds(10, 179, 730, 77); //setting bounds and position
+		add(MainTxt); //adding it to the form
 		
     	prbrInstall.setValue(progressVal); //setting the progress bar to start at 0
 		prbrInstall.setStringPainted(true); 
@@ -390,24 +390,24 @@ public class Installation extends JFrame implements PropertyChangeListener
 		prbrInstall.setMaximum(100); //setting the maximum value on the bar
 		add(prbrInstall); //adding the bar to the form
 		
-		lblProgress.setText(progressTxt); //setting progress label to starting
+		Progress.setText(progressTxt); //setting progress label to starting
 		
-		lblProgress.setFont(lblMainTxt.getFont().deriveFont(12.0f)); //ensuring smaller font size than main text
-		lblProgress.setBounds(75, 296, 300, 15); //setting position above the progress bar
-		add(lblProgress); //adding the progress bar to the frame
+		Progress.setFont(MainTxt.getFont().deriveFont(12.0f)); //ensuring smaller font size than main text
+		Progress.setBounds(75, 296, 300, 15); //setting position above the progress bar
+		add(Progress); //adding the progress bar to the frame
 		
-		lblSearching.setText(""); //setting progress label to starting
-		lblSearching.setFont(lblMainTxt.getFont().deriveFont(12.0f)); //ensuring smaller font size than main text
-		lblSearching.setBounds(210, 296, 200, 15); //setting position above the progress bar
-		add(lblSearching); //adding the progress bar to the frame
+		Searching.setText(""); //setting progress label to starting
+		Searching.setFont(MainTxt.getFont().deriveFont(12.0f)); //ensuring smaller font size than main text
+		Searching.setBounds(210, 296, 200, 15); //setting position above the progress bar
+		add(Searching); //adding the progress bar to the frame
 		
-		lblDivider.setText(""); //ensuring no text in label
-		lblDivider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
-		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
-		add(lblDivider); //adding it to JFrame
+		Divider.setText(""); //ensuring no text in label
+		Divider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
+		Divider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
+		add(Divider); //adding it to JFrame
 		
 		btnStartNext.setText("Next"); //adding text to button for starting
-		btnStartNext.setFont(lblMainTxt.getFont().deriveFont(14.0f)); //setting font size
+		btnStartNext.setFont(MainTxt.getFont().deriveFont(14.0f)); //setting font size
 		btnStartNext.setBounds(645, 415, 80, 35); //positioning start button
 		btnStartNext.setEnabled(false); //prevents user from continuing before installation is complete
 		
@@ -452,7 +452,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 		else //else if had finished
 		{
-			lblProgress.setText("Done!"); //ensure progress label was set to "Done!"
+			Progress.setText("Done!"); //ensure progress label was set to "Done!"
 			
 			if (tskCancelled) //if the user had backed off of the installation page
 				if (JOptionPane.showConfirmDialog(null, "<html><center>Initial installation was cancelled<br>Would you like to start again?</center></html>", "Restart?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION);
@@ -470,10 +470,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 	private void btnFinalActionPerformed () //code for final screen of installation
 	{
 		pnlFinal = new JPanel();
-		lblArtTop = new JLabel();
-		lblWelcome = new JLabel();
-		lblMainTxt = new JLabel();
-		lblDivider = new JLabel();
+		ArtTop = new JLabel();
+		Welcome = new JLabel();
+		MainTxt = new JLabel();
+		Divider = new JLabel();
 		btnStartNext = new JButton();
 		chkbxDesktopRun = new JCheckBox("Run Password_Vault");
 		
@@ -502,36 +502,36 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setBackground(Color.WHITE); //setting background color
 
 		Icon topArt = new ImageIcon(imgDir+"\\topArt.jpg");
-		lblArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
+		ArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 			
-		lblArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
-		add(lblArtTop); //adding art to frame
+		ArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
+		add(ArtTop); //adding art to frame
 		
-		lblWelcome.setText("Password_Vault Setup Wizard"); //label welcoming user
-		lblWelcome.setFont(lblWelcome.getFont().deriveFont(22.0f)); //changing font size to 22
-		lblWelcome.setFont(lblWelcome.getFont().deriveFont(Font.BOLD)); //changing font style to bold
-		lblWelcome.setBounds(208, 125, 334, 25); //setting position and measurements
-		add(lblWelcome); //adding label to form
+		Welcome.setText("Password_Vault Setup Wizard"); //label welcoming user
+		Welcome.setFont(Welcome.getFont().deriveFont(22.0f)); //changing font size to 22
+		Welcome.setFont(Welcome.getFont().deriveFont(Font.BOLD)); //changing font style to bold
+		Welcome.setBounds(208, 125, 334, 25); //setting position and measurements
+		add(Welcome); //adding label to form
 		
-		lblMainTxt.setText("<html>Setup has finished installing Password_Vault on your computer please press \"Finish\"."
+		MainTxt.setText("<html>Setup has finished installing Password_Vault on your computer please press \"Finish\"."
 				+ "<br><br>"
 				+ "Please select the options below as appropriate:</html>"); //changing text assigned to the label
-		lblMainTxt.setFont(lblMainTxt.getFont().deriveFont(16.0f)); //ensuring same font as before
-		lblMainTxt.setBounds(10, 179, 730, 77); //setting bounds and position
-		add(lblMainTxt); //adding it to the form
+		MainTxt.setFont(MainTxt.getFont().deriveFont(16.0f)); //ensuring same font as before
+		MainTxt.setBounds(10, 179, 730, 77); //setting bounds and position
+		add(MainTxt); //adding it to the form
 		
 		chkbxDesktopRun.setSelected(true);
-		chkbxDesktopRun.setFont(lblMainTxt.getFont().deriveFont(16.0f));
+		chkbxDesktopRun.setFont(MainTxt.getFont().deriveFont(16.0f));
 		chkbxDesktopRun.setBounds(50, 275, 250, 19);
 		add(chkbxDesktopRun);
 		
-		lblDivider.setText(""); //ensuring no text in label
-		lblDivider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
-		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
-		add(lblDivider); //adding it to JFrame
+		Divider.setText(""); //ensuring no text in label
+		Divider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
+		Divider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
+		add(Divider); //adding it to JFrame
 		
 		btnStartNext.setText("Finish"); //adding text to button for starting
-		btnStartNext.setFont(lblMainTxt.getFont().deriveFont(14.0f)); //setting font size
+		btnStartNext.setFont(MainTxt.getFont().deriveFont(14.0f)); //setting font size
 		btnStartNext.setBounds(645, 415, 80, 35); //positioning start button
 		
 		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
@@ -602,12 +602,12 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 		else //if not accepted...
 		{
-			if (lblMainTxt.getText().substring(0, 9).equals("<html>The"))
+			if (MainTxt.getText().substring(0, 9).equals("<html>The"))
 			{
 				getContentPane().removeAll();
 				initComponents();
 			}
-			else if (lblMainTxt.getText().substring(0, 9).equals("<html>Ple"))
+			else if (MainTxt.getText().substring(0, 9).equals("<html>Ple"))
 			{
 				if (!chkbxDesktopRun.isSelected())
 					bDesktop = false;
@@ -682,7 +682,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					
 			try
 			{
-				Runtime.getRuntime().exec("taskkill /f /im cmd.exe"); //try to close all open cmd windows
+				Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
 			}
 			catch (Exception e)
 			{
@@ -695,7 +695,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		{
 			exitMsg = null; //reset the variable name to null for use in the future
 			progressVal = prbrInstall.getValue(); //saving value on progress bar
-			progressTxt = lblProgress.getText();
+			progressTxt = Progress.getText();
 			getContentPane().removeAll(); //removing assets on form
 			btnStartActionPerformed(); //calling method to continue task
 		}
@@ -857,13 +857,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 				
 		if (output = true)
 			if (foundDir == "")
-				lblSearching.setText(drive.getPath());
+				Searching.setText(drive.getPath());
 		
 		if (drive.getPath().length() > target.length()) //ensuring that drive is longer than target address so no errors when using substring
 			if (drive.getPath().substring(drive.getPath().length() - target.length()).equals(target)) //if last part of path matches target file
 			{
 				foundDir = drive.getPath(); //add found directory to variable to be passed back
-				lblSearching.setText("");
+				Searching.setText("");
 			}
 	}
 	
@@ -908,7 +908,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		catch (IOException | InterruptedException e) //catch any errors that may occur
 		{
 			JOptionPane.showMessageDialog(null, "<html><center>Unique Identifier information not retrieved!<br></center></html>", "Warning", JOptionPane.WARNING_MESSAGE); //throw information that an error has occurred
-			lblProgress.setText("Error...");
+			Progress.setText("Error...");
 		}
 	}
 
@@ -1018,12 +1018,12 @@ public class Installation extends JFrame implements PropertyChangeListener
 	private JPanel pnlShortcut;
 	private JPanel pnlDownload;
 	private JPanel pnlFinal;
-	private JLabel lblArtTop;
-	private JLabel lblWelcome;
-	private JLabel lblMainTxt;
-	private JLabel lblDivider;
-	private JLabel lblProgress;
-	private JLabel lblSearching;
+	private JLabel ArtTop;
+	private JLabel Welcome;
+	private JLabel MainTxt;
+	private JLabel Divider;
+	private JLabel Progress;
+	private JLabel Searching;
 	private JButton btnStartNext;
 	private JButton btnBackCancel;
 	private JCheckBox chkbxDesktopRun;
@@ -1063,6 +1063,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 	private String quickShortcut;
 	private String progressTxt = "Starting...";
 	private ArrayList<String> serialNumbers = new ArrayList<String>();
+	private int keyIt = 0;
 
 	
 	class Task extends SwingWorker<Void, Void> //swing worker to handle the background task
@@ -1098,10 +1099,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 		{			
 			while (!isCancelled()) //while task hasn't been cancelled
 			{		
-				if (lblProgress.getText().equals("Done!")) //if task being restarted
+				if (Progress.getText().equals("Done!")) //if task being restarted
 				{
 					prbrInstall.setValue(0); //reset progress bar
-					lblProgress.setText("Starting..."); //reset progress label
+					Progress.setText("Starting..."); //reset progress label
 				}
 									
 				//making the user think the system is starting
@@ -1113,7 +1114,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				{}
 				
 				//informing the user of new task
-				lblProgress.setText("Detecting system settings...");
+				Progress.setText("Detecting system settings...");
 					
 				//finding out system OS
 				String OS = (System.getProperty("os.name")).toUpperCase(); //capitalises OS version
@@ -1130,12 +1131,12 @@ public class Installation extends JFrame implements PropertyChangeListener
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
 				//second section, ensuring there isn't a previous installation in place that had been previously missed
-				lblProgress.setText("Checking for previous installations...");
+				Progress.setText("Checking for previous installations...");
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
 				mainDirectory = new File(Global_Vars.getWorkingDirectory()); //getting main directory for use in this thread
-				exec = new File(mainDirectory+"\\Password_Vault.bat");
+				exec = new File(mainDirectory+"\\apps\\Password_Vault.bat");
 					
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
@@ -1149,7 +1150,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 						if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 							return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 										
-						lblProgress.setText("Removing old installation...");
+						Progress.setText("Removing old installation...");
 							
 						deleteDir(mainDirectory);
 							
@@ -1163,7 +1164,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					if (increment(prbrInstall.getValue(), 6) == true) //incrementing the progress bar to represent that task has been complete for the user
 						return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
-				lblProgress.setText("Creating base directory..."); //informing the user of a task change
+				Progress.setText("Creating base directory..."); //informing the user of a task change
 					
 				//create directory
 				mainDirectory.mkdir();
@@ -1176,7 +1177,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				newKeyDir = new File (mainDirectory+"\\apps\\Password_Key.jar");
 				newAssetDir = new File (mainDirectory+"\\apps\\assets_pv1.0");
 					
-				lblProgress.setText("Finding dependancies..."); //informing the user of a task change
+				Progress.setText("Finding dependancies..."); //informing the user of a task change
 					
 				if (runDir.contains("setup"))
 				{
@@ -1192,7 +1193,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					if (!vaultDir.exists() || !keyDir.exists() || !assetDir.exists() || vaultDir.listFiles().length <= 0 || keyDir.listFiles().length <= 0 || assetDir.listFiles().length <= 0)
 					{
 						//if .jars don't exist then output message for user to reinstall 
-						lblProgress.setText("Error...");
+						Progress.setText("Error...");
 						JOptionPane.showMessageDialog(null, "<html><center>Files are missing from setup folder!<br>Please re-download the setup folder and re-run the setup application, following the instructions in the \"Readme\"</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
 						System.exit(0);
 					}
@@ -1203,7 +1204,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					if (vaultDirString.equals(null)) //if nothing is returned
 					{
 						//informing user the first .jar can't be found, meaning failed installation,  re-download installation and follow steps in readme.txt
-						lblProgress.setText("Error...");
+						Progress.setText("Error...");
 						JOptionPane.showMessageDialog(null, "<html><center>Installation files cannot be found!<br>Please re-download the setup folder and re-run the setup application, following the instructions in the \"Readme\"</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
 						System.exit(0);
 					}
@@ -1225,7 +1226,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 						if (keyDirString.equals(null)) //if nothing is returned
 						{
 							//informing user the second .jar can't be found, meaning failed installation, re-download installation and follow steps in readme.txt 
-							lblProgress.setText("Error...");
+							Progress.setText("Error...");
 							JOptionPane.showMessageDialog(null, "<html><center>Installation files cannot be found!<br>Please re-download the setup folder and re-run the setup application, following the instructions in the \"Readme\"</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
 							System.exit(0);
 						}
@@ -1248,7 +1249,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 						if (assetDirString.equals(null)) //if nothing is returned
 						{
 							//informing user the second .jar can't be found, meaning failed installation, re-download installation and follow steps in readme.txt 
-							lblProgress.setText("Error...");
+							Progress.setText("Error...");
 							JOptionPane.showMessageDialog(null, "<html><center>Installation files cannot be found!<br>Please re-download the setup folder and re-run the setup application, following the instructions in the \"Readme\"</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
 							System.exit(0);
 						}
@@ -1262,7 +1263,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 						return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 				}
 					
-				lblProgress.setText("Moving dependancies..."); //informing the user of a task change
+				Progress.setText("Moving dependancies..."); //informing the user of a task change
 					
 				boolean btemp1 = false; //variables ensuring move is complete
 				boolean btemp2 = false;
@@ -1333,12 +1334,12 @@ public class Installation extends JFrame implements PropertyChangeListener
 				if (!btemp1 || !btemp2 || !btemp3) //if task wasn't complete and timed out
 				{
 					//informing user of error and getting them to start again
-					lblProgress.setText("Error...");
+					Progress.setText("Error...");
 					JOptionPane.showMessageDialog(null, "<html><center>Files failed to move!<br>Please ensure the files are present and re-run the setup application, following the instructions in the \"Readme\"</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
 					System.exit(0); 
 				}
 					
-				lblProgress.setText("Retrieving configuration information..."); //informing the user of a task change
+				Progress.setText("Retrieving configuration information..."); //informing the user of a task change
 									
 				getProperty("wmic diskdrive get serialnumber", 1); //calling method with command needed to be ran and number referencing this is the first command
 					
@@ -1368,7 +1369,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				if (increment(prbrInstall.getValue(), 5) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 				
-				lblProgress.setText("Securing information..."); //informing the user of a task change
+				Progress.setText("Securing information..."); //informing the user of a task change
 	
 				for (int tmp = 0; tmp < 250; tmp ++) //ensuring 15 "mac" addresses are generated to obscure original values
 				{
@@ -1483,7 +1484,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
-				lblProgress.setText("Validating files..."); //informing the user of a task change
+				Progress.setText("Validating files..."); //informing the user of a task change
 					
 				//checking all created files exist, if not outputting error message
 				if (!vaultDir.exists() || !keyDir.exists() || !assetDir.exists() )//|| vaultDir.listFiles().length <= 0 || keyDir.listFiles().length <= 0 || assetDir.listFiles().length <= 0)
@@ -1512,9 +1513,9 @@ public class Installation extends JFrame implements PropertyChangeListener
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
 				if (bDesktop || bQuick)
-					lblProgress.setText("Creating executable and shortcuts...");
+					Progress.setText("Creating executable and shortcuts...");
 				else
-					lblProgress.setText("Creating executable...");
+					Progress.setText("Creating executable...");
 					
 				if (bQuick)
 					dqShortcut(false); //false for quick start shortcut
@@ -1535,49 +1536,131 @@ public class Installation extends JFrame implements PropertyChangeListener
 				catch(Throwable t)
 				{}
 					
-				randWait();
+				try
+				{
+					PrintWriter writer = new PrintWriter("mainShortcut.bat", "UTF-8"); //declaring print writer, uses file location & char-set
 					
+					writer.println ("@echo off"); //print writer is outputting to the previously specified file
+					writer.println("echo Set oWS = WScript.CreateObject(\"WScript.Shell\") > CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+					writer.println("echo sLinkFile = \"%APPDATA%\\Password_Vault\\Password_Vault.lnk\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+					writer.println("echo Set oLink = oWS.CreateShortcut(sLinkFile) >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+					writer.println("echo oLink.TargetPath = \"" + exec.getAbsolutePath() + "\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+					writer.println("echo oLink.IconLocation = \""+ newAssetDir+"\\Logo.ico\"  >> CreateShortcut.vbs");
+					writer.println("echo oLink.Save >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+					writer.println("cscript CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+					writer.println("del CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+					writer.println("exit");
+					
+					writer.close(); //close print writer to commit information to txt file.
+					Thread.sleep(1000);
+				}
+				catch(Throwable t)
+				{}
+					
+				try 
+				{
+					Process p = Runtime.getRuntime().exec("cmd /c "+runDir+"\\mainShortcut.bat\""); //running created batch file
+					p.waitFor();
+				} 
+				catch (IOException | InterruptedException e) 
+				{
+					e.printStackTrace();
+				}
+
+				File bat = new File ("mainShortcut.bat"); //creating variable to remove trace of batch file that was created during setup
+				
+				bat.delete(); //deleting temp file
+				
 				if (increment(prbrInstall.getValue(), 3) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
-				lblProgress.setText("Testing Password_Vault...");
+				Progress.setText("Testing Password_Vault...");
 					
 				JOptionPane.showMessageDialog(null, "<html><center>The setup application is about to test the installed files.<br>Please do not be alarmed by opening windows and ensure you don't have any cmd windows open as they will be closed!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);				
 					
 				if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
-				randWait();
-					
 				try
 				{
-					Scanner s = new Scanner(Runtime.getRuntime().exec("cmd /c start \"\" \""+exec.getAbsolutePath()+"\"").getInputStream());
+					PrintWriter writer = new PrintWriter("testTemp.bat", "UTF-8"); //declaring print writer, uses file location & char-set
+					writer.println("@echo off"
+							+ "\nTITLE Password_Vault"
+							+ "\njava -jar \""+newVaultDir+"\""
+							+ "\nSETLOCAL ENABLEDELAYEDEXPANSION"
+							+ "\nSET count=1"
+							+ "\nFOR /F \"tokens=* USEBACKQ\" %%F IN (`java -jar \"C:\\Users\\DFORSTER\\AppData\\Roaming\\Password_Vault\\apps\\Password_Vault.jar\"`) DO ("
+							+ "\nSET var!count!=%%F"
+							+ "\nSET /a count=!count!+1"
+							+ "\n)"
+							+ "\necho %var1% > temp.txt"
+							+ "\necho %var2% >> temp.txt"
+							+ "\necho %var3% >> temp.txt"
+							+ "\nENDLOCAL"
+							+ "\npause"); //print writer is outputting to the previously specified file
+				
+					writer.close(); //close print writer to commit information to txt file.
+				}
+				catch(Throwable t)
+				{}
+
+				try
+				{
+					Runtime.getRuntime().exec("cmd /c start \"\" \"testTemp.bat\"");
+					Thread.sleep(2500);
+					FileReader fr = new FileReader("temp.txt");
+					BufferedReader reader = new BufferedReader(fr);
+					String s = reader.readLine();
 					
-					if (!s.nextLine().equals("-------------------------------------------------------------")) 
-							if (!s.nextLine().equals("                   Welcome to Password_Vault"))
-								if (!s.nextLine().equals("-------------------------------------------------------------"))
-								{
-									JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
-									System.exit(0);
-								}
+					if (s.equals("------------------------------------------------------------- ")) 
+					{
+						s = reader.readLine();
+						if (s.equals("Welcome to Password_Vault "))
+						{
+							s = reader.readLine();
+							if (!s.equals("------------------------------------------------------------- "))
+							{
+								JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+								new File("testTemp.bat").delete();
+								new File("temp.txt").delete();								
+								Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
+								System.exit(0);
+							}
+						}
+						else
+						{
+							JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+							new File("testTemp.bat").delete();
+							new File("temp.txt").delete();								
+							Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
+							System.exit(0);
+						}
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+						new File("testTemp.bat").delete();
+						new File("temp.txt").delete();								
+						Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
+						System.exit(0);
+					}
+					
+					reader.close();
+					
+					new File("testTemp.bat").delete();
+					new File("temp.txt").delete();
 				}
 				catch (Throwable t)
-				{}
+				{
+					t.printStackTrace();
+				}
 					
-				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
-					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
-			
-//				startTime = System.currentTimeMillis(); //defining a variable for current time to act as a timeout
-//					
-//				while ((System.currentTimeMillis()-startTime) < 1000) //while the tasks aren't complete and it hasn't been 1 seconds
-//				{}
-					
-				if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
+				if (increment(prbrInstall.getValue(), 3) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
 				try
 				{
-					Runtime.getRuntime().exec("taskkill /f /im cmd.exe"); //try to close all open cmd windows
+					Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
 				}
 				catch (Exception e)
 				{
@@ -1589,20 +1672,23 @@ public class Installation extends JFrame implements PropertyChangeListener
 					
 				randWait();
 									
-				lblProgress.setText("Testing Password_Key...");
+				Progress.setText("Testing Password_Key...");
 					
 				if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
-				if (!keyTest())
+				if (keyTest() == 2)
+					JOptionPane.showMessageDialog(null, "<html><center>Password_Key has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+				else if (keyTest() == 3)
 					return null;
 					
 				if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
 				//CREATE PASS FILE TO MAKE A VALID RUN
-					
-				if (!keyTest())
+				if (keyTest() == 2)
+					JOptionPane.showMessageDialog(null, "<html><center>Password_Key has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+				else if (keyTest() == 3)
 					return null;
 					
 				//very last things to happen (prevents user going back and restarting install, ends current task)
@@ -1616,7 +1702,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		public void done () //method for what happens upon completion of the task running in background
 		{
 			Toolkit.getDefaultToolkit().beep(); //plays sound to alert user that it is complete
-			lblProgress.setText("Done!"); //changes progress label to: Done!
+			Progress.setText("Done!"); //changes progress label to: Done!
 			tskDone = true; //Completes the task so that it won't be restarted if the user returns to the page
 			progressVal = prbrInstall.getValue(); //remembers progress value on progress bar in case it has stopped prematurely and the user returns to page, the bar will display same progress.
 			btnStartNext.setEnabled(true); //enables Next button to continue with the installation
@@ -1649,18 +1735,42 @@ public class Installation extends JFrame implements PropertyChangeListener
 			return false; //return false when complete
 		}
 	
-		public boolean keyTest ()
+		public int keyTest ()
 		{
+			ArrayList<String> out = new ArrayList<String>();
 			try
 			{
 				Process p = Runtime.getRuntime().exec("cmd /c start cmd.exe /k java -jar \"" + newKeyDir + "\"");
 				p.waitFor();
+				BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+				
+				String in = "";
+				while ((in = reader.readLine()) != null)
+				{
+					out.add(in);
+				}
 			}
 			catch (Throwable t)
 			{}
 			
+			for (int iCount = 0; iCount < out.size(); iCount++)
+			{
+				if (keyIt == 0)
+				{
+					if (!out.get(0).equals("ERROR: You are not authorised to run this application, please run Password_Vault.exe first"))
+					{
+						JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+						System.exit(0);
+					}
+				}
+				else if (keyIt == 1)
+				{
+					
+				}
+			}
+			
 			if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
-				return false; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
+				return 3; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
 			
 			long startTime = System.currentTimeMillis(); //defining a variable for current time to act as a timeout
 			
@@ -1668,7 +1778,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 			{}
 			
 			if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
-				return false; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
+				return 3; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
 			
 			try
 			{
@@ -1680,9 +1790,11 @@ public class Installation extends JFrame implements PropertyChangeListener
 			}
 			
 			if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
-				return false; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
+				return 3; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
 			
-			return true;
+			keyIt++;
+			
+			return 1;
 		}
 	
 		public void pausedWait()

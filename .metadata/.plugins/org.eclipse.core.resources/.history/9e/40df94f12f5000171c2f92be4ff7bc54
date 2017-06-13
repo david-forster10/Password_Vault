@@ -1,0 +1,16 @@
+package Password_Vault;
+
+import java.util.Scanner;
+
+public class FirstTimeRun 
+{
+	public void firstRun()
+	{
+		System.out.println("First Time Setup:");
+		System.out.println("How many accounts would you like to create? (accounts can be created at a later point)");
+		
+	}
+
+	private static Scanner userInput = new Scanner(System.in);
+
+}

@@ -2,22 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="H" key="selection"/>
-		<item value="true" key="casesensitive"/>
+		<item value="progress" key="selection"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
-		<item value="true" key="wrap"/>
-		<item value="true" key="wholeword"/>
+		<item value="false" key="wrap"/>
+		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="H"/>
-			<item value=".exists()"/>
-			<item value="findDir"/>
-			<item value="main"/>
-			<item value="progressVal"/>
-			<item value="DFORSTER"/>
-			<item value="assetDir"/>
-			<item value="Password_Vault_setup"/>
+			<item value="Progress"/>
+			<item value="\blbl"/>
+			<item value="lbl"/>
+			<item value="lblProgress"/>
+			<item value="exec"/>
+			<item value="creating"/>
+			<item value="taskkill"/>
+			<item value="Scanner"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
 			<item value="\\assets_pv1.0"/>
 		</list>
 	</section>
