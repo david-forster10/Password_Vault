@@ -61,7 +61,6 @@ import org.apache.commons.io.FileUtils;
  * -	Test e-2-e process of install & apps (when complete)
  */
 
-
 public class Installation extends JFrame implements PropertyChangeListener
 {	
 	/**
@@ -581,6 +580,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 	@SuppressWarnings("static-access")
 	private void btnBackInstallActionPerformed () //code for returning to the first screen from the installation section
 	{
+		task.pause();
 		backMsg = new JOptionPane(); //linking the option pane to a variable so that it can be referenced at a later point
 		if (backMsg.showConfirmDialog(null, "<html><center>WARNING!<br>This will cancel installation<br>Are you sure you want to do this?</center></html>", "WARNING!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION)
 		{ //output warning that it would cancel installation, if accepted...
@@ -591,7 +591,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 			initComponents(); //calling the method that builds the first screen of the installation
 		}
 		else //if not accepted...
+		{
 			backMsg = null; //reassigning the variable to null for future reference
+			task.resume();
+		}
 	}
 	
 	private void btnCancelActionPerformed()
@@ -1059,8 +1062,8 @@ public class Installation extends JFrame implements PropertyChangeListener
 	
 	//variables for main installation
 	private int progressVal = 0;
-	private String dsktpShortcut;
-	private String quickShortcut;
+	private String dsktpShortcut = "";
+	private String quickShortcut = "";
 	private String progressTxt = "Starting...";
 	private ArrayList<String> serialNumbers = new ArrayList<String>();
 	private int keyIt = 0;
@@ -1188,9 +1191,9 @@ public class Installation extends JFrame implements PropertyChangeListener
 					vaultDir = new File (appDir+"\\Password_Vault.jar");
 					keyDir = new File (appDir+"\\Password_Key.jar");
 					assetDir = new File (imgDir);
-					
+
 					//validating the files exist before using them and possible causing an error
-					if (!vaultDir.exists() || !keyDir.exists() || !assetDir.exists() || vaultDir.listFiles().length <= 0 || keyDir.listFiles().length <= 0 || assetDir.listFiles().length <= 0)
+					if (!vaultDir.exists() || !keyDir.exists() || !assetDir.exists() || assetDir.listFiles().length <= 0)
 					{
 						//if .jars don't exist then output message for user to reinstall 
 						Progress.setText("Error...");
@@ -1529,7 +1532,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				try
 				{
 					PrintWriter writer = new PrintWriter(exec, "UTF-8"); //declaring print writer, uses file location & char-set
-					writer.println("@echo off\nTITLE Password_Vault\njava -jar \""+newVaultDir+"\"\npause"); //print writer is outputting to the previously specified file
+					writer.println("@echo off\nTITLE Password_Vault\njava -jar \""+newVaultDir+"\"\nexit"); //print writer is outputting to the previously specified file
 				
 					writer.close(); //close print writer to commit information to txt file.
 				}
@@ -1593,11 +1596,11 @@ public class Installation extends JFrame implements PropertyChangeListener
 							+ "\nSET var!count!=%%F"
 							+ "\nSET /a count=!count!+1"
 							+ "\n)"
-							+ "\necho %var1% > temp.txt"
-							+ "\necho %var2% >> temp.txt"
-							+ "\necho %var3% >> temp.txt"
+							+ "\necho %var1% > t.txt"
+							+ "\necho %var2% >> t.txt"
+							+ "\necho %var3% >> t.txt"
 							+ "\nENDLOCAL"
-							+ "\npause"); //print writer is outputting to the previously specified file
+							+ "\nexit"); //print writer is outputting to the previously specified file
 				
 					writer.close(); //close print writer to commit information to txt file.
 				}
@@ -1607,22 +1610,27 @@ public class Installation extends JFrame implements PropertyChangeListener
 				try
 				{
 					Runtime.getRuntime().exec("cmd /c start \"\" \"testTemp.bat\"");
-					Thread.sleep(2500);
-					FileReader fr = new FileReader("temp.txt");
+					
+					while (!new File ("t.txt").exists())
+					{
+						Thread.sleep(250);
+					}
+					
+					FileReader fr = new FileReader("t.txt");
 					BufferedReader reader = new BufferedReader(fr);
 					String s = reader.readLine();
 					
-					if (s.equals("------------------------------------------------------------- ")) 
+					if (s.equals("-------------------------------------------------------------------------------------------------------------------- ")) 
 					{
 						s = reader.readLine();
-						if (s.equals("Welcome to Password_Vault "))
+						if (s.equals("WELCOME TO PASSWORD_VAULT "))
 						{
 							s = reader.readLine();
-							if (!s.equals("------------------------------------------------------------- "))
+							if (!s.equals("-------------------------------------------------------------------------------------------------------------------- "))
 							{
 								JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
 								new File("testTemp.bat").delete();
-								new File("temp.txt").delete();								
+								new File("t.txt").delete();								
 								Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
 								System.exit(0);
 							}
@@ -1631,7 +1639,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 						{
 							JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
 							new File("testTemp.bat").delete();
-							new File("temp.txt").delete();								
+							new File("t.txt").delete();								
 							Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
 							System.exit(0);
 						}
@@ -1640,7 +1648,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					{
 						JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
 						new File("testTemp.bat").delete();
-						new File("temp.txt").delete();								
+						new File("t.txt").delete();								
 						Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
 						System.exit(0);
 					}
@@ -1648,7 +1656,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					reader.close();
 					
 					new File("testTemp.bat").delete();
-					new File("temp.txt").delete();
+					new File("t.txt").delete();
 				}
 				catch (Throwable t)
 				{
@@ -1677,18 +1685,19 @@ public class Installation extends JFrame implements PropertyChangeListener
 				if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
-				if (keyTest() == 2)
+				int keyOut = 0;
+				if ((keyOut = keyTest()) == 2)
 					JOptionPane.showMessageDialog(null, "<html><center>Password_Key has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
-				else if (keyTest() == 3)
+				else if (keyOut == 3)
 					return null;
 					
 				if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
 				//CREATE PASS FILE TO MAKE A VALID RUN
-				if (keyTest() == 2)
+				if ((keyOut = keyTest()) == 2)
 					JOptionPane.showMessageDialog(null, "<html><center>Password_Key has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
-				else if (keyTest() == 3)
+				else if (keyOut == 3)
 					return null;
 					
 				//very last things to happen (prevents user going back and restarting install, ends current task)
@@ -1736,30 +1745,55 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 	
 		public int keyTest ()
-		{
-			ArrayList<String> out = new ArrayList<String>();
+		{		
 			try
 			{
-				Process p = Runtime.getRuntime().exec("cmd /c start cmd.exe /k java -jar \"" + newKeyDir + "\"");
-				p.waitFor();
-				BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
-				
-				String in = "";
-				while ((in = reader.readLine()) != null)
-				{
-					out.add(in);
-				}
-			}
-			catch (Throwable t)
-			{}
+				PrintWriter writer = new PrintWriter("test2Temp.bat", "UTF-8"); //declaring print writer, uses file location & char-set
+				writer.println("@echo off"
+						+ "\nTITLE Password_Key"
+						+ "\njava -jar \""+newKeyDir+"\""
+						+ "\nSETLOCAL ENABLEDELAYEDEXPANSION"
+						+ "\nSET count=1"
+						+ "\nFOR /F \"tokens=* USEBACKQ\" %%F IN (`java -jar \"C:\\Users\\DFORSTER\\AppData\\Roaming\\Password_Vault\\apps\\Password_Key.jar\"`) DO ("
+						+ "\nSET var!count!=%%F"
+						+ "\nSET /a count=!count!+1"
+						+ "\n)"
+						+ "\necho %var1% > temp.txt"
+						+ "\nENDLOCAL"
+						+ "\nexit"); //print writer is outputting to the previously specified file
 			
-			for (int iCount = 0; iCount < out.size(); iCount++)
+				writer.close(); //close print writer to commit information to txt file.
+			}
+			catch(Throwable t)
+			{}
+
+			try
 			{
+				Runtime.getRuntime().exec("cmd /c start \"\" \"test2Temp.bat\"");
+				
+				if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
+					return 3; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
+				
+				while (!new File ("temp.txt").exists())
+				{
+					Thread.sleep(250);
+				}
+				
+				if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
+					return 3; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
+				
+				FileReader fr = new FileReader("temp.txt");
+				BufferedReader reader = new BufferedReader(fr);
+				String s = reader.readLine();
+				
 				if (keyIt == 0)
 				{
-					if (!out.get(0).equals("ERROR: You are not authorised to run this application, please run Password_Vault.exe first"))
+					if (!s.equals("ERROR: You are not authorised to run this application, please run Password_Vault.exe first "))
 					{
-						JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "<html><center>Password_Key has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
+						new File("test2Temp.bat").delete();
+						new File("temp.txt").delete();								
+						Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Key\""); //try to close all open cmd windows
 						System.exit(0);
 					}
 				}
@@ -1767,27 +1801,20 @@ public class Installation extends JFrame implements PropertyChangeListener
 				{
 					
 				}
+								
+				reader.close();
+				
+				if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
+					return 3; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
+				
+				Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Key\""); //try to close all open cmd windows
+				new File("test2Temp.bat").delete();
+				new File("temp.txt").delete();
 			}
-			
-			if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
-				return 3; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
-			
-			long startTime = System.currentTimeMillis(); //defining a variable for current time to act as a timeout
-			
-			while ((System.currentTimeMillis()-startTime) < 1000) //while the tasks aren't complete and it hasn't been 1 seconds
-			{}
-			
-			if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
-				return 3; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method
-			
-			try
+			catch (Throwable t)
 			{
-				Runtime.getRuntime().exec("taskkill /f /im cmd.exe"); //try to close all open cmd windows
-			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
+				t.printStackTrace();
+			}			
 			
 			if (increment(prbrInstall.getValue(), 1) == true) //incrementing the progress bar to represent that task has been complete for the user
 				return 3; //if true is returned, the task has been cancelled so return false to complete task and trigger the "done" method

@@ -1,0 +1,58 @@
+package Password_Vault;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class FirstTimeRun extends Global_Vars
+{
+	public void firstRun()
+	{
+		try
+		{
+			Process p = Runtime.getRuntime().exec("cmd /c tasklist /v /fi \"WINDOWTITLE eq Password_Vault 1.0 Setup\"");
+			BufferedReader proc = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			
+			String i = "";
+			while ((i = proc.readLine()) != null)
+			{
+				if (!i.equals("INFO: No tasks are running which match the specified criteria."))
+				{
+					System.exit(0);
+				}
+			}
+		}
+		catch (Throwable t)
+		{
+			t.printStackTrace();
+		}
+		
+		String accNum = "";
+		System.out.println("First Time Setup:\n");
+		System.out.println("Please input between 0-10 for how many accounts would you like to create? (accounts can be created at a later point)");
+		
+		Pattern p = Pattern.compile("[0-9]");
+		Matcher match = p.matcher((accNum = userInput.nextLine()));
+		
+		while (!match.matches() || Integer.parseInt(accNum) > 10)
+		{
+			System.out.println("Invalid response, please try again");
+			match = p.matcher((accNum = userInput.nextLine()));
+		}
+		
+		for (int i = 0; i < Integer.parseInt(accNum); i++)
+		{
+			accReg(i);
+		}
+	}
+	
+	private void accReg(int itt)
+	{
+		cls();
+		System.out.println("User Account Creation:");
+	}
+	
+	private static Scanner userInput = new Scanner(System.in);
+}

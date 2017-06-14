@@ -95,4 +95,10 @@ public class Global_Vars
 				foundDir = drive.getPath(); //add found directory to variable to be passed back
 			}
 	}
+
+	public void cls () //method for clearing console window, doesn't work in eclipse, works in cmd & linux console
+	{
+		System.out.print("\033[H\033[2J");  
+	    System.out.flush(); 
+	}
 }
