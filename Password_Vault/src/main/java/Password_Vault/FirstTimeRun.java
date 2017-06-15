@@ -4,12 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class FirstTimeRun extends Global_Vars
 {
-	public void firstRun()
+	public FirstTimeRun()
 	{
 		try
 		{
@@ -29,20 +27,26 @@ public class FirstTimeRun extends Global_Vars
 		{
 			t.printStackTrace();
 		}
+	}
+	
+	public void firstRun()
+	{		
+		if (reRun)
+		{
+			System.out.println("--------------------------------------------------------------------------------------------------------------------");
+			System.out.println("                 				WELCOME TO PASSWORD_VAULT");
+			System.out.println("--------------------------------------------------------------------------------------------------------------------");
+		}
 		
 		String accNum = "";
 		System.out.println("First Time Setup:\n");
 		System.out.println("Please input between 1-10 for how many accounts would you like to create? (accounts can be created at a later point)");
 		
-		Pattern p = Pattern.compile("[0-9]");
-		Matcher match = p.matcher((accNum = userInput.nextLine()));
-		
-		while (!match.matches() || Integer.parseInt(accNum) > 10)
+		while (validation(1, (accNum = userInput.nextLine())) != true || Integer.parseInt(accNum) > 11)
 		{
 			System.out.println("Invalid response, please try again");
-			match = p.matcher((accNum = userInput.nextLine()));
 		}
-		
+	
 		for (int i = 1; i < (Integer.parseInt(accNum) + 1); i++)
 		{
 			if ((Integer.parseInt(accNum)+1) > 1)
@@ -50,10 +54,33 @@ public class FirstTimeRun extends Global_Vars
 			else
 				accReg(i, false);
 		}
+		
+		if (Integer.parseInt(accNum) == 0)
+		{
+			System.out.println("An account is required to use Password_Vault, would you like to re-enter the amount of accounts you would like? Y/N");
+			accNum = userInput.nextLine().toUpperCase();
+			
+			while (!accNum.equals("Y") && !accNum.equals("N"))
+			{
+				System.out.println("Invalid response, please try again");
+				accNum = userInput.nextLine();
+			}
+			
+			if (accNum.equals("Y"))
+			{
+				cls();
+				reRun = true;
+				firstRun();
+			}
+			else
+				System.exit(0);
+		}
 	}
 	
 	private void accReg(int i, boolean multi)
 	{
+		boolean used = false;
+		String tempVal = "";
 		ArrayList<String> accTemp = new ArrayList<String>();
 		cls();
 		if (i == 1)
@@ -61,14 +88,56 @@ public class FirstTimeRun extends Global_Vars
 		
 		System.out.println("User #"+i+" Account Creation:");
 		System.out.print("First Name: ");
-		accTemp.add(userInput.nextLine());
+		while (validation(2, (tempVal = userInput.nextLine())) != true)
+		{
+			System.out.println("Invalid response, please try again - names cannot contain special characters (excluding \"-\"), spaces or numbers");
+		}
+		accTemp.add(tempVal);
 		System.out.print("Surname: ");
-		accTemp.add(userInput.nextLine());
-		System.out.print("Birth Month: ");
-		accTemp.add(userInput.nextLine());
+		while (validation(2, (tempVal = userInput.nextLine())) != true)
+		{
+			System.out.println("Invalid response, please try again - names cannot contain special characters (excluding \"-\"), spaces or numbers");
+		}
+		accTemp.add(tempVal);
+		System.out.print("Birth Month (e.g. Jan, NOV, jun): ");
+		while (validation(3, (tempVal = userInput.nextLine())) != true)
+		{
+			System.out.println("Invalid response, please try again - months should only be 3 characters long and not include special characters or numbers");
+		}
+		accTemp.add(tempVal.toUpperCase());
+		System.out.print("Blue, Red or Green: ");
+		while (validation(4, (tempVal = userInput.nextLine())) != true)
+		{
+			System.out.println("Invalid response, please try again - your answer should only be one of the options above, and not include special characters or numbers");
+		}
+		accTemp.add(tempVal);
+		System.out.print("Pick any whole number between 1 & 1000: ");
+		while (validation(1, (tempVal = userInput.nextLine())) != true || Integer.parseInt(tempVal) > 1001)
+		{
+			System.out.println("Invalid response, please try again - your answer should only be a number between 1 & 1000");
+		}
+		accTemp.add(tempVal);
+		System.out.println("Please enter a username: ");
+		tempVal = userInput.nextLine();
+		while (true)
+		{
+			for (ArrayList<String> temp : accDetails)
+				if (temp.get(5).equals(tempVal))
+				{
+					System.out.println("Invalid username, this username is already in use on this computer, please use another");
+					used = true;
+				}
+			
+			break;
+		}
 		
+		if (!used)
+			accTemp.add(tempVal);
+		
+		accDetails.add(accTemp);
 	}
 	
+	private boolean reRun = false;
 	private Scanner userInput = new Scanner(System.in);
 	private ArrayList<ArrayList<String>> accDetails = new ArrayList<ArrayList<String>>();
 }

@@ -2,14 +2,16 @@ package Password_Vault;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Global_Vars 
 {
 	public static String foundDir = "";
 	public static File usersDir = null;
-
+	private String[] months = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
 	
-	public static String getWorkingDirectory()
+	public static String getWorkingDirectory ()
 	{
 		String workingDirectory; //variable for where everything is stored
 		String OS = (System.getProperty("os.name")).toUpperCase(); //capitalises OS version
@@ -100,5 +102,57 @@ public class Global_Vars
 	{
 		System.out.print("\033[H\033[2J");  
 	    System.out.flush(); 
+	}
+
+	public boolean validation (int pat, String input)
+	{
+		input = input.toUpperCase();
+		switch (pat)
+		{
+			case 1:
+				Pattern p1 = Pattern.compile("[0-9]");
+				Matcher match1 = p1.matcher(input);
+			
+				if (match1.matches())
+					return true;
+				else
+					return false;
+			case 2:
+				Pattern p2 = Pattern.compile("^[a-z/-]+$", Pattern.CASE_INSENSITIVE);
+				Matcher match2 = p2.matcher(input);
+				
+				if (match2.matches())
+					return true;
+				else
+					return false;
+			case 3:
+				Pattern p3 = Pattern.compile("^[a-z]+$", Pattern.CASE_INSENSITIVE);
+				Matcher match3 = p3.matcher(input);
+				
+				if (match3.matches())
+				{
+					if (input.length() == 3)
+						for (String month : months)
+							if (input.equals(month))
+								return true;
+					
+					return false;
+				}
+				else
+					return false;
+			case 4:
+				Pattern p4 = Pattern.compile("^[a-z]+$", Pattern.CASE_INSENSITIVE);
+				Matcher match4 = p4.matcher(input);
+				
+				if (match4.matches())				
+					if (input.equals("R") || input.equals("RED") || input.equals("G") || input.equals("GREEN") || input.equals("B") || input.equals("BLUE"))
+						return true;
+					else
+						return false;
+				else
+					return false;
+			default:
+				return false;
+		}	
 	}
 }

@@ -8,7 +8,6 @@ public class Runner extends Global_Vars
 {
 	public Runner()
 	{
-		FirstTimeRun ftr = new FirstTimeRun();
 		String workingDir = getWorkingDirectory();
 		File workingDirFile = new File (workingDir);
 		
@@ -19,6 +18,8 @@ public class Runner extends Global_Vars
 		System.out.println("                 				WELCOME TO PASSWORD_VAULT");
 		System.out.println("--------------------------------------------------------------------------------------------------------------------");
 				
+		FirstTimeRun ftr = new FirstTimeRun();
+		
 		if (usersDir.exists() && usersDir.listFiles().length != 0)
 			Login();
 		else
