@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;temp&apos; in &apos;Password_Vault.FirstTimeRun.firstRun()&apos; to &apos;accNum&apos;&#x0D;&#x0A;- Original project: &apos;Password_Vault&apos;&#x0D;&#x0A;- Original element: &apos;Password_Vault.FirstTimeRun.firstRun().temp&apos;&#x0D;&#x0A;- Renamed element: &apos;temp&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;temp&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src\/main\/java&lt;Password_Vault{FirstTimeRun.java[FirstTimeRun~firstRun@temp!732!748!739!742!QString;!0!false" name="accNum" references="true" stamp="1497448385495" version="1.0"/>
+</session>

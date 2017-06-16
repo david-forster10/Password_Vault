@@ -1,0 +1,17 @@
+package com.df.Password_Vault;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Handler 
+{
+	public Handler()
+	{
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+		Handler();
+	}
+}

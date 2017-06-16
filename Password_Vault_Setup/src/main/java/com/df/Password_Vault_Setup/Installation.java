@@ -549,7 +549,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		repaint(); //repainting what is displayed if going coming from a different form
 		revalidate(); //revalidate the elements that will be displayed
 		pack(); //packaging everything up to use
-		
+		btnStartNext.requestFocusInWindow();
 		setLocationRelativeTo(null); //setting form position central
 	}
 	
@@ -559,7 +559,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		{			
 			try
 			{
-				Process p = Runtime.getRuntime().exec("cmd /c start \"\" \""+exec.getAbsolutePath()+"\"");
+				Process p = Runtime.getRuntime().exec("cmd /c start \"\" \""+newVaultDir.getAbsolutePath()+"\"");
 				p.waitFor();
 			}
 			catch (Throwable t)
@@ -936,7 +936,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 			else
 				writer.println("echo sLinkFile = \"%CSIDL_COMMON_STARTMENU%\\Password_Vault.lnk\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
 			writer.println("echo Set oLink = oWS.CreateShortcut(sLinkFile) >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
-			writer.println("echo oLink.TargetPath = \"" + exec.getAbsolutePath() + "\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+			writer.println("echo oLink.TargetPath = \"" + newVaultDir + "\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
 			writer.println("echo oLink.IconLocation = \""+ newAssetDir+"\\Logo.ico\"  >> CreateShortcut.vbs");
 			writer.println("echo oLink.Save >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
 			writer.println("cscript CreateShortcut.vbs"); //print writer is outputting to the previously specified file
@@ -1051,7 +1051,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 	private File newVaultDir;
 	private File newKeyDir;
 	private File newAssetDir;
-	private File exec;
 	
 	//boolean variables for decision making
 	private boolean winOS;
@@ -1138,8 +1137,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
-				mainDirectory = new File(Global_Vars.getWorkingDirectory()); //getting main directory for use in this thread
-				exec = new File(mainDirectory+"\\apps\\Password_Vault.bat");
+				mainDirectory = new File(Global_Vars.getWorkingDirectory()); //getting main directory for use in this thread;
 					
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
@@ -1528,17 +1526,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
-					
-				try
-				{
-					PrintWriter writer = new PrintWriter(exec, "UTF-8"); //declaring print writer, uses file location & char-set
-					writer.println("@echo off\nTITLE Password_Vault\njava -jar \""+newVaultDir+"\"\nexit"); //print writer is outputting to the previously specified file
-				
-					writer.close(); //close print writer to commit information to txt file.
-				}
-				catch(Throwable t)
-				{}
-					
+									
 				try
 				{
 					PrintWriter writer = new PrintWriter("mainShortcut.bat", "UTF-8"); //declaring print writer, uses file location & char-set
@@ -1547,7 +1535,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 					writer.println("echo Set oWS = WScript.CreateObject(\"WScript.Shell\") > CreateShortcut.vbs"); //print writer is outputting to the previously specified file
 					writer.println("echo sLinkFile = \"%APPDATA%\\Password_Vault\\Password_Vault.lnk\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
 					writer.println("echo Set oLink = oWS.CreateShortcut(sLinkFile) >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
-					writer.println("echo oLink.TargetPath = \"" + exec.getAbsolutePath() + "\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
+					writer.println("echo oLink.TargetPath = \"" + newVaultDir + "\" >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
 					writer.println("echo oLink.IconLocation = \""+ newAssetDir+"\\Logo.ico\"  >> CreateShortcut.vbs");
 					writer.println("echo oLink.Save >> CreateShortcut.vbs"); //print writer is outputting to the previously specified file
 					writer.println("cscript CreateShortcut.vbs"); //print writer is outputting to the previously specified file
@@ -1586,63 +1574,17 @@ public class Installation extends JFrame implements PropertyChangeListener
 					
 				try
 				{
-					PrintWriter writer = new PrintWriter("testTemp.bat", "UTF-8"); //declaring print writer, uses file location & char-set
-					writer.println("@echo off"
-							+ "\nTITLE Password_Vault"
-							+ "\njava -jar \""+newVaultDir+"\""
-							+ "\nSETLOCAL ENABLEDELAYEDEXPANSION"
-							+ "\nSET count=1"
-							+ "\nFOR /F \"tokens=* USEBACKQ\" %%F IN (`java -jar \"C:\\Users\\DFORSTER\\AppData\\Roaming\\Password_Vault\\apps\\Password_Vault.jar\"`) DO ("
-							+ "\nSET var!count!=%%F"
-							+ "\nSET /a count=!count!+1"
-							+ "\n)"
-							+ "\necho %var1% > t.txt"
-							+ "\necho %var2% >> t.txt"
-							+ "\necho %var3% >> t.txt"
-							+ "\nENDLOCAL"
-							+ "\nexit"); //print writer is outputting to the previously specified file
-				
-					writer.close(); //close print writer to commit information to txt file.
-				}
-				catch(Throwable t)
-				{}
-
-				try
-				{
-					Runtime.getRuntime().exec("cmd /c start \"\" \"testTemp.bat\"");
-					
-					while (!new File ("t.txt").exists())
+					Process r = Runtime.getRuntime().exec("cmd /c start \"\" \""+mainDirectory+"\\Password_Vault.lnk\"");
+					r.waitFor();
+					Process p = Runtime.getRuntime().exec("cmd /c tasklist /v /fi \"WINDOWTITLE eq Password_Vault 1.0\""); //running cmd command to retrieve disk serialnumbers
+					p.waitFor();
+					BufferedReader s = new BufferedReader( //buffered reader to read output from cmd command
+							new InputStreamReader(p.getInputStream())
+					);
+					System.out.println(s);
+					if (s.readLine().equals("-------------------------------------------------------------------------------------------------------------------- ")) 
 					{
-						Thread.sleep(250);
-					}
-					
-					FileReader fr = new FileReader("t.txt");
-					BufferedReader reader = new BufferedReader(fr);
-					String s = reader.readLine();
-					
-					if (s.equals("-------------------------------------------------------------------------------------------------------------------- ")) 
-					{
-						s = reader.readLine();
-						if (s.equals("WELCOME TO PASSWORD_VAULT "))
-						{
-							s = reader.readLine();
-							if (!s.equals("-------------------------------------------------------------------------------------------------------------------- "))
-							{
-								JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
-								new File("testTemp.bat").delete();
-								new File("t.txt").delete();								
-								Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
-								System.exit(0);
-							}
-						}
-						else
-						{
-							JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
-							new File("testTemp.bat").delete();
-							new File("t.txt").delete();								
-							Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
-							System.exit(0);
-						}
+						
 					}
 					else
 					{
@@ -1652,11 +1594,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 						Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
 						System.exit(0);
 					}
-					
-					reader.close();
-					
-					new File("testTemp.bat").delete();
-					new File("t.txt").delete();
 				}
 				catch (Throwable t)
 				{
@@ -1715,6 +1652,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 			tskDone = true; //Completes the task so that it won't be restarted if the user returns to the page
 			progressVal = prbrInstall.getValue(); //remembers progress value on progress bar in case it has stopped prematurely and the user returns to page, the bar will display same progress.
 			btnStartNext.setEnabled(true); //enables Next button to continue with the installation
+			btnStartNext.requestFocusInWindow();
 			progressStop(); //stops the current task
 		}
 		

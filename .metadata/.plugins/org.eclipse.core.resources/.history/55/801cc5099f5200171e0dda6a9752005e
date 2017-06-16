@@ -1,0 +1,39 @@
+package com.df.Password_Vault;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Handler 
+{
+	public Handler()
+	{
+		
+	}
+	
+	public static void main(String[] args) 
+	{
+		try
+		{
+			Process p = Runtime.getRuntime().exec("cmd /c tasklist /v /fi \"WINDOWTITLE eq Password_Vault 1.0 Setup\"");
+			BufferedReader proc = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			
+			String i = "";
+			while ((i = proc.readLine()) != null)
+			{
+				if (!i.equals("INFO: No tasks are running which match the specified criteria."))
+				{
+					System.exit(0);
+				}
+			}
+		}
+		catch (Throwable t)
+		{
+			t.printStackTrace();
+		}
+		
+		if (usersDir.exists() && usersDir.listFiles().length != 0)
+			Login();
+		else
+			ftr.firstRun();
+	}
+}

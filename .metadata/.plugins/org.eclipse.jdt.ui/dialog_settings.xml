@@ -44,11 +44,12 @@
 	</section>
 	<section name="FatJarPackageWizard">
 		<item value="C:\Users\DFORSTER\GitHub\Password_Vault Repo.xml" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
-		<item value="Installation - Password_Vault_Setup" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\setup\main\setup.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="Handler - Password_Vault" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\setup\assets\Password_Vault.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="2" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\setup\assets\Password_Vault.jar"/>
 			<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\setup\main\setup.jar"/>
 			<item value="C:\Users\DFORSTER\GitHub\Password_Vault Repo\setup\main\Password_Vault.jar"/>
 			<item value="C:\Users\DFORSTER\Documents\Password_Vault_setup\setup.jar"/>
@@ -74,7 +75,7 @@
 	</section>
 	<section name="JarPackageWizard">
 		<item value="false" key="JarPackageWizardPage.INCLUDE_DIRECTORY_ENTRIES"/>
-		<item value="" key="JarManifestWizardPage.MANIFEST_LOCATION"/>
+		<item value="/Password_Vault/manifest" key="JarManifestWizardPage.MANIFEST_LOCATION"/>
 		<item value="false" key="JarManifestWizardPage.SEAL_JAR"/>
 		<item value="true" key="JarPackageWizardPage.COMPRESS"/>
 		<item value="false" key="JarManifestWizardPage.REUSE_MANIFEST"/>
@@ -84,7 +85,7 @@
 		<item value="true" key="jarOptionsWizardPage.BUILD_IF_NEEDED"/>
 		<item value="false" key="JarPackageWizardPage.EXPORT_JAVA_FILES"/>
 		<item value="true" key="jarOptionsWizardPage.EXPORT_ERRORS"/>
-		<item value="true" key="JarManifestWizardPage.GENERATE_MANIFEST"/>
+		<item value="false" key="JarManifestWizardPage.GENERATE_MANIFEST"/>
 		<item value="true" key="JarPackageWizardPage.EXPORT_CLASS_FILES"/>
 		<item value="false" key="JarPackageWizardPage.OVERWRITE"/>
 		<item value="false" key="jarOptionsWizardPage.SAVE_DESCRIPTION"/>
