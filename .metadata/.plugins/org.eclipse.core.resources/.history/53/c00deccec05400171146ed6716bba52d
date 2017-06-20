@@ -1,0 +1,25 @@
+package com.df.Password_Vault;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Handler 
+{
+	public Handler()
+	{
+		gb = new Global_Vars();
+		gb.getWorkingDirectory();
+		
+		if (gb.usersDir.exists() && gb.usersDir.listFiles().length != 0)
+			new Login().setVisible(true);
+		else
+			new FirstTimeRun().setVisible(true);
+	}
+	
+	public static void main(String[] args) 
+	{
+		new Handler();
+	}
+
+	Global_Vars gb = null;
+}

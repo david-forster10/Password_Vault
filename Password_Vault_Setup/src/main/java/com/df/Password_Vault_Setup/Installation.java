@@ -1574,24 +1574,34 @@ public class Installation extends JFrame implements PropertyChangeListener
 					
 				try
 				{
-					Process r = Runtime.getRuntime().exec("cmd /c start \"\" \""+mainDirectory+"\\Password_Vault.lnk\"");
-					r.waitFor();
-					Process p = Runtime.getRuntime().exec("cmd /c tasklist /v /fi \"WINDOWTITLE eq Password_Vault 1.0\""); //running cmd command to retrieve disk serialnumbers
-					p.waitFor();
-					BufferedReader s = new BufferedReader( //buffered reader to read output from cmd command
-							new InputStreamReader(p.getInputStream())
+					Process runVault = Runtime.getRuntime().exec("cmd /c start \"\" \""+mainDirectory+"\\Password_Vault.lnk\"");
+					runVault.waitFor();
+					Thread.sleep(500);
+					Process taskCommand = Runtime.getRuntime().exec("cmd /c tasklist /v /fi \"WINDOWTITLE eq Password_Vault 1.0\""); //running cmd command to retrieve disk serialnumbers
+					taskCommand.waitFor();
+					BufferedReader reader = new BufferedReader( //buffered reader to read output from cmd command
+							new InputStreamReader(taskCommand.getInputStream())
 					);
-					System.out.println(s);
-					if (s.readLine().equals("-------------------------------------------------------------------------------------------------------------------- ")) 
+					
+					ArrayList<String> taskList = new ArrayList<String>();
+					String line = "";
+					while ((line = reader.readLine()) != null)
 					{
-						
+						taskList.add(line);
+						taskList.add(reader.readLine());
 					}
-					else
+					
+					boolean taskPresent = false;
+					for (String task : taskList)
+						if (task.contains("javaw.exe") && task.contains("Console") && task.contains("Password_Vault 1.0"))
+							taskPresent = true;
+
+					if (!taskPresent)
 					{
 						JOptionPane.showMessageDialog(null, "<html><center>Password_Vault has launched incorrectly!<br>Please re-download the installation files and re-run the \"setup\" file!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
 						new File("testTemp.bat").delete();
 						new File("t.txt").delete();								
-						Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
+						Runtime.getRuntime().exec("cmd /c taskkill /fi \"WINDOWTITLE eq Password_Vault 1.0\" /f"); //try to close all open cmd windows
 						System.exit(0);
 					}
 				}
@@ -1605,7 +1615,8 @@ public class Installation extends JFrame implements PropertyChangeListener
 					
 				try
 				{
-					Runtime.getRuntime().exec("taskkill /fi \"WINDOWTITLE eq Password_Vault\""); //try to close all open cmd windows
+					Process taskKill = Runtime.getRuntime().exec("cmd /c taskkill /fi \"WINDOWTITLE eq Password_Vault 1.0\" /f");
+					taskKill.waitFor();				
 				}
 				catch (Exception e)
 				{

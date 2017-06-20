@@ -5,13 +5,19 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
@@ -21,168 +27,328 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
-public class FirstTimeRun extends JFrame
+public class FirstTimeRun extends JFrame 
 {
 	private static final long serialVersionUID = 1L;
-	
-	private WindowListener exitListener = new WindowAdapter()
+
+	private WindowListener exitListener = new WindowAdapter() 
 	{
 		@Override
-		public void windowClosing (WindowEvent e)
+		public void windowClosing(WindowEvent e) 
 		{
-			closingEvent(); //if window closing, go to exit menu
+			closingEvent(); // if window closing, go to exit menu
 		}
 	};
-	
-	public FirstTimeRun()
-	{
+
+	public FirstTimeRun() {
 		gv = new Global_Vars();
-		
+
 		gv.getWorkingDirectory();
-		
+
 		initComponents();
 	}
-	
-	private void initComponents () //method to build initial view for user for installation
+
+	private void initComponents() // method to build initial view for user for installation
 	{
-		//instantiating elements of the GUI
+		// instantiating elements of the GUI
 		pnlStart = new JPanel();
-		Welcome = new JLabel();
-		MainTxt = new JLabel();
-		Divider = new JLabel();
-		btnStartNext = new JButton();
-		btnBackCancel = new JButton();
-		
+		lblWelcome = new JLabel();
+		lblMain = new JLabel();
+		lblDivider = new JLabel();
+		lblTextPrompt = new JLabel();
+		txtAccNum = new JTextField();
+		btnNext = new JButton();
+		btnExit = new JButton();
+
 		pnlStart.setVisible(true);
-		add(pnlStart); //adding the panel to the frame
-		
+		add(pnlStart); // adding the panel to the frame
+
 		removeWindowListener(exitListener);
-		addWindowListener(exitListener); //removing before adding the windowlistener, ensures there is only one listener there
-		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); //setting "x" button to do nothing except what exitListener does
-		setPreferredSize(new Dimension(750, 500)); //setting measurements of jframe
-		
-		try
+		addWindowListener(exitListener); // removing before adding the windowlistener, ensures there is only one listener there
+		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); // setting "x" button to do nothing except what exitListener does
+		setPreferredSize(new Dimension(600, 400)); // setting measurements of jframe
+
+		try 
 		{
 			Image frameIcon = ImageIO.read(new File(gv.workingDirectory + "\\apps\\assets_pv1.0\\Logo.png"));
-			setIconImage(frameIcon); //trying to read and add the logo to the application
-		}
-		catch (IOException e)
+			setIconImage(frameIcon); // trying to read and add the logo to the application
+		} 
+		catch (IOException e) 
 		{
 			e.printStackTrace();
 		}
-		
-		setTitle("Password_Vault 1.0"); //setting title on JFrame
-		setResizable(false); //disabling resizing
-		setLayout(null); //ensuring I can specify element positions
-		setBackground(Color.WHITE); //setting background color
-	
-		Welcome.setText("Welcome to Password_Vault"); //label welcoming user
-		Welcome.setFont(Welcome.getFont().deriveFont(22.0f)); //changing font size to 22
-		Welcome.setFont(Welcome.getFont().deriveFont(Font.BOLD)); //changing font style to bold
-		Welcome.setBounds(216, 50, 317, 25); //setting position and measurements
-		add(Welcome); //adding label to form
-		
-		MainTxt.setText("<html></html>"); //main label that explains what happens, html used for formatting
-		MainTxt.setFont(MainTxt.getFont().deriveFont(16.0f)); //changing font size to 16
-		MainTxt.setBounds(20, 180, 730, 194); //setting position and measurements
-		add(MainTxt); //adding label to JFrame
-		
-		Divider.setText(""); //ensuring no text in label
-		Divider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
-		Divider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
-		add(Divider); //adding it to JFrame
-		
-		btnStartNext.setText("Next"); //adding text to button for starting
-		btnStartNext.setFont(MainTxt.getFont().deriveFont(14.0f)); //setting font size
-		btnStartNext.setBounds(645, 415, 80, 35); //positioning start button		
-		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
+
+		setTitle("Password_Vault 1.0"); // setting title on JFrame
+		setResizable(false); // disabling resizing
+		setLayout(null); // ensuring I can specify element positions
+		setBackground(Color.WHITE); // setting background color
+
+		lblWelcome.setText("Welcome to Password_Vault"); // label welcoming user
+		lblWelcome.setFont(lblWelcome.getFont().deriveFont(22.0f)); // changing font size to 22
+		lblWelcome.setFont(lblWelcome.getFont().deriveFont(Font.BOLD)); // changing font style to bold
+		lblWelcome.setBounds(141, 37, 317, 25); // setting position and measurements
+		add(lblWelcome); // adding label to form
+
+		lblMain.setText("<html>Please input a number below how many accounts you would like to<br>create: </html>"); // main label that explains what happens, html used for formatting
+		lblMain.setFont(lblMain.getFont().deriveFont(18.0f)); // changing font size to 16
+		lblMain.setBounds(27, 60, 540, 100); // setting position and measurements
+		add(lblMain); // adding label to JFrame
+
+		lblTextPrompt.setText("Amount of accounts (1-10):");
+		lblTextPrompt.setFont(lblMain.getFont().deriveFont(16.0f));
+		lblTextPrompt.setBounds(166, 190, 198, 18);
+		lblTextPrompt.setLabelFor(txtAccNum);
+		add(lblTextPrompt);
+
+		txtAccNum.setFont(lblMain.getFont());
+		txtAccNum.setBounds(374, 187, 50, 26);
+		txtAccNum.addKeyListener(new KeyAdapter() 
 		{
-			public void actionPerformed (ActionEvent evt) 
+			public void keyTyped(KeyEvent e) 
 			{
-			//	btnNextActionPerformed(); //running start method
-			}
-		});		
-		add(btnStartNext); //adding button to JFrame
-		
-		btnBackCancel.setText("Cancel"); //adding text to button for exiting
-		btnBackCancel.setFont(btnStartNext.getFont()); //getting font from start button
-		btnBackCancel.setBounds(20, 415, 80, 35); //positioning on form
-		btnBackCancel.addActionListener(new ActionListener() //add listener for action to run method
-		{
-			public void actionPerformed (ActionEvent evt)
-			{
-				closingEvent(); //running cancel method (same method as hitting the "x" button on the form)
+				if (txtAccNum.getText().length() >= 4) // limit textfield to 3 characters
+					e.consume();
 			}
 		});
-		add(btnBackCancel); //adding button to JFrame
-		
-		repaint(); //repainting what is displayed if going coming from a different form
-		revalidate(); //revalidate the elements that will be displayed
-		pack(); //packaging everything up to use
-		setLocationRelativeTo(null); //setting form position central
-		btnStartNext.requestFocusInWindow(); //setting focus on start button when everything is loaded
-	}
-	
-	private void closingEvent()
-	{
-		if (JOptionPane.showConfirmDialog(null, "<html><center>WARNING!<br>This will cancel installation<br>Are you sure you want to do this?</center></html>", "WARNING!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION)
-		{ //output warning that it would cancel installation, if accepted...
-			System.exit(0);
-		}
-		else //if not accepted...
+		txtAccNum.addActionListener(new ActionListener() 
 		{
-			if (MainTxt.getText().substring(0, 9).equals("<html>The"))
+			public void actionPerformed(ActionEvent e) 
 			{
-				getContentPane().removeAll();
-				initComponents();
+				valSub();
+			}
+		});
+		add(txtAccNum);
+
+		lblDivider.setText(""); // ensuring no text in label
+		lblDivider.setBounds(10, 285, 573, 10); // setting bounds and position of dividing line
+		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); // setting border to label for the dividing
+		add(lblDivider); // adding it to JFrame
+
+		btnNext.setText("Next"); // adding text to button for starting
+		btnNext.setFont(lblMain.getFont().deriveFont(14.0f)); // setting font size
+		btnNext.setBounds(495, 315, 80, 35); // positioning start button
+		btnNext.addActionListener(new ActionListener() // add listener for action to run method
+		{
+			public void actionPerformed(ActionEvent evt) 
+			{
+				valSub();
+			}
+		});
+		add(btnNext); // adding button to JFrame
+
+		btnExit.setText("Exit"); // adding text to button for exiting
+		btnExit.setFont(btnNext.getFont()); // getting font from start button
+		btnExit.setBounds(20, 315, 80, 35); // positioning on form
+		btnExit.addActionListener(new ActionListener() // add listener for action to run method
+		{
+			public void actionPerformed(ActionEvent evt) 
+			{
+				closingEvent(); // running cancel method (same method as hitting the "x" button on the form)
+			}
+		});
+		add(btnExit); // adding button to JFrame
+
+		repaint(); // repainting what is displayed if going coming from a different form
+		revalidate(); // revalidate the elements that will be displayed
+		pack(); // packaging everything up to use
+		setLocationRelativeTo(null); // setting form position central
+		txtAccNum.requestFocusInWindow(); // setting focus on start button when everything is loaded
+	}
+
+	private void valSub() 
+	{
+		if (gv.validation(1, txtAccNum.getText()) != true || Integer.parseInt(txtAccNum.getText()) > 11) 
+		{
+			JOptionPane.showMessageDialog(null, "Invalid number, please try again");
+			txtAccNum.setText("");
+			txtAccNum.requestFocusInWindow();
+		} 
+		else
+		{
+			getContentPane().removeAll();
+			repaint();
+			revalidate();
+			pack();
+			AccDetails(Integer.parseInt(txtAccNum.getText())); // running start method
+		}
+	}
+
+	private void AccDetails(int accNum) 
+	{
+		// instantiating elements of the GUI
+		pnlAccDetails = new JPanel();
+		lblWelcome = new JLabel();
+		lblMain = new JLabel();
+		lblDivider = new JLabel();
+		pnlTabs = new JTabbedPane();
+		btnNext = new JButton();
+		btnBack = new JButton();
+		
+		pnlAccDetails.setVisible(true);
+		add(pnlAccDetails); // adding the panel to the frame
+
+		removeWindowListener(exitListener);
+		addWindowListener(exitListener); // removing before adding the windowlistener, ensures there is only one listener there
+		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); // setting "x" button to do nothing except what exitListener does
+		
+		while (sizeW != 750 && sizeH != 500)
+		{
+			setBackground(Color.BLACK);
+			Point loc = getLocationOnScreen();
+			setPreferredSize(new Dimension(sizeW, sizeH));
+			pnlAccDetails.setPreferredSize(new Dimension(sizeW, sizeH));
+			repaint();
+			revalidate();
+			pack();
+			
+			sizeW += 1.5;
+			sizeH += 1;
+			if (toggle)
+			{
+				setLocation((int)(loc.getX() - 0.75), (int)(loc.getY() - 0.5));
+				toggle = false;
+			}
+			else
+			{
+				toggle = true;
+			}
+				
+			try 
+			{
+				Thread.sleep(1);
+			} 
+			catch (InterruptedException e) 
+			{
+				e.printStackTrace();
 			}
 		}
+		
+		try 
+		{
+			Image frameIcon = ImageIO.read(new File(gv.workingDirectory + "\\apps\\assets_pv1.0\\Logo.png"));
+			setIconImage(frameIcon); // trying to read and add the logo to the application
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+
+		setTitle("Password_Vault 1.0"); // setting title on JFrame
+		setResizable(false); // disabling resizing
+		setLayout(null); // ensuring I can specify element positions
+		setBackground(Color.WHITE); // setting background color
+
+		lblWelcome.setText("Welcome to Password_Vault"); // label welcoming user
+		lblWelcome.setFont(lblWelcome.getFont().deriveFont(22.0f)); // changing font size to 22
+		lblWelcome.setFont(lblWelcome.getFont().deriveFont(Font.BOLD)); // changing font style to bold
+		lblWelcome.setBounds(141, 37, 317, 25); // setting position and measurements
+		add(lblWelcome); // adding label to form
+
+		lblMain.setText("<html><center>Please fill in all areas of the following tabs:</center></html>"); // main label that explains what happens, html used for formatting
+		lblMain.setFont(lblMain.getFont().deriveFont(18.0f)); // changing font size to 16
+		lblMain.setBounds(27, 60, 540, 100); // setting position and measurements
+		add(lblMain); // adding label to JFrame
+
+		lblDivider.setText(""); // ensuring no text in label
+		lblDivider.setBounds(10, 285, 573, 10); // setting bounds and position of dividing line
+		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); // setting border to label for the dividing
+		add(lblDivider); // adding it to JFrame
+
+		btnNext.setText("Next"); // adding text to button for starting
+		btnNext.setFont(lblMain.getFont().deriveFont(14.0f)); // setting font size
+		btnNext.setBounds(495, 315, 80, 35); // positioning start button
+		btnNext.addActionListener(new ActionListener() // add listener for action to run method
+		{
+			public void actionPerformed(ActionEvent evt) {
+				valSub();
+			}
+		});
+		add(btnNext); // adding button to JFrame
+
+		btnBack.setText("Back"); // adding text to button for exiting
+		btnBack.setFont(btnNext.getFont()); // getting font from start button
+		btnBack.setBounds(20, 315, 80, 35); // positioning on form
+		btnBack.addActionListener(new ActionListener() // add listener for action to run method
+		{
+			public void actionPerformed(ActionEvent evt) {
+				closingEvent(); // running cancel method (same method as hitting the "x" button on the form)
+			}
+		});
+		add(btnBack); // adding button to JFrame
+
+		repaint(); // repainting what is displayed if going coming from a different form
+		revalidate(); // revalidate the elements that will be displayed
+		pack(); // packaging everything up to use
+		setLocationRelativeTo(null); // setting form position central
+		txtAccNum.requestFocusInWindow(); // setting focus on start button when everything is loaded
 	}
-	
+
+	private void closingEvent() 
+	{
+		if (JOptionPane.showConfirmDialog(null, "<html><center>Are you sure you want to quit?</center></html>", "Quit?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) 
+			System.exit(0); // output warning that it would cancel installation, if accepted...
+		else // if not accepted...
+		{
+
+		}
+	}
+
 	public static void main(String[] args) 
 	{
-		try
+		try 
 		{
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //get look and feel based on OS
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); // get look and feel based on OS
+		} 
+		catch (ClassNotFoundException ex) // catch all errors that may occur
+		{
+			Logger.getLogger(FirstTimeRun.class.getName()).log(Level.SEVERE, null, ex);
+		} 
+		catch (InstantiationException ex) 
+		{
+			Logger.getLogger(FirstTimeRun.class.getName()).log(Level.SEVERE, null, ex);
+		} 
+		catch (IllegalAccessException ex) 
+		{
+			Logger.getLogger(FirstTimeRun.class.getName()).log(Level.SEVERE, null, ex);
+		} 
+		catch (UnsupportedLookAndFeelException ex) 
+		{
+			Logger.getLogger(FirstTimeRun.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		catch (ClassNotFoundException ex) //catch all errors that may occur
+
+		EventQueue.invokeLater(new Runnable() 
 		{
-			Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		}
-		catch (InstantiationException ex)
-		{
-			Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		}
-		catch (IllegalAccessException ex)
-		{
-			Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		}
-		catch (UnsupportedLookAndFeelException ex)
-		{
-			Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		}
-		
-		EventQueue.invokeLater(new Runnable()
-		{
-			public void run() //run the class's constructor, therefore starting the UI being built
+			public void run() // run the class's constructor, therefore starting
+								// the UI being built
 			{
-				new Login().setVisible(true);
+				new FirstTimeRun().setVisible(true);
 			}
 		});
 	}
 
-	//objects used in UI
+	// objects used in UI
 	private JPanel pnlStart;
-	private JLabel Welcome;
-	private JLabel MainTxt;
-	private JLabel Divider;
-	private JButton btnStartNext;
-	private JButton btnBackCancel;
+	private JPanel pnlAccDetails;
+	private JLabel lblWelcome;
+	private JLabel lblMain;
+	private JLabel lblDivider;
+	private JLabel lblTextPrompt;
+	private JTextField txtAccNum;
+	private JButton btnNext;
+	private JButton btnExit;
+	private JButton btnBack;
+	private JTabbedPane pnlTabs;
+
+	private int sizeW = 600;
+	private int sizeH = 400;
+	private boolean toggle = false;
 	
-	//instantiating required classes
+	// instantiating required classes
 	Global_Vars gv = null;
 }

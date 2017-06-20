@@ -3,6 +3,8 @@
 	<name>Password_Vault</name>
 	<comment></comment>
 	<projects>
+		<project>Password_Key</project>
+		<project>Password_Vault_Uninstall</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
