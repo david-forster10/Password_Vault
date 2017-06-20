@@ -2,22 +2,25 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="taskkill" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="&#x09;&#x09;btnStartNext.setBounds"/>
+			<item value="&#x09;&#x09;btnStartNext.setBounds(635, 415, 80, 35); //positioning start button"/>
+			<item value="&#x09;&#x09;btnStartNext.setBounds(655, 415, 80, 35); //positioning start button"/>
+			<item value="Divider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line"/>
 			<item value="taskkill"/>
 			<item value="bufferedreader"/>
 			<item value="newVaultDir"/>
 			<item value="exec"/>
-			<item value="toUpper"/>
-			<item value="Progress"/>
-			<item value="\blbl"/>
-			<item value="lbl"/>
 		</list>
 		<list key="replacehistory">
+			<item value="&#x09;&#x09;btnStartNext.setBounds(640, 415, 80, 35); //positioning start button"/>
+			<item value="&#x09;&#x09;btnStartNext.setBounds(645, 415, 80, 35); //positioning start button"/>
+			<item value="Divider.setBounds(10, 385, 720, 10); //setting bounds and position of dividing line"/>
 			<item value=""/>
 			<item value="\\assets_pv1.0"/>
 		</list>

@@ -154,13 +154,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 		add(MainTxt); //adding label to JFrame
 		
 		Divider.setText(""); //ensuring no text in label
-		Divider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
+		Divider.setBounds(10, 385, 720, 10); //setting bounds and position of dividing line
 		Divider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
 		add(Divider); //adding it to JFrame
 		
 		btnStartNext.setText("Next"); //adding text to button for starting
 		btnStartNext.setFont(MainTxt.getFont().deriveFont(14.0f)); //setting font size
-		btnStartNext.setBounds(645, 415, 80, 35); //positioning start button
+		btnStartNext.setBounds(640, 415, 80, 35); //positioning start button
 		
 		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
 		{
@@ -264,13 +264,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 			chkbxQuick.setSelected(false);
 		
 		Divider.setText(""); //ensuring no text in label
-		Divider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
+		Divider.setBounds(10, 385, 720, 10); //setting bounds and position of dividing line
 		Divider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
 		add(Divider); //adding it to JFrame
 		
 		btnStartNext.setText("Start"); //adding text to button for starting
 		btnStartNext.setFont(MainTxt.getFont().deriveFont(14.0f)); //setting font size
-		btnStartNext.setBounds(645, 415, 80, 35); //positioning start button
+		btnStartNext.setBounds(640, 415, 80, 35); //positioning start button
 		
 		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
 		{
@@ -401,13 +401,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 		add(Searching); //adding the progress bar to the frame
 		
 		Divider.setText(""); //ensuring no text in label
-		Divider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
+		Divider.setBounds(10, 385, 720, 10); //setting bounds and position of dividing line
 		Divider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
 		add(Divider); //adding it to JFrame
 		
 		btnStartNext.setText("Next"); //adding text to button for starting
 		btnStartNext.setFont(MainTxt.getFont().deriveFont(14.0f)); //setting font size
-		btnStartNext.setBounds(645, 415, 80, 35); //positioning start button
+		btnStartNext.setBounds(640, 415, 80, 35); //positioning start button
 		btnStartNext.setEnabled(false); //prevents user from continuing before installation is complete
 		
 		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
@@ -525,13 +525,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 		add(chkbxDesktopRun);
 		
 		Divider.setText(""); //ensuring no text in label
-		Divider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line
+		Divider.setBounds(10, 385, 720, 10); //setting bounds and position of dividing line
 		Divider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
 		add(Divider); //adding it to JFrame
 		
 		btnStartNext.setText("Finish"); //adding text to button for starting
 		btnStartNext.setFont(MainTxt.getFont().deriveFont(14.0f)); //setting font size
-		btnStartNext.setBounds(645, 415, 80, 35); //positioning start button
+		btnStartNext.setBounds(640, 415, 80, 35); //positioning start button
 		
 		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
 		{

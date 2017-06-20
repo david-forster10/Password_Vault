@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -15,8 +14,6 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,6 +26,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
@@ -175,11 +173,11 @@ public class FirstTimeRun extends JFrame
 			repaint();
 			revalidate();
 			pack();
-			AccDetails(Integer.parseInt(txtAccNum.getText())); // running start method
+			accDetails(Integer.parseInt(txtAccNum.getText())); // running start method
 		}
 	}
 
-	private void AccDetails(int accNum) 
+	private void accDetails(int accNum) 
 	{
 		// instantiating elements of the GUI
 		pnlAccDetails = new JPanel();
@@ -193,76 +191,35 @@ public class FirstTimeRun extends JFrame
 		pnlAccDetails.setVisible(true);
 		add(pnlAccDetails); // adding the panel to the frame
 
+		getContentPane().removeAll();
 		removeWindowListener(exitListener);
 		addWindowListener(exitListener); // removing before adding the windowlistener, ensures there is only one listener there
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); // setting "x" button to do nothing except what exitListener does
 		
-		while (sizeW != 750 && sizeH != 500)
-		{
-			setBackground(Color.BLACK);
-			Point loc = getLocationOnScreen();
-			setPreferredSize(new Dimension(sizeW, sizeH));
-			pnlAccDetails.setPreferredSize(new Dimension(sizeW, sizeH));
-			repaint();
-			revalidate();
-			pack();
-			
-			sizeW += 1.5;
-			sizeH += 1;
-			if (toggle)
-			{
-				setLocation((int)(loc.getX() - 0.75), (int)(loc.getY() - 0.5));
-				toggle = false;
-			}
-			else
-			{
-				toggle = true;
-			}
-				
-			try 
-			{
-				Thread.sleep(1);
-			} 
-			catch (InterruptedException e) 
-			{
-				e.printStackTrace();
-			}
-		}
-		
-		try 
-		{
-			Image frameIcon = ImageIO.read(new File(gv.workingDirectory + "\\apps\\assets_pv1.0\\Logo.png"));
-			setIconImage(frameIcon); // trying to read and add the logo to the application
-		} 
-		catch (IOException e) 
-		{
-			e.printStackTrace();
-		}
-
-		setTitle("Password_Vault 1.0"); // setting title on JFrame
-		setResizable(false); // disabling resizing
-		setLayout(null); // ensuring I can specify element positions
-		setBackground(Color.WHITE); // setting background color
-
+		resizing();
+	}
+	
+	private void accAssets()
+	{
 		lblWelcome.setText("Welcome to Password_Vault"); // label welcoming user
 		lblWelcome.setFont(lblWelcome.getFont().deriveFont(22.0f)); // changing font size to 22
 		lblWelcome.setFont(lblWelcome.getFont().deriveFont(Font.BOLD)); // changing font style to bold
-		lblWelcome.setBounds(141, 37, 317, 25); // setting position and measurements
+		lblWelcome.setBounds(216, 27, 317, 25); // setting position and measurements
 		add(lblWelcome); // adding label to form
 
 		lblMain.setText("<html><center>Please fill in all areas of the following tabs:</center></html>"); // main label that explains what happens, html used for formatting
 		lblMain.setFont(lblMain.getFont().deriveFont(18.0f)); // changing font size to 16
-		lblMain.setBounds(27, 60, 540, 100); // setting position and measurements
+		lblMain.setBounds(27, 45, 540, 100); // setting position and measurements
 		add(lblMain); // adding label to JFrame
 
 		lblDivider.setText(""); // ensuring no text in label
-		lblDivider.setBounds(10, 285, 573, 10); // setting bounds and position of dividing line
+		lblDivider.setBounds(10, 385, 720, 10); // setting bounds and position of dividing line
 		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); // setting border to label for the dividing
 		add(lblDivider); // adding it to JFrame
 
 		btnNext.setText("Next"); // adding text to button for starting
 		btnNext.setFont(lblMain.getFont().deriveFont(14.0f)); // setting font size
-		btnNext.setBounds(495, 315, 80, 35); // positioning start button
+		btnNext.setBounds(635, 415, 80, 35); // positioning start button
 		btnNext.addActionListener(new ActionListener() // add listener for action to run method
 		{
 			public void actionPerformed(ActionEvent evt) {
@@ -271,9 +228,9 @@ public class FirstTimeRun extends JFrame
 		});
 		add(btnNext); // adding button to JFrame
 
-		btnBack.setText("Back"); // adding text to button for exiting
+		btnBack.setText("Quit"); // adding text to button for exiting
 		btnBack.setFont(btnNext.getFont()); // getting font from start button
-		btnBack.setBounds(20, 315, 80, 35); // positioning on form
+		btnBack.setBounds(20, 415, 80, 35); // positioning on form
 		btnBack.addActionListener(new ActionListener() // add listener for action to run method
 		{
 			public void actionPerformed(ActionEvent evt) {
@@ -289,6 +246,42 @@ public class FirstTimeRun extends JFrame
 		txtAccNum.requestFocusInWindow(); // setting focus on start button when everything is loaded
 	}
 
+	private void resizing()
+	{
+		timer = new Timer (10, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				getContentPane().removeAll();
+				setPreferredSize(new Dimension(sizeW, sizeH));
+				pnlAccDetails.setPreferredSize(new Dimension(sizeW, sizeH));
+				repaint();
+				revalidate();
+				pack();
+				
+				sizeW += 3;
+				sizeH += 2;
+				if (toggle)
+				{
+					setLocationRelativeTo(null);
+					toggle = false;
+				}
+				else
+				{
+					toggle = true;
+				}
+				
+				if (sizeW == 750 && sizeH == 500)
+				{
+					timer.stop();
+					accAssets();
+				}
+			}
+		});
+		
+		timer.start();
+	}
+	
 	private void closingEvent() 
 	{
 		if (JOptionPane.showConfirmDialog(null, "<html><center>Are you sure you want to quit?</center></html>", "Quit?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) 
@@ -335,7 +328,7 @@ public class FirstTimeRun extends JFrame
 	// objects used in UI
 	private JPanel pnlStart;
 	private JPanel pnlAccDetails;
-	private JLabel lblWelcome;
+	private JLabel lblWelcome;	
 	private JLabel lblMain;
 	private JLabel lblDivider;
 	private JLabel lblTextPrompt;
@@ -345,6 +338,7 @@ public class FirstTimeRun extends JFrame
 	private JButton btnBack;
 	private JTabbedPane pnlTabs;
 
+	private Timer timer;
 	private int sizeW = 600;
 	private int sizeH = 400;
 	private boolean toggle = false;
