@@ -214,10 +214,7 @@ public class FirstTimeRun extends JFrame
 		add(lblMain); // adding label to JFrame
 
 		pnlTabs.setBounds(10, 100, 720, 280);
-		
-		for (int t = 1 ; t <= accNum; t++)
-			pnlTabs.addTab("Account #"+t, null);
-		pnlTabs.set
+		pnlTabs.addTab("1", txtAccNum);
 		add(pnlTabs);
 		
 		lblDivider.setText(""); // ensuring no text in label
@@ -231,7 +228,7 @@ public class FirstTimeRun extends JFrame
 		btnNext.addActionListener(new ActionListener() // add listener for action to run method
 		{
 			public void actionPerformed(ActionEvent evt) {
-				//valSub();
+				valSub();
 			}
 		});
 		add(btnNext); // adding button to JFrame

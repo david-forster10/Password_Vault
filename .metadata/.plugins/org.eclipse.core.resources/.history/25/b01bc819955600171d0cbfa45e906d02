@@ -217,7 +217,6 @@ public class FirstTimeRun extends JFrame
 		
 		for (int t = 1 ; t <= accNum; t++)
 			pnlTabs.addTab("Account #"+t, null);
-		pnlTabs.set
 		add(pnlTabs);
 		
 		lblDivider.setText(""); // ensuring no text in label

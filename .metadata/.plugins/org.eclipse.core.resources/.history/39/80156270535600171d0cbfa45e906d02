@@ -181,6 +181,12 @@ public class FirstTimeRun extends JFrame
 	{
 		// instantiating elements of the GUI
 		pnlAccDetails = new JPanel();
+		lblWelcome = new JLabel();
+		lblMain = new JLabel();
+		lblDivider = new JLabel();
+		pnlTabs = new JTabbedPane();
+		btnNext = new JButton();
+		btnBack = new JButton();
 		
 		pnlAccDetails.setVisible(true);
 		add(pnlAccDetails); // adding the panel to the frame
@@ -190,36 +196,22 @@ public class FirstTimeRun extends JFrame
 		addWindowListener(exitListener); // removing before adding the windowlistener, ensures there is only one listener there
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE); // setting "x" button to do nothing except what exitListener does
 		
-		resizing(accNum);
+		resizing();
 	}
 	
-	private void accAssets(int accNum)
+	private void accAssets()
 	{
-		lblWelcome = new JLabel();
-		lblMain = new JLabel();
-		lblDivider = new JLabel();
-		pnlTabs = new JTabbedPane();
-		btnNext = new JButton();
-		btnBack = new JButton();
-		
 		lblWelcome.setText("Welcome to Password_Vault"); // label welcoming user
 		lblWelcome.setFont(lblWelcome.getFont().deriveFont(22.0f)); // changing font size to 22
 		lblWelcome.setFont(lblWelcome.getFont().deriveFont(Font.BOLD)); // changing font style to bold
-		lblWelcome.setBounds(216, 22, 317, 25); // setting position and measurements
+		lblWelcome.setBounds(216, 27, 317, 25); // setting position and measurements
 		add(lblWelcome); // adding label to form
 
 		lblMain.setText("<html><center>Please fill in all areas of the following tabs:</center></html>"); // main label that explains what happens, html used for formatting
 		lblMain.setFont(lblMain.getFont().deriveFont(18.0f)); // changing font size to 16
-		lblMain.setBounds(27, 30, 540, 100); // setting position and measurements
+		lblMain.setBounds(27, 45, 540, 100); // setting position and measurements
 		add(lblMain); // adding label to JFrame
 
-		pnlTabs.setBounds(10, 100, 720, 280);
-		
-		for (int t = 1 ; t <= accNum; t++)
-			pnlTabs.addTab("Account #"+t, null);
-		pnlTabs.set
-		add(pnlTabs);
-		
 		lblDivider.setText(""); // ensuring no text in label
 		lblDivider.setBounds(10, 385, 720, 10); // setting bounds and position of dividing line
 		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); // setting border to label for the dividing
@@ -231,7 +223,7 @@ public class FirstTimeRun extends JFrame
 		btnNext.addActionListener(new ActionListener() // add listener for action to run method
 		{
 			public void actionPerformed(ActionEvent evt) {
-				//valSub();
+				valSub();
 			}
 		});
 		add(btnNext); // adding button to JFrame
@@ -254,7 +246,7 @@ public class FirstTimeRun extends JFrame
 		txtAccNum.requestFocusInWindow(); // setting focus on start button when everything is loaded
 	}
 
-	private void resizing(int accNum)
+	private void resizing()
 	{
 		timer = new Timer (10, new ActionListener() {
 			@Override
@@ -282,7 +274,7 @@ public class FirstTimeRun extends JFrame
 				if (sizeW == 750 && sizeH == 500)
 				{
 					timer.stop();
-					accAssets(accNum);
+					accAssets();
 				}
 			}
 		});

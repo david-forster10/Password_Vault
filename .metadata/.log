@@ -1689,3 +1689,16 @@ Caused by: java.io.FileNotFoundException: C:\Program Files\Git\mingw64\share\git
 	at java.io.FileInputStream.<init>(Unknown Source)
 	at org.eclipse.swt.graphics.ImageLoader.load(ImageLoader.java:172)
 	... 75 more
+!SESSION 2017-06-21 08:19:51.871 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface.text 2 0 2017-06-21 09:23:24.684
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-06-21 09:23:24.693
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'

@@ -205,19 +205,15 @@ public class FirstTimeRun extends JFrame
 		lblWelcome.setText("Welcome to Password_Vault"); // label welcoming user
 		lblWelcome.setFont(lblWelcome.getFont().deriveFont(22.0f)); // changing font size to 22
 		lblWelcome.setFont(lblWelcome.getFont().deriveFont(Font.BOLD)); // changing font style to bold
-		lblWelcome.setBounds(216, 22, 317, 25); // setting position and measurements
+		lblWelcome.setBounds(216, 27, 317, 25); // setting position and measurements
 		add(lblWelcome); // adding label to form
 
 		lblMain.setText("<html><center>Please fill in all areas of the following tabs:</center></html>"); // main label that explains what happens, html used for formatting
 		lblMain.setFont(lblMain.getFont().deriveFont(18.0f)); // changing font size to 16
-		lblMain.setBounds(27, 30, 540, 100); // setting position and measurements
+		lblMain.setBounds(27, 45, 540, 100); // setting position and measurements
 		add(lblMain); // adding label to JFrame
 
-		pnlTabs.setBounds(10, 100, 720, 280);
-		
-		for (int t = 1 ; t <= accNum; t++)
-			pnlTabs.addTab("Account #"+t, null);
-		pnlTabs.set
+		pnlTabs.setBounds(27, 55, 540, 400);
 		add(pnlTabs);
 		
 		lblDivider.setText(""); // ensuring no text in label
@@ -231,7 +227,7 @@ public class FirstTimeRun extends JFrame
 		btnNext.addActionListener(new ActionListener() // add listener for action to run method
 		{
 			public void actionPerformed(ActionEvent evt) {
-				//valSub();
+				valSub();
 			}
 		});
 		add(btnNext); // adding button to JFrame
