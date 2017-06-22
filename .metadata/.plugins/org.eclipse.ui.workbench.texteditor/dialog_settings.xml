@@ -8,6 +8,7 @@
 		<item value="false" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="revalidate"/>
 			<item value="&#x09;&#x09;btnStartNext.setBounds"/>
 			<item value="&#x09;&#x09;btnStartNext.setBounds(635, 415, 80, 35); //positioning start button"/>
 			<item value="&#x09;&#x09;btnStartNext.setBounds(655, 415, 80, 35); //positioning start button"/>
@@ -15,7 +16,6 @@
 			<item value="taskkill"/>
 			<item value="bufferedreader"/>
 			<item value="newVaultDir"/>
-			<item value="exec"/>
 		</list>
 		<list key="replacehistory">
 			<item value="&#x09;&#x09;btnStartNext.setBounds(640, 415, 80, 35); //positioning start button"/>

@@ -1,5 +1,6 @@
 package com.df.Password_Vault;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -152,8 +153,8 @@ public class FirstTimeRun extends JFrame
 		});
 		add(btnExit); // adding button to JFrame
 
-		repaint(); // repainting what is displayed if going coming from a different form
 		revalidate(); // revalidate the elements that will be displayed
+		repaint(); // repainting what is displayed if going coming from a different form
 		pack(); // packaging everything up to use
 		setLocationRelativeTo(null); // setting form position central
 		txtAccNum.requestFocusInWindow(); // setting focus on start button when everything is loaded
@@ -170,8 +171,8 @@ public class FirstTimeRun extends JFrame
 		else
 		{
 			getContentPane().removeAll();
-			repaint();
 			revalidate();
+			repaint();
 			pack();
 			accDetails(Integer.parseInt(txtAccNum.getText())); // running start method
 		}
@@ -195,10 +196,11 @@ public class FirstTimeRun extends JFrame
 	
 	private void accAssets(int accNum)
 	{
+		pnlTabs = new JTabbedPane();
+		pnlTabContain = new JPanel();
 		lblWelcome = new JLabel();
 		lblMain = new JLabel();
 		lblDivider = new JLabel();
-		pnlTabs = new JTabbedPane();
 		btnNext = new JButton();
 		btnBack = new JButton();
 		
@@ -215,9 +217,15 @@ public class FirstTimeRun extends JFrame
 
 		pnlTabs.setBounds(10, 100, 720, 280);
 		
+		pnlTabContain.add(lblMain);
+		pnlTabContain.add(lblWelcome);
+		
 		for (int t = 1 ; t <= accNum; t++)
+		{
 			pnlTabs.addTab("Account #"+t, null);
-		pnlTabs.set
+			
+		}
+		
 		add(pnlTabs);
 		
 		lblDivider.setText(""); // ensuring no text in label
@@ -247,8 +255,8 @@ public class FirstTimeRun extends JFrame
 		});
 		add(btnBack); // adding button to JFrame
 
-		repaint(); // repainting what is displayed if going coming from a different form
 		revalidate(); // revalidate the elements that will be displayed
+		repaint(); // repainting what is displayed if going coming from a different form
 		pack(); // packaging everything up to use
 		setLocationRelativeTo(null); // setting form position central
 		txtAccNum.requestFocusInWindow(); // setting focus on start button when everything is loaded
@@ -263,8 +271,8 @@ public class FirstTimeRun extends JFrame
 				getContentPane().removeAll();
 				setPreferredSize(new Dimension(sizeW, sizeH));
 				pnlAccDetails.setPreferredSize(new Dimension(sizeW, sizeH));
-				repaint();
 				revalidate();
+				repaint();
 				pack();
 				
 				sizeW += 3;
@@ -336,6 +344,7 @@ public class FirstTimeRun extends JFrame
 	// objects used in UI
 	private JPanel pnlStart;
 	private JPanel pnlAccDetails;
+	private JPanel pnlTabContain;
 	private JLabel lblWelcome;	
 	private JLabel lblMain;
 	private JLabel lblDivider;
