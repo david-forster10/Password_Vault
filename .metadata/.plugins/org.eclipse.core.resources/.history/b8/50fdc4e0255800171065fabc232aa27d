@@ -591,8 +591,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		chkbxDesktopRun.setSelected(true);
 		chkbxDesktopRun.setFont(MainTxt.getFont().deriveFont(16.0f));
-		pnlFinal[4].setLayout(new BoxLayout(pnlFinal[4], BoxLayout.PAGE_AXIS));
-		pnlFinal[4].add(chkbxDesktopRun);
+		pnlFinal[4].setLayout(new BorderLayout());
+		pnlFinal[4].add(Box.createHorizontalStrut(75), BorderLayout.LINE_START);
+		pnlFinal[4].add(chkbxDesktopRun, BorderLayout.CENTER); //adding label to JFrame
+		pnlFinal[4].add(new JPanel(), BorderLayout.LINE_END);
 		
 		Divider.setForeground(Color.WHITE);
 		Divider.setText("________________________________________________________________________________________________________________________"); //ensuring no text in label
@@ -619,7 +621,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		pnlFinal[0].setLayout(new BoxLayout(pnlFinal[0], BoxLayout.PAGE_AXIS));
 		pnlFinal[0].add(pnlFinal[1]);
-		pnlFinal[0].add(Box.createVerticalStrut(17));
+		pnlFinal[0].add(Box.createVerticalStrut(22));
 		pnlFinal[0].add(pnlFinal[2]);
 		pnlFinal[0].add(Box.createVerticalStrut(20));
 		pnlFinal[0].add(pnlFinal[3]);

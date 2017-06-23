@@ -136,7 +136,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setResizable(false); //disabling resizing
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon("C:\\Users\\DFORSTER\\Documents\\GitHub\\Password_Vault\\setup\\assets\\assets_pv1.0\\topArt.jpg");
+		Icon topArt = new ImageIcon(imgDir+"\\topArt.jpg");
 		ArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 		pnlStart[1].setLayout(new BorderLayout());
 		pnlStart[1].add(ArtTop, BorderLayout.PAGE_START); //adding art to frame
@@ -475,7 +475,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		btnStartNext.setText("Next"); //adding text to button for starting
 		btnStartNext.setFont(btnBackCancel.getFont()); //setting font size
 		btnStartNext.setPreferredSize(new Dimension(80, 35)); //positioning start button
-//		btnStartNext.setEnabled(false); //prevents user from continuing before installation is complete
+		btnStartNext.setEnabled(false); //prevents user from continuing before installation is complete
 		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
 		{
 			public void actionPerformed (ActionEvent evt) 
@@ -507,32 +507,31 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		setLocationRelativeTo(null); //setting form position central
 
-//		if (!tskDone) //if the task hadn't finished
-//		{
-//			if (task == null)
-//			{
-//				task = new Task(); //instantiate a new task
-//				task.addPropertyChangeListener((PropertyChangeListener) this);
-//				task.execute(); //execute the task to start it again
-//			}
-//		}
-//		else //else if had finished
-//		{
-//			Progress.setText("Done!"); //ensure progress label was set to "Done!"
-//			
-//			if (tskCancelled) //if the user had backed off of the installation page
-//				if (JOptionPane.showConfirmDialog(null, "<html><center>Initial installation was cancelled<br>Would you like to start again?</center></html>", "Restart?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION);
-//				{ //offering user to start installation again, if so then
-//					task = new Task(); //declaring new task
-//					task.addPropertyChangeListener((PropertyChangeListener) this);
-//					task.execute(); //executing the new task to run in the background
-//				}
-//		}
-//		
-//		if (task.isPaused())
-//			task.resume();
+		if (!tskDone) //if the task hadn't finished
+		{
+			if (task == null)
+			{
+				task = new Task(); //instantiate a new task
+				task.addPropertyChangeListener((PropertyChangeListener) this);
+				task.execute(); //execute the task to start it again
+			}
+		}
+		else //else if had finished
+		{
+			Progress.setText("Done!"); //ensure progress label was set to "Done!"
+			
+			if (tskCancelled) //if the user had backed off of the installation page
+				if (JOptionPane.showConfirmDialog(null, "<html><center>Initial installation was cancelled<br>Would you like to start again?</center></html>", "Restart?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION);
+				{ //offering user to start installation again, if so then
+					task = new Task(); //declaring new task
+					task.addPropertyChangeListener((PropertyChangeListener) this);
+					task.execute(); //executing the new task to run in the background
+				}
+		}
+		
+		if (task.isPaused())
+			task.resume();
 	}
-	
 	
 	private void btnFinalActionPerformed () //code for final screen of installation
 	{
@@ -569,7 +568,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setResizable(false); //disabling resizing
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon("C:\\Users\\DFORSTER\\Documents\\GitHub\\Password_Vault\\setup\\assets\\assets_pv1.0\\topArt.jpg");
+		Icon topArt = new ImageIcon(imgDir+"\\topArt.jpg");
 		ArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 		pnlFinal[1].setLayout(new BorderLayout());
 		pnlFinal[1].add(ArtTop, BorderLayout.PAGE_START); //adding art to frame
@@ -621,13 +620,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		pnlFinal[0].setLayout(new BoxLayout(pnlFinal[0], BoxLayout.PAGE_AXIS));
 		pnlFinal[0].add(pnlFinal[1]);
-		pnlFinal[0].add(Box.createVerticalStrut(20));
+		pnlFinal[0].add(Box.createVerticalStrut(21));
 		pnlFinal[0].add(pnlFinal[2]);
 		pnlFinal[0].add(Box.createVerticalStrut(20));
 		pnlFinal[0].add(pnlFinal[3]);
 		pnlFinal[0].add(Box.createVerticalStrut(25));
 		pnlFinal[0].add(pnlFinal[4]);
-		pnlFinal[0].add(Box.createVerticalStrut(80));
+		pnlFinal[0].add(Box.createVerticalStrut(81));
 		pnlFinal[0].add(pnlFinal[5]);
 		pnlFinal[0].add(Box.createVerticalStrut(10));
 		pnlFinal[0].add(pnlFinal[6]);
@@ -640,7 +639,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 		btnStartNext.requestFocusInWindow();
 		setLocationRelativeTo(null); //setting form position central
 	}
-	
 	
 	private void btnEndActionPerformed(boolean run)
 	{
@@ -660,12 +658,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 		System.exit(0);
 	}
 	
-	
 	private void btnBackActionPerformed ()
 	{
 		initComponents();
 	}
-	
 	
 	@SuppressWarnings("static-access")
 	private void btnBackInstallActionPerformed () //code for returning to the first screen from the installation section
@@ -687,7 +683,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 	}
 	
-	
 	private void btnCancelActionPerformed()
 	{
 		if (JOptionPane.showConfirmDialog(null, "<html><center>WARNING!<br>This will cancel installation<br>Are you sure you want to do this?</center></html>", "WARNING!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION)
@@ -695,7 +690,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 			System.exit(0);
 		}
 	}
-	
 	
 	@SuppressWarnings("static-access")
 	private void btnCancelunInstallActionPerformed () //code for when the user presses the "Cancel" button or the "x" on the form
@@ -772,7 +766,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 			btnStartActionPerformed(); //calling method to continue task
 		}
 	}
-
 	
 	public void propertyChange (PropertyChangeEvent evt) //code to detect update for progress bar
 	{
@@ -784,7 +777,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 	}
 	
-	
 	public void deleteDir (File file) //code for deleting an entire directory
 	{
 		File[] contents = file.listFiles(); //gets all file into array of files
@@ -794,7 +786,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		file.delete(); //if the list is empty (no files in a directory) then delete the file
 	}
-		
 	
 	public static void main (String args[]) //method for setting the look of the UI and first part that is ran in the class
 	{
@@ -827,13 +818,11 @@ public class Installation extends JFrame implements PropertyChangeListener
 			}
 		});
 	}
-		
 	
 	public void progressStop () //method that can be called from the thread that runs in background to stop itself
 	{
 		task.cancel(true); //cancels the background task
 	}
-		
 	
 	public boolean dirExists () //check if the mainDirectory exists again
 	{
@@ -861,7 +850,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 		return true; //return true to continue
 	}
-
 	
 	private void randWait () //method for pausing the thread for a random amount of time (max is 2 seconds)
 	{			
@@ -874,7 +862,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 		catch (InterruptedException ignore)
 		{}
 	}
-	
 	
 	public String findDir (String target, boolean output) //first method called to search entire drive (file passed in is what is being searched for)
 	{
@@ -905,7 +892,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 		return null; //if nothing found return null
 	}
-	
 	
 	public void findDir (String target, File drive, boolean output) //overload method of findDir for second iterative step of finding
 	{
@@ -949,7 +935,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 				Searching.setText("");
 			}
 	}
-	
 	
 	public void getProperty (String cmd, int cmdNum) //code to collect unique identifier information
 	{
@@ -995,7 +980,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 			Progress.setText("Error...");
 		}
 	}
-
 	
 	public String SHAHash (String input) throws NoSuchAlgorithmException //method for hashing information using SHA-256
 	{
@@ -1003,7 +987,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 		messageDigest.update(input.getBytes(Charset.forName("UTF-8")), 0, input.length()); //updating message digest with necessary information for hash
 		return new BigInteger(1, messageDigest.digest()).toString(16); //returning input as a hashed value
 	}
-
 	
 	public void dqShortcut (boolean Desktop) //method for creating either desktop shortcut or shortcut for the start menu
 	{		
