@@ -195,9 +195,9 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		pnlStart[0].setLayout(new BoxLayout(pnlStart[0], BoxLayout.PAGE_AXIS));
 		pnlStart[0].add(pnlStart[1]);
-		pnlStart[0].add(Box.createVerticalStrut(20));
+		pnlStart[0].add(Box.createVerticalStrut(22));
 		pnlStart[0].add(pnlStart[2]);
-		pnlStart[0].add(Box.createVerticalStrut(25));
+		pnlStart[0].add(Box.createVerticalStrut(20));
 		pnlStart[0].add(pnlStart[3]);
 		pnlStart[0].add(pnlStart[4]);
 		pnlStart[0].add(Box.createVerticalStrut(10));
@@ -251,7 +251,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setResizable(false); //disabling resizing
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon("C:\\Users\\DFORSTER\\Documents\\GitHub\\Password_Vault\\setup\\assets\\assets_pv1.0\\topArt.jpg");
+		Icon topArt = new ImageIcon(imgDir+"\\topArt.jpg");
 		ArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 		pnlShortcut[1].setLayout(new BorderLayout());
 		pnlShortcut[1].add(ArtTop, BorderLayout.PAGE_START); //adding art to frame
@@ -369,9 +369,9 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 	private void btnStartActionPerformed () //code for third screen of installation (instigates installation)
 	{	
-		pnlDownload = new JPanel[7];
+		pnlDownload = new JPanel[9];
 		
-		for (int i = 0; i < 7; i++)
+		for (int i = 0; i < 9; i++)
 			pnlDownload[i] = new JPanel();
 		
 		ArtTop = new JLabel();
@@ -405,7 +405,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		setResizable(false); //disabling resizing
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon("C:\\Users\\DFORSTER\\Documents\\GitHub\\Password_Vault\\setup\\assets\\assets_pv1.0\\topArt.jpg");
+		Icon topArt = new ImageIcon(imgDir+"\\topArt.jpg");
 		ArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
 		pnlDownload[1].setLayout(new BorderLayout());
 		pnlDownload[1].add(ArtTop, BorderLayout.PAGE_START); //adding art to frame
@@ -425,32 +425,42 @@ public class Installation extends JFrame implements PropertyChangeListener
 		pnlDownload[3].add(MainTxt, BorderLayout.CENTER); //adding label to JFrame
 		pnlDownload[3].add(Box.createHorizontalStrut(20), BorderLayout.LINE_END);
 		
-    	prbrInstall.setValue(progressVal); //setting the progress bar to start at 0
-		prbrInstall.setStringPainted(true); 
-		prbrInstall.setBounds(75, 315, 600, 27); //positioning the bar
-		prbrInstall.setMinimum(0); //setting the minimum value on the bar
-		prbrInstall.setMaximum(100); //setting the maximum value on the bar
-		pnlDownload[4].add(prbrInstall); //adding the bar to the form
-		
 		Progress.setText(progressTxt); //setting progress label to starting
 		Progress.setFont(MainTxt.getFont().deriveFont(12.0f)); //ensuring smaller font size than main text
-		Progress.setBounds(75, 296, 300, 15); //setting position above the progress bar
-		pnlDownload[4].add(Progress); //adding the progress bar to the frame
+		Progress.setPreferredSize(new Dimension(200, 15));
+		pnlDownload[4].setLayout(new BorderLayout());
+		pnlDownload[4].add(Progress, BorderLayout.LINE_START); //adding the progress bar to the frame
 		
 		Searching.setText(""); //setting progress label to starting
 		Searching.setFont(MainTxt.getFont().deriveFont(12.0f)); //ensuring smaller font size than main text
-		Searching.setBounds(210, 296, 200, 15); //setting position above the progress bar
-		pnlDownload[4].add(Searching); //adding the progress bar to the frame
+		Searching.setPreferredSize(new Dimension(200, 15));
+		pnlDownload[4].add(Box.createHorizontalStrut(30), BorderLayout.CENTER);
+		pnlDownload[4].add(Searching, BorderLayout.LINE_END); //adding the progress bar to the frame
+
+    	prbrInstall.setValue(progressVal); //setting the progress bar to start at 0
+		prbrInstall.setStringPainted(true); 
+		prbrInstall.setMinimum(0); //setting the minimum value on the bar
+		prbrInstall.setMaximum(100); //setting the maximum value on the bar
+		prbrInstall.setPreferredSize(new Dimension(600, 27));
+
+		pnlDownload[5].setLayout(new BoxLayout(pnlDownload[5], BoxLayout.Y_AXIS));
+		pnlDownload[5].add(pnlDownload[4]);
+		pnlDownload[5].add(prbrInstall); //adding the bar to the form
+		
+		pnlDownload[6].setLayout(new BoxLayout(pnlDownload[6], BoxLayout.LINE_AXIS));
+		pnlDownload[6].add(Box.createHorizontalStrut(75));
+		pnlDownload[6].add(pnlDownload[5]);
+		pnlDownload[6].add(Box.createHorizontalStrut(75));
 		
 		Divider.setForeground(Color.WHITE);
 		Divider.setText("________________________________________________________________________________________________________________________"); //ensuring no text in label
 		Divider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
-		pnlDownload[5].setLayout(new FlowLayout());
-		pnlDownload[5].add(Divider); //adding it to JFrame
+		pnlDownload[7].setLayout(new FlowLayout());
+		pnlDownload[7].add(Divider); //adding it to JFrame
 		
 		btnBackCancel.setText("Cancel"); //adding text to button for exiting
 		btnBackCancel.setFont(MainTxt.getFont().deriveFont(14.0f)); //getting font from start button
-		btnBackCancel.setPreferredSize(new Dimension(80, 35)); //positioning on form
+		btnBackCancel.setPreferredSize(new Dimension(80, 35)); //positioning on form		
 		btnBackCancel.addActionListener(new ActionListener() //add listener for action to run method
 		{
 			public void actionPerformed (ActionEvent evt)
@@ -458,12 +468,14 @@ public class Installation extends JFrame implements PropertyChangeListener
 				btnBackInstallActionPerformed(); //running cancel method (same method as hitting the "x" button on the form)
 			}
 		});
-		pnlDownload[6].add(btnBackCancel); //adding button to JFrame
+		pnlDownload[8].setLayout(new FlowLayout());
+		pnlDownload[8].add(Box.createHorizontalStrut(1));
+		pnlDownload[8].add(btnBackCancel); //adding button to JFrame
 		
 		btnStartNext.setText("Next"); //adding text to button for starting
 		btnStartNext.setFont(btnBackCancel.getFont()); //setting font size
 		btnStartNext.setPreferredSize(new Dimension(80, 35)); //positioning start button
-		btnStartNext.setEnabled(false); //prevents user from continuing before installation is complete
+//		btnStartNext.setEnabled(false); //prevents user from continuing before installation is complete
 		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
 		{
 			public void actionPerformed (ActionEvent evt) 
@@ -471,20 +483,22 @@ public class Installation extends JFrame implements PropertyChangeListener
 				btnFinalActionPerformed(); //running next method
 			}
 		});
-		pnlDownload[6].add(btnStartNext); //adding button to JFrame
+		pnlDownload[8].add(Box.createHorizontalStrut(520));
+		pnlDownload[8].add(btnStartNext); //adding button to JFrame
 		
 		pnlDownload[0].setLayout(new BoxLayout(pnlDownload[0], BoxLayout.PAGE_AXIS));
 		pnlDownload[0].add(pnlDownload[1]);
-		pnlDownload[0].add(Box.createVerticalStrut(20));
+		pnlDownload[0].add(Box.createVerticalStrut(23));
 		pnlDownload[0].add(pnlDownload[2]);
-		pnlDownload[0].add(Box.createVerticalStrut(25));
+		pnlDownload[0].add(Box.createVerticalStrut(27));
 		pnlDownload[0].add(pnlDownload[3]);
-		pnlDownload[0].add(pnlDownload[4]);
-		pnlDownload[0].add(Box.createVerticalStrut(25));
-		pnlDownload[0].add(pnlDownload[5]);
-		pnlDownload[0].add(Box.createVerticalStrut(10));
-		pnlDownload[0].add(pnlDownload[6]);
 		pnlDownload[0].add(Box.createVerticalStrut(30));
+		pnlDownload[0].add(pnlDownload[6]);
+		pnlDownload[0].add(Box.createVerticalStrut(40));
+		pnlDownload[0].add(pnlDownload[7]);
+		pnlDownload[0].add(Box.createVerticalStrut(10));
+		pnlDownload[0].add(pnlDownload[8]);
+		pnlDownload[0].add(Box.createVerticalStrut(15));
 		add(pnlDownload[0]);
 		
 		revalidate(); //revalidate the elements that will be displayed
@@ -493,37 +507,39 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		setLocationRelativeTo(null); //setting form position central
 
-		if (!tskDone) //if the task hadn't finished
-		{
-			if (task == null)
-			{
-				task = new Task(); //instantiate a new task
-				task.addPropertyChangeListener((PropertyChangeListener) this);
-				task.execute(); //execute the task to start it again
-			}
-		}
-		else //else if had finished
-		{
-			Progress.setText("Done!"); //ensure progress label was set to "Done!"
-			
-			if (tskCancelled) //if the user had backed off of the installation page
-				if (JOptionPane.showConfirmDialog(null, "<html><center>Initial installation was cancelled<br>Would you like to start again?</center></html>", "Restart?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION);
-				{ //offering user to start installation again, if so then
-					task = new Task(); //declaring new task
-					task.addPropertyChangeListener((PropertyChangeListener) this);
-					task.execute(); //executing the new task to run in the background
-				}
-		}
-		
-		if (task.isPaused())
-			task.resume();
+//		if (!tskDone) //if the task hadn't finished
+//		{
+//			if (task == null)
+//			{
+//				task = new Task(); //instantiate a new task
+//				task.addPropertyChangeListener((PropertyChangeListener) this);
+//				task.execute(); //execute the task to start it again
+//			}
+//		}
+//		else //else if had finished
+//		{
+//			Progress.setText("Done!"); //ensure progress label was set to "Done!"
+//			
+//			if (tskCancelled) //if the user had backed off of the installation page
+//				if (JOptionPane.showConfirmDialog(null, "<html><center>Initial installation was cancelled<br>Would you like to start again?</center></html>", "Restart?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION);
+//				{ //offering user to start installation again, if so then
+//					task = new Task(); //declaring new task
+//					task.addPropertyChangeListener((PropertyChangeListener) this);
+//					task.execute(); //executing the new task to run in the background
+//				}
+//		}
+//		
+//		if (task.isPaused())
+//			task.resume();
 	}
+	
 	
 	private void btnFinalActionPerformed () //code for final screen of installation
 	{
-		pnlFinal = new JPanel[6];
+		pnlFinal = new JPanel[7];
 		
-		
+		for (int i = 0; i < 7; i++)
+			pnlFinal[i] = new JPanel();
 		
 		ArtTop = new JLabel();
 		Welcome = new JLabel();
@@ -533,7 +549,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 		chkbxDesktopRun = new JCheckBox("Run Password_Vault");
 		
 		getContentPane().removeAll();
-		add(pnlFinal[0]);
 
 		removeWindowListener(exitListener);
 		removeWindowListener(uninstallExitList);
@@ -552,42 +567,44 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		setTitle("Password_Vault 1.0 Setup"); //setting title on JFrame
 		setResizable(false); //disabling resizing
-		setLayout(null); //ensuring I can specify element positions
 		setBackground(Color.WHITE); //setting background color
 
-		Icon topArt = new ImageIcon(imgDir+"\\topArt.jpg");
+		Icon topArt = new ImageIcon("C:\\Users\\DFORSTER\\Documents\\GitHub\\Password_Vault\\setup\\assets\\assets_pv1.0\\topArt.jpg");
 		ArtTop.setIcon(topArt); //reading in Art to be displayed at top of JFrame
-			
-		ArtTop.setBounds(0, 0, 750, 100); //setting position and measurements of art
-		add(ArtTop); //adding art to frame
+		pnlFinal[1].setLayout(new BorderLayout());
+		pnlFinal[1].add(ArtTop, BorderLayout.PAGE_START); //adding art to frame
 		
 		Welcome.setText("Password_Vault Setup Wizard"); //label welcoming user
-		Welcome.setFont(Welcome.getFont().deriveFont(22.0f)); //changing font size to 22
+		Welcome.setFont(Welcome.getFont().deriveFont(22.5f)); //changing font size to 22
 		Welcome.setFont(Welcome.getFont().deriveFont(Font.BOLD)); //changing font style to bold
-		Welcome.setBounds(208, 125, 334, 25); //setting position and measurements
-		add(Welcome); //adding label to form
+		pnlFinal[2].setLayout(new BoxLayout(pnlFinal[2], BoxLayout.LINE_AXIS));
+		pnlFinal[2].add(Welcome); //adding label to form
 		
 		MainTxt.setText("<html>Setup has finished installing Password_Vault on your computer please press \"Finish\"."
 				+ "<br><br>"
 				+ "Please select the options below as appropriate:</html>"); //changing text assigned to the label
 		MainTxt.setFont(MainTxt.getFont().deriveFont(16.0f)); //ensuring same font as before
-		MainTxt.setBounds(10, 179, 730, 77); //setting bounds and position
-		add(MainTxt); //adding it to the form
+		pnlFinal[3].setLayout(new BorderLayout());
+		pnlFinal[3].add(Box.createHorizontalStrut(20), BorderLayout.LINE_START);
+		pnlFinal[3].add(MainTxt, BorderLayout.CENTER); //adding label to JFrame
+		pnlFinal[3].add(Box.createHorizontalStrut(20), BorderLayout.LINE_END);
 		
 		chkbxDesktopRun.setSelected(true);
 		chkbxDesktopRun.setFont(MainTxt.getFont().deriveFont(16.0f));
-		chkbxDesktopRun.setBounds(50, 275, 250, 19);
-		add(chkbxDesktopRun);
+		pnlFinal[4].setLayout(new BorderLayout());
+		pnlFinal[4].add(Box.createHorizontalStrut(75), BorderLayout.LINE_START);
+		pnlFinal[4].add(chkbxDesktopRun, BorderLayout.CENTER); //adding label to JFrame
+		pnlFinal[4].add(new JPanel(), BorderLayout.LINE_END);
 		
-		Divider.setText(""); //ensuring no text in label
-		Divider.setBounds(10, 385, 720, 10); //setting bounds and position of dividing line
+		Divider.setForeground(Color.WHITE);
+		Divider.setText("________________________________________________________________________________________________________________________"); //ensuring no text in label
 		Divider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
-		add(Divider); //adding it to JFrame
+		pnlFinal[5].setLayout(new FlowLayout());
+		pnlFinal[5].add(Divider); //adding it to JFrame
 		
 		btnStartNext.setText("Finish"); //adding text to button for starting
 		btnStartNext.setFont(MainTxt.getFont().deriveFont(14.0f)); //setting font size
-		btnStartNext.setBounds(640, 415, 80, 35); //positioning start button
-		
+		btnStartNext.setPreferredSize(new Dimension(80, 35)); //positioning start button
 		btnStartNext.addActionListener(new ActionListener() //add listener for action to run method
 		{
 			public void actionPerformed (ActionEvent evt) 
@@ -598,8 +615,24 @@ public class Installation extends JFrame implements PropertyChangeListener
 					btnEndActionPerformed(false); //running next method
 			}
 		});
+		pnlFinal[6].setLayout(new FlowLayout());
+		pnlFinal[6].add(Box.createHorizontalStrut(611));
+		pnlFinal[6].add(btnStartNext); //adding button to JFrame
 		
-		add(btnStartNext); //adding button to JFrame
+		pnlFinal[0].setLayout(new BoxLayout(pnlFinal[0], BoxLayout.PAGE_AXIS));
+		pnlFinal[0].add(pnlFinal[1]);
+		pnlFinal[0].add(Box.createVerticalStrut(20));
+		pnlFinal[0].add(pnlFinal[2]);
+		pnlFinal[0].add(Box.createVerticalStrut(20));
+		pnlFinal[0].add(pnlFinal[3]);
+		pnlFinal[0].add(Box.createVerticalStrut(25));
+		pnlFinal[0].add(pnlFinal[4]);
+		pnlFinal[0].add(Box.createVerticalStrut(80));
+		pnlFinal[0].add(pnlFinal[5]);
+		pnlFinal[0].add(Box.createVerticalStrut(10));
+		pnlFinal[0].add(pnlFinal[6]);
+		pnlFinal[0].add(Box.createVerticalStrut(15));
+		add(pnlFinal[0]);
 		
 		revalidate(); //revalidate the elements that will be displayed
 		repaint(); //repainting what is displayed if going coming from a different form
@@ -607,6 +640,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		btnStartNext.requestFocusInWindow();
 		setLocationRelativeTo(null); //setting form position central
 	}
+	
 	
 	private void btnEndActionPerformed(boolean run)
 	{
@@ -626,10 +660,12 @@ public class Installation extends JFrame implements PropertyChangeListener
 		System.exit(0);
 	}
 	
+	
 	private void btnBackActionPerformed ()
 	{
 		initComponents();
 	}
+	
 	
 	@SuppressWarnings("static-access")
 	private void btnBackInstallActionPerformed () //code for returning to the first screen from the installation section
@@ -651,6 +687,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 	}
 	
+	
 	private void btnCancelActionPerformed()
 	{
 		if (JOptionPane.showConfirmDialog(null, "<html><center>WARNING!<br>This will cancel installation<br>Are you sure you want to do this?</center></html>", "WARNING!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION)
@@ -658,6 +695,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 			System.exit(0);
 		}
 	}
+	
 	
 	@SuppressWarnings("static-access")
 	private void btnCancelunInstallActionPerformed () //code for when the user presses the "Cancel" button or the "x" on the form
@@ -735,6 +773,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 	}
 
+	
 	public void propertyChange (PropertyChangeEvent evt) //code to detect update for progress bar
 	{
 		if ("progress" == evt.getPropertyName()) //detecting when a change from the background thread is pushed
@@ -744,6 +783,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 			prbrInstall.setValue(progress); //sets progress bar to new value based on what was retreaved from the background thread
 		}
 	}
+	
 	
 	public void deleteDir (File file) //code for deleting an entire directory
 	{
@@ -755,6 +795,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		file.delete(); //if the list is empty (no files in a directory) then delete the file
 	}
 		
+	
 	public static void main (String args[]) //method for setting the look of the UI and first part that is ran in the class
 	{
 		try
@@ -787,11 +828,13 @@ public class Installation extends JFrame implements PropertyChangeListener
 		});
 	}
 		
+	
 	public void progressStop () //method that can be called from the thread that runs in background to stop itself
 	{
 		task.cancel(true); //cancels the background task
 	}
 		
+	
 	public boolean dirExists () //check if the mainDirectory exists again
 	{
 		if (backMsg != null || exitMsg != null) //uses variables linked to JOptionPanes to see if any are displaying, if one is showing...
@@ -819,6 +862,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		return true; //return true to continue
 	}
 
+	
 	private void randWait () //method for pausing the thread for a random amount of time (max is 2 seconds)
 	{			
 		Random rnd = new Random(); //declaring random for use with task lengths
@@ -830,6 +874,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		catch (InterruptedException ignore)
 		{}
 	}
+	
 	
 	public String findDir (String target, boolean output) //first method called to search entire drive (file passed in is what is being searched for)
 	{
@@ -861,6 +906,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		return null; //if nothing found return null
 	}
 	
+	
 	public void findDir (String target, File drive, boolean output) //overload method of findDir for second iterative step of finding
 	{
 		ArrayList<File> contents = new ArrayList<File>(); //arraylist for handling contents of current directory being searched
@@ -891,7 +937,10 @@ public class Installation extends JFrame implements PropertyChangeListener
 				
 		if (output = true)
 			if (foundDir == "")
-				Searching.setText(drive.getPath());
+				if (drive.getPath().length() > 36)
+					Searching.setText("..."+drive.getPath().substring((drive.getPath().length()-30), drive.getPath().length()));
+				else
+					Searching.setText(drive.getPath());
 		
 		if (drive.getPath().length() > target.length()) //ensuring that drive is longer than target address so no errors when using substring
 			if (drive.getPath().substring(drive.getPath().length() - target.length()).equals(target)) //if last part of path matches target file
@@ -900,6 +949,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				Searching.setText("");
 			}
 	}
+	
 	
 	public void getProperty (String cmd, int cmdNum) //code to collect unique identifier information
 	{
@@ -946,6 +996,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		}
 	}
 
+	
 	public String SHAHash (String input) throws NoSuchAlgorithmException //method for hashing information using SHA-256
 	{
 		MessageDigest messageDigest = MessageDigest.getInstance("SHA-256"); //message digest finding hash information
@@ -953,6 +1004,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		return new BigInteger(1, messageDigest.digest()).toString(16); //returning input as a hashed value
 	}
 
+	
 	public void dqShortcut (boolean Desktop) //method for creating either desktop shortcut or shortcut for the start menu
 	{		
 		File dsktpShortcutFile = null;

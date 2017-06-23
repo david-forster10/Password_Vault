@@ -2,22 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="\\" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="revalidate"/>
-			<item value="&#x09;&#x09;btnStartNext.setBounds"/>
-			<item value="&#x09;&#x09;btnStartNext.setBounds(635, 415, 80, 35); //positioning start button"/>
-			<item value="&#x09;&#x09;btnStartNext.setBounds(655, 415, 80, 35); //positioning start button"/>
-			<item value="Divider.setBounds(10, 385, 730, 10); //setting bounds and position of dividing line"/>
-			<item value="taskkill"/>
-			<item value="bufferedreader"/>
-			<item value="newVaultDir"/>
+			<item value="\"/>
+			<item value="setBounds"/>
+			<item value="Bounds"/>
+			<item value="findDir"/>
+			<item value="executable"/>
+			<item value="executab;e"/>
+			<item value="create"/>
+			<item value="Searching"/>
 		</list>
 		<list key="replacehistory">
+			<item value="\\"/>
 			<item value="&#x09;&#x09;btnStartNext.setBounds(640, 415, 80, 35); //positioning start button"/>
 			<item value="&#x09;&#x09;btnStartNext.setBounds(645, 415, 80, 35); //positioning start button"/>
 			<item value="Divider.setBounds(10, 385, 720, 10); //setting bounds and position of dividing line"/>
