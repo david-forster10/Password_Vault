@@ -15,4 +15,6 @@
 <fullyQualifiedTypeName name="javax.swing.Box"/>
 <fullyQualifiedTypeName name="java.awt.GridLayout"/>
 <fullyQualifiedTypeName name="java.awt.ComponentOrientation"/>
+<fullyQualifiedTypeName name="net.sourceforge.jdatepicker.impl.UtilDateModel"/>
+<fullyQualifiedTypeName name="javax.swing.JPasswordField"/>
 </qualifiedTypeNameHistroy>
