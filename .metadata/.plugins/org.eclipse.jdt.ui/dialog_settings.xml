@@ -76,7 +76,7 @@
 	</section>
 	<section name="JarPackageWizard">
 		<item value="false" key="JarPackageWizardPage.INCLUDE_DIRECTORY_ENTRIES"/>
-		<item value="/Password_Vault/manifest" key="JarManifestWizardPage.MANIFEST_LOCATION"/>
+		<item value="/jdatepicker/target/classes/META-INF/MANIFEST.MF" key="JarManifestWizardPage.MANIFEST_LOCATION"/>
 		<item value="false" key="JarManifestWizardPage.SEAL_JAR"/>
 		<item value="true" key="JarPackageWizardPage.COMPRESS"/>
 		<item value="false" key="JarManifestWizardPage.REUSE_MANIFEST"/>
@@ -94,6 +94,7 @@
 		<item value="false" key="JarManifestWizardPage.SAVE_MANIFEST"/>
 		<item value="false" key="JarPackageWizardPage.EXPORT_OUTPUT_FOLDER"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\jdatepicker.jar"/>
 			<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\setup\assets\Password_Vault.jar"/>
 			<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\setup\main\test.jar"/>
 		</list>

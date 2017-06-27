@@ -2,6 +2,7 @@ package com.df.Password_Vault;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
@@ -12,11 +13,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -54,7 +58,8 @@ public class FirstTimeRun extends JFrame
 		}
 	};
 
-	public FirstTimeRun() {
+	public FirstTimeRun() 
+	{
 		gv = new Global_Vars();
 
 		gv.getWorkingDirectory();
@@ -123,7 +128,7 @@ public class FirstTimeRun extends JFrame
 		{
 			public void keyTyped(KeyEvent e) 
 			{
-				if (txtAccNum.getText().length() >= 4) // limit textfield to 3 characters
+				if (txtAccNum.getText().length() >= 4 && e.getKeyChar() != '\b' && txtAccNum.getSelectedText() == null) // limit textfield to 4 characters, allows overwriting highlighted text & use of backspace
 					e.consume();
 			}
 		});
@@ -228,7 +233,6 @@ public class FirstTimeRun extends JFrame
 	
 	private void accAssets(int accNum)
 	{	
-
 		lblWelcome = new JLabel();
 		lblMain = new JLabel();
 		lblDivider = new JLabel();
@@ -271,40 +275,127 @@ public class FirstTimeRun extends JFrame
 				pnlTabContain[s][r] = new JPanel();
 			
 			txtFirstName[s] = new JTextField();
-			txtFirstName[s].setPreferredSize(new Dimension(200, 23));
+			txtFirstName[s].setPreferredSize(new Dimension(201, 23));
 			
 			txtSurname[s] = new JTextField();
-			txtSurname[s].setPreferredSize(new Dimension(200, 23));
+			txtSurname[s].setPreferredSize(new Dimension(201, 23));
 			
 			model[s] = new UtilDateModel();
-			model[s].setDate(2007, 01, 01);
+			model[s].setDate(2000, 00, 01);
 			datePanel[s] = new JDatePanelImpl(model[s]);
 			datePicker[s] = new JDatePickerImpl(datePanel[s]);
 			
-			
-			lblColors[s][0][0] = new JLabel("Red"); //Red
-			lblColors[s][1][0] = new JLabel("Green"); //Green
-			lblColors[s][0][1] = new JLabel("Blue"); //Blue
+			lblColors[s][0][0] = new JLabel(); //Red
+			lblColors[s][1][0] = new JLabel(); //Yellow
+			lblColors[s][0][1] = new JLabel(); //Green
+			lblColors[s][0][0].setPreferredSize(new Dimension(64, 23));
+			lblColors[s][1][0].setPreferredSize(new Dimension(64, 23));
+			lblColors[s][0][1].setPreferredSize(new Dimension(63, 23));
+			lblColors[s][0][0].setOpaque(true);
+			lblColors[s][1][0].setOpaque(true);
+			lblColors[s][0][1].setOpaque(true);
+			lblColors[s][0][0].setBackground(Color.RED);
+			lblColors[s][1][0].setBackground(Color.YELLOW);
+			lblColors[s][0][1].setBackground(Color.GREEN);
+			lblColors[s][0][0].setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			lblColors[s][1][0].setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			lblColors[s][0][1].setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			lblColors[s][0][0].addMouseListener(new MouseAdapter() 
+			{
+				public void mouseClicked (MouseEvent e)
+				{
+					int tabIndex = pnlTabs.getSelectedIndex();
+					lblColors[tabIndex][0][0].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLACK));
+					lblColors[tabIndex][1][0].setBorder(null);
+					lblColors[tabIndex][0][1].setBorder(null);
+				}
+			});
+			lblColors[s][1][0].addMouseListener(new MouseAdapter() 
+			{
+				public void mouseClicked (MouseEvent e)
+				{
+					int tabIndex = pnlTabs.getSelectedIndex();
+					lblColors[tabIndex][0][0].setBorder(null);
+					lblColors[tabIndex][1][0].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLACK));
+					lblColors[tabIndex][0][1].setBorder(null);
+				}
+			});
+			lblColors[s][0][1].addMouseListener(new MouseAdapter() 
+			{
+				public void mouseClicked (MouseEvent e)
+				{
+					int tabIndex = pnlTabs.getSelectedIndex();
+					lblColors[tabIndex][0][0].setBorder(null);
+					lblColors[tabIndex][1][0].setBorder(null);
+					lblColors[tabIndex][0][1].setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLACK));
+				}
+			});
 			
 			txtNumber[s] = new JTextField();
-			txtNumber[s].setPreferredSize(new Dimension(150, 23));
+			txtNumber[s].setPreferredSize(new Dimension(154, 23));
+			txtNumber[s].addKeyListener(new KeyAdapter() 
+			{
+				public void keyTyped(KeyEvent e) 
+				{
+					int tabIndex = pnlTabs.getSelectedIndex();
+					switch (e.getKeyChar())
+					{
+					case '1':
+					case '2':
+					case '3':
+					case '4':
+					case '5':
+					case '6':
+					case '7':
+					case '8':
+					case '9':
+					case '0':
+						break;
+					
+					default:
+						e.consume();
+						break;
+					}
+					
+					if (txtNumber[tabIndex].getText().length() >= 6 && e.getKeyChar() != '\b' && txtNumber[tabIndex].getSelectedText() == null) // limit textfield to 6 characters, allows overwriting of selected numbers and use of backspace
+						e.consume();
+				}
+			});
 			
 			btnRanNum[s] = new JButton(new String(new int[] { 0x1F500 }, 0, 1));
 			btnRanNum[s].setPreferredSize(new Dimension(43,23));
+			btnRanNum[s].addActionListener(new ActionListener() 
+			{
+				@Override
+				public void actionPerformed(ActionEvent arg0) 
+				{
+					int tabIndex = pnlTabs.getSelectedIndex();
+					Random rnd = new Random();
+					String random = Integer.toString(rnd.nextInt(1000000));
+					if (random.length() < 6)
+					{
+						while (random.length() != 6)
+						{
+							random = "0"+random;
+						}
+					}
+					txtNumber[tabIndex].setText(random);
+				}
+			});
 			
 			txtUsername[s] = new JTextField();
-			txtUsername[s].setPreferredSize(new Dimension(200, 23));
+			txtUsername[s].setPreferredSize(new Dimension(201, 23));
 			
 			txtPasswords[s][0] = new JPasswordField();
 			txtPasswords[s][1] = new JPasswordField();
-			txtPasswords[s][0].setPreferredSize(new Dimension(200, 23));
-			txtPasswords[s][1].setPreferredSize(new Dimension(200, 23));
+			txtPasswords[s][0].setPreferredSize(new Dimension(201, 23));
+			txtPasswords[s][1].setPreferredSize(new Dimension(201, 23));
 			
 			lblPrompts[s][0] = new JLabel("First Name: ");
 			lblPrompts[s][1] = new JLabel("Surname: ");
 			lblPrompts[s][2] = new JLabel("Date of Birth: ");
 			lblPrompts[s][3] = new JLabel("Select one: ");
-			lblPrompts[s][4] = new JLabel("Pick any number:");
+			lblPrompts[s][4] = new JLabel("Enter a 6 digit-number:");
 			lblPrompts[s][5] = new JLabel("Enter a Username: ");
 			lblPrompts[s][6] = new JLabel("Enter a Password: ");
 			lblPrompts[s][7] = new JLabel("Confirm your Password: ");
@@ -321,35 +412,50 @@ public class FirstTimeRun extends JFrame
 		for (int t = 0; t < accNum; t++)
 		{		
 			pnlTabContain[t][1].setLayout(new FlowLayout());
-			pnlTabContain[t][1].add(Box.createHorizontalStrut(30));
+			pnlTabContain[t][1].add(Box.createHorizontalStrut(7));
 			pnlTabContain[t][1].add(lblPrompts[t][0]);
 			pnlTabContain[t][1].add(Box.createHorizontalStrut(2));
 			pnlTabContain[t][1].add(txtFirstName[t]);
-			pnlTabContain[t][1].add(Box.createHorizontalStrut(35));
+			pnlTabContain[t][1].add(Box.createHorizontalStrut(60));
 			
-			pnlTabContain[t][3].add(Box.createHorizontalStrut(39));
+			pnlTabContain[t][3].setLayout(new FlowLayout());
+			pnlTabContain[t][3].add(Box.createHorizontalStrut(45));
 			pnlTabContain[t][3].add(lblPrompts[t][1]);
 			pnlTabContain[t][3].add(Box.createHorizontalStrut(2));
 			pnlTabContain[t][3].add(txtSurname[t]);
-			pnlTabContain[t][3].add(Box.createHorizontalStrut(34));
+			pnlTabContain[t][3].add(Box.createHorizontalStrut(26));
 			
+			pnlTabContain[t][5].setLayout(new FlowLayout());
 			pnlTabContain[t][5].add(lblPrompts[t][2]);
 			pnlTabContain[t][5].add(Box.createHorizontalStrut(2));
 			pnlTabContain[t][5].add(datePicker[t]);
+			
+			pnlTabContain[t][7].setLayout(new FlowLayout());
+			pnlTabContain[t][7].add(Box.createHorizontalStrut(3));
 			pnlTabContain[t][7].add(lblPrompts[t][3]);
+			pnlTabContain[t][7].add(Box.createHorizontalStrut(2));
 			pnlTabContain[t][7].add(lblColors[t][0][0]);
 			pnlTabContain[t][7].add(lblColors[t][1][0]);
 			pnlTabContain[t][7].add(lblColors[t][0][1]);
+			
+			pnlTabContain[t][2].add(Box.createHorizontalStrut(0));
 			pnlTabContain[t][2].add(lblPrompts[t][4]);
-			pnlTabContain[t][2].add(Box.createHorizontalStrut(2));
+			pnlTabContain[t][2].add(Box.createHorizontalStrut(4));
 			pnlTabContain[t][2].add(txtNumber[t]);
 			pnlTabContain[t][2].add(btnRanNum[t]);
+			pnlTabContain[t][2].add(Box.createHorizontalStrut(2));
+
+			pnlTabContain[t][4].add(Box.createHorizontalStrut(22));
 			pnlTabContain[t][4].add(lblPrompts[t][5]);
 			pnlTabContain[t][4].add(Box.createHorizontalStrut(2));
 			pnlTabContain[t][4].add(txtUsername[t]);
+
+			pnlTabContain[t][6].add(Box.createHorizontalStrut(24));
 			pnlTabContain[t][6].add(lblPrompts[t][6]);
 			pnlTabContain[t][6].add(Box.createHorizontalStrut(2));
 			pnlTabContain[t][6].add(txtPasswords[t][0]);
+			
+			pnlTabContain[t][8].setLayout(new FlowLayout());
 			pnlTabContain[t][8].add(lblPrompts[t][7]);
 			pnlTabContain[t][8].add(Box.createHorizontalStrut(2));
 			pnlTabContain[t][8].add(txtPasswords[t][1]);
@@ -358,10 +464,9 @@ public class FirstTimeRun extends JFrame
 			for (int u = 1; u < 9; u++)	
 				pnlTabContain[t][9].add(pnlTabContain[t][u]);
 			
-			pnlTabContain[t][0].setLayout(new BoxLayout(pnlTabContain[t][0], BoxLayout.LINE_AXIS));
-			pnlTabContain[t][0].add(Box.createVerticalStrut(15));
+			pnlTabContain[t][0].setLayout(new BoxLayout(pnlTabContain[t][0], BoxLayout.Y_AXIS));
+			pnlTabContain[t][0].add(Box.createVerticalStrut(23));
 			pnlTabContain[t][0].add(pnlTabContain[t][9]);
-			pnlTabContain[t][0].add(Box.createVerticalStrut(5));
 			pnlTabs.addTab("Account #"+(t+1), pnlTabContain[t][0]);
 		}
 		pnlTabs.setPreferredSize(new Dimension(720, 280));
@@ -379,7 +484,8 @@ public class FirstTimeRun extends JFrame
 		btnExit.setPreferredSize(new Dimension(80, 35)); //positioning on form		
 		btnExit.addActionListener(new ActionListener() // add listener for action to run method
 		{
-			public void actionPerformed(ActionEvent evt) {
+			public void actionPerformed(ActionEvent evt) 
+			{
 				closingEvent(); // running cancel method (same method as hitting the "x" button on the form)
 			}
 		});
@@ -392,8 +498,9 @@ public class FirstTimeRun extends JFrame
 		btnNext.setPreferredSize(new Dimension(80, 35)); //positioning start button
 		btnNext.addActionListener(new ActionListener() // add listener for action to run method
 		{
-			public void actionPerformed(ActionEvent evt) {
-				//valSub();
+			public void actionPerformed(ActionEvent evt) 
+			{
+				accHandler(accNum);
 			}
 		});
 		pnlAccDetails[5].add(Box.createHorizontalStrut(520));
@@ -453,6 +560,49 @@ public class FirstTimeRun extends JFrame
 		timer.start();
 	}
 	
+	private void accHandler(int accNum)
+	{
+		if (!accInfoVal(accNum))
+			JOptionPane.showMessageDialog(null, "The data you are submitting is incomplete or contains errors. Please see fields marked in red.", "Error", JOptionPane.OK_OPTION);
+		else
+			MainMenu.main(null);
+	}
+	
+	private boolean accInfoVal(int accNum)
+	{
+		boolean failed = false;
+		for (int s = 0; s < accNum; s++)
+		{
+			if (!gv.validation(2, txtFirstName[s].getText()))
+			{
+				lblPrompts[s][0].setForeground(Color.RED);
+				txtFirstName[s].setBorder(BorderFactory.createLineBorder(Color.RED));
+				failed = true;
+			}
+			else
+			{
+				lblPrompts[s][0].setForeground(new JLabel().getForeground());
+				txtFirstName[s].setBorder(new JTextField().getBorder());
+			}
+			if (!gv.validation(2, txtSurname[s].getText()))
+			{
+				lblPrompts[s][1].setForeground(Color.RED);
+				txtSurname[s].setBorder(BorderFactory.createLineBorder(Color.RED));
+				failed = true;
+			}
+			else
+			{
+				lblPrompts[s][1].setForeground(new JLabel().getForeground());
+				txtSurname[s].setBorder(new JTextField().getBorder());
+			}
+		}
+		
+		if (failed)
+			return false;
+		else
+			return true;
+	}
+	
 	private void closingEvent() 
 	{
 		if (JOptionPane.showConfirmDialog(null, "<html><center>Are you sure you want to quit?</center></html>", "Quit?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) 
@@ -488,8 +638,7 @@ public class FirstTimeRun extends JFrame
 
 		EventQueue.invokeLater(new Runnable() 
 		{
-			public void run() // run the class's constructor, therefore starting
-								// the UI being built
+			public void run() // run the class's constructor, therefore starting the UI being built
 			{
 				new FirstTimeRun().setVisible(true);
 			}
@@ -518,7 +667,7 @@ public class FirstTimeRun extends JFrame
 	private JLabel[][] lblPrompts;
 	private JButton btnNext;
 	private JButton btnExit;
-	private JButton btnBack;
+//	private JButton btnBack;
 	private JTabbedPane pnlTabs;
 
 	private Timer timer;

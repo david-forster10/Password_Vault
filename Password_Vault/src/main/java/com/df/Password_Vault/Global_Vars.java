@@ -9,7 +9,6 @@ public class Global_Vars
 {
 	public String foundDir = "";
 	public File usersDir = null;
-	private String[] months = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
 	
 	public void getWorkingDirectory ()
 	{
@@ -95,12 +94,6 @@ public class Global_Vars
 			}
 	}
 
-	public void cls () //method for clearing console window, doesn't work in eclipse, works in cmd & linux console
-	{
-		System.out.print("\033[H\033[2J");  
-	    System.out.flush(); 
-	}
-
 	public boolean validation (int pat, String input)
 	{
 		input = input.toUpperCase();
@@ -120,32 +113,6 @@ public class Global_Vars
 				
 				if (match2.matches())
 					return true;
-				else
-					return false;
-			case 3:
-				Pattern p3 = Pattern.compile("^[a-z]+$", Pattern.CASE_INSENSITIVE);
-				Matcher match3 = p3.matcher(input);
-				
-				if (match3.matches())
-				{
-					if (input.length() == 3)
-						for (String month : months)
-							if (input.equals(month))
-								return true;
-					
-					return false;
-				}
-				else
-					return false;
-			case 4:
-				Pattern p4 = Pattern.compile("^[a-z]+$", Pattern.CASE_INSENSITIVE);
-				Matcher match4 = p4.matcher(input);
-				
-				if (match4.matches())				
-					if (input.equals("R") || input.equals("RED") || input.equals("G") || input.equals("GREEN") || input.equals("B") || input.equals("BLUE"))
-						return true;
-					else
-						return false;
 				else
 					return false;
 			default:

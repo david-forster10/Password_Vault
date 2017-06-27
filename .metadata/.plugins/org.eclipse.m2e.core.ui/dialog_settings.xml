@@ -33,6 +33,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\DFORSTER\Documents\GitHub\JDatePicker"/>
 			<item value="C:\Users\DFORSTER\GitHub\Password_Vault Repo"/>
 		</list>
 		<list key="projectNameTemplate">
