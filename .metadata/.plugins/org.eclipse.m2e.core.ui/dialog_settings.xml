@@ -33,6 +33,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\JDatePicker"/>
 			<item value="C:\Users\DFORSTER\Documents\GitHub\JDatePicker"/>
 			<item value="C:\Users\DFORSTER\GitHub\Password_Vault Repo"/>
 		</list>
@@ -70,12 +71,14 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.df.rebuild"/>
 			<item value="com.df.Password_Vault"/>
 		</list>
 		<list key="groupId">
 			<item value="com.df"/>
 		</list>
 		<list key="artifactId">
+			<item value="rebuild"/>
 			<item value="Password_Vault"/>
 		</list>
 		<list key="projectNameTemplate">

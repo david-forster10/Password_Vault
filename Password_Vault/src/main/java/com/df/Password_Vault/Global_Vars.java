@@ -1,6 +1,10 @@
 package com.df.Password_Vault;
 
 import java.io.File;
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -120,6 +124,20 @@ public class Global_Vars
 		}	
 	}
 
+	public String Convert (String in)
+	{
+		MessageDigest messageDigest;
+		try {
+			messageDigest = MessageDigest.getInstance("SHA-256");
+			messageDigest.update(in.getBytes(Charset.forName("UTF-8")), 0, in.length());
+			return new BigInteger(1,messageDigest.digest()).toString(16);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
 	//globally used variables
 	public String workingDirectory; //variable for where everything is stored
 }

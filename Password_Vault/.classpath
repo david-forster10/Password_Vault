@@ -22,5 +22,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/DFORSTER/Documents/GitHub/Password_Vault/jdatepicker-1.3.2 - DaveEdit.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

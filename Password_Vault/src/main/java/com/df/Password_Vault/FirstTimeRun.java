@@ -40,6 +40,8 @@ import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
@@ -60,11 +62,11 @@ public class FirstTimeRun extends JFrame
 
 	public FirstTimeRun() 
 	{
-		gv = new Global_Vars();
+		gv = new Global_Vars(); //instantiating new class
 
-		gv.getWorkingDirectory();
+		gv.getWorkingDirectory(); //running method to find main working directory
 
-		initComponents();
+		initComponents(); //running first screen if user doesn't have an account
 	}
 
 	private void initComponents() // method to build initial view for user for installation
@@ -288,7 +290,7 @@ public class FirstTimeRun extends JFrame
 			lblColors[s][0][0] = new JLabel(); //Red
 			lblColors[s][1][0] = new JLabel(); //Yellow
 			lblColors[s][0][1] = new JLabel(); //Green
-			lblColors[s][0][0].setPreferredSize(new Dimension(64, 23));
+			lblColors[s][0][0].setPreferredSize(new Dimension(63, 23));
 			lblColors[s][1][0].setPreferredSize(new Dimension(64, 23));
 			lblColors[s][0][1].setPreferredSize(new Dimension(63, 23));
 			lblColors[s][0][0].setOpaque(true);
@@ -390,6 +392,78 @@ public class FirstTimeRun extends JFrame
 			txtPasswords[s][1] = new JPasswordField();
 			txtPasswords[s][0].setPreferredSize(new Dimension(201, 23));
 			txtPasswords[s][1].setPreferredSize(new Dimension(201, 23));
+			txtPasswords[s][0].getDocument().addDocumentListener(new DocumentListener() 
+			{
+				@Override
+				public void changedUpdate(DocumentEvent arg0) 
+				{
+					compare();
+				}
+
+				@Override
+				public void insertUpdate(DocumentEvent arg0) 
+				{
+					compare();
+				}
+
+				@Override
+				public void removeUpdate(DocumentEvent arg0) 
+				{
+					compare();
+				}
+		
+				public void compare()
+				{
+					int tabIndex = pnlTabs.getSelectedIndex();
+
+					String p1 = String.valueOf(txtPasswords[tabIndex][0].getPassword());
+					String p2 = String.valueOf(txtPasswords[tabIndex][1].getPassword());
+					
+					if (!p1.equals(p2))
+						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.RED));
+					else
+						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.GREEN));
+					
+					p1 = null;
+					p2 = null;
+				}
+			});
+			txtPasswords[s][1].getDocument().addDocumentListener(new DocumentListener() 
+			{
+				@Override
+				public void changedUpdate(DocumentEvent arg0) 
+				{
+					compare();
+				}
+
+				@Override
+				public void insertUpdate(DocumentEvent arg0) 
+				{
+					compare();
+				}
+
+				@Override
+				public void removeUpdate(DocumentEvent arg0) 
+				{
+					compare();
+				}
+		
+				public void compare()
+				{
+					int tabIndex = pnlTabs.getSelectedIndex();
+
+					String p1 = String.valueOf(txtPasswords[tabIndex][0].getPassword());
+					String p2 = String.valueOf(txtPasswords[tabIndex][1].getPassword());
+					
+					if (!p1.equals(p2))
+						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.RED));
+					else
+						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.GREEN));
+					
+					p1 = null;
+					p2 = null;
+				}
+			});
 			
 			lblPrompts[s][0] = new JLabel("First Name: ");
 			lblPrompts[s][1] = new JLabel("Surname: ");
@@ -562,42 +636,159 @@ public class FirstTimeRun extends JFrame
 	
 	private void accHandler(int accNum)
 	{
+		accInfo = new String[7];
 		if (!accInfoVal(accNum))
 			JOptionPane.showMessageDialog(null, "The data you are submitting is incomplete or contains errors. Please see fields marked in red.", "Error", JOptionPane.OK_OPTION);
 		else
+		{
+			for (int s = 0; s < accNum; s++)
+			{
+				accInfo[0] = txtFirstName[s].getText();
+				accInfo[1] = txtSurname[s].getText();
+				accInfo[2] = datePicker[s].formattedTextField.getText();
+				
+				if (lblColors[s][0][0].getBorder() != null)
+					accInfo[3] = "Red";
+				else if (lblColors[s][1][0].getBorder() != null)
+					accInfo[3] = "Yellow";
+				else if (lblColors[s][0][1].getBorder() != null)
+					accInfo[3] = "Green";
+
+				accInfo[4] = txtNumber[s].getText();
+				accInfo[5] = txtUsername[s].getText();
+				accInfo[6] = gv.Convert(String.valueOf(txtPasswords[s][0].getPassword()));
+			}
 			MainMenu.main(null);
+		}
 	}
 	
 	private boolean accInfoVal(int accNum)
 	{
-		boolean failed = false;
+		boolean[][] failed = new boolean[10][9];
 		for (int s = 0; s < accNum; s++)
 		{
 			if (!gv.validation(2, txtFirstName[s].getText()))
 			{
 				lblPrompts[s][0].setForeground(Color.RED);
 				txtFirstName[s].setBorder(BorderFactory.createLineBorder(Color.RED));
-				failed = true;
+				failed[s][1] = true;
 			}
 			else
 			{
 				lblPrompts[s][0].setForeground(new JLabel().getForeground());
 				txtFirstName[s].setBorder(new JTextField().getBorder());
+				failed[s][1] = false;
 			}
+			
 			if (!gv.validation(2, txtSurname[s].getText()))
 			{
 				lblPrompts[s][1].setForeground(Color.RED);
 				txtSurname[s].setBorder(BorderFactory.createLineBorder(Color.RED));
-				failed = true;
+				failed[s][2] = true;
 			}
 			else
 			{
 				lblPrompts[s][1].setForeground(new JLabel().getForeground());
 				txtSurname[s].setBorder(new JTextField().getBorder());
+				failed[s][2] = false;
 			}
+			
+			if (datePicker[s].formattedTextField.getText().equals(""))
+			{
+				lblPrompts[s][2].setForeground(Color.RED);
+				datePicker[s].formattedTextField.setBorder(BorderFactory.createLineBorder(Color.RED));
+				datePicker[s].button.setBorder(BorderFactory.createLineBorder(Color.RED));
+				failed[s][3] = true;
+			}
+			else
+			{
+				lblPrompts[s][2].setForeground(new JLabel().getForeground());
+				datePicker[s].formattedTextField.setBorder(new JTextField().getBorder());
+				datePicker[s].button.setBorder(new JButton().getBorder());
+				failed[s][3] = false;
+			}
+			
+			if (lblColors[s][1][0].getBorder() == null && lblColors[s][0][1].getBorder() == null && lblColors[s][0][0].getBorder() == null)
+			{
+				lblPrompts[s][3].setForeground(Color.RED);
+				failed[s][4] = true;
+			}
+			else
+			{
+				lblPrompts[s][3].setForeground(new JLabel().getForeground());
+				failed[s][4] = false;
+			}
+			
+			if (txtNumber[s].getText().equals(""))
+			{
+				lblPrompts[s][4].setForeground(Color.RED);
+				txtNumber[s].setBorder(BorderFactory.createLineBorder(Color.RED));
+				btnRanNum[s].setBorder(BorderFactory.createLineBorder(Color.RED));
+				failed[s][5] = true;
+			}
+			else
+			{
+				lblPrompts[s][4].setForeground(new JLabel().getForeground());
+				txtNumber[s].setBorder(new JTextField().getBorder());
+				btnRanNum[s].setBorder(new JButton().getBorder());
+				failed[s][5] = false;
+			}
+			
+			if (txtUsername[s].getText().equals(""))
+			{
+				lblPrompts[s][5].setForeground(Color.RED);
+				txtUsername[s].setBorder(BorderFactory.createLineBorder(Color.RED));
+				failed[s][6] = true;
+			}
+			else
+			{
+				lblPrompts[s][5].setForeground(new JLabel().getForeground());
+				txtUsername[s].setBorder(new JTextField().getBorder());
+				failed[s][6] = false;
+			}
+			
+			if (txtPasswords[s][0].getPassword().length == 0)
+			{
+				lblPrompts[s][6].setForeground(Color.RED);
+				txtPasswords[s][0].setBorder(BorderFactory.createLineBorder(Color.RED));
+				failed[s][7] = true;
+			}
+			else
+			{
+				lblPrompts[s][6].setForeground(new JLabel().getForeground());
+				txtPasswords[s][0].setBorder(new JPasswordField().getBorder());
+				failed[s][7] = false;
+			}
+			
+			if (txtPasswords[s][1].getPassword().length == 0 || txtPasswords[s][1].getBorder() == BorderFactory.createLineBorder(Color.RED))
+			{
+				lblPrompts[s][7].setForeground(Color.RED);
+				txtPasswords[s][1].setBorder(BorderFactory.createLineBorder(Color.RED));
+				failed[s][8] = true;
+			}
+			else
+			{
+				lblPrompts[s][7].setForeground(new JLabel().getForeground());
+				
+				failed[s][8] = false;
+			}			
+			
+			if (failed[s][1] || failed[s][2] || failed[s][3] || failed[s][4] || failed[s][5] || failed[s][6] || failed[s][7] || failed[s][8])
+				failed[s][0] = true;
+			else
+				failed[s][0] = false;
+			
+			if (failed[s][0])
+				pnlTabs.setForeground(Color.RED);
+			else
+				pnlTabs.setForeground(Color.BLACK);
 		}
+		boolean finalFail = false;
+		for (int temp = 0; temp > 10; temp++)
+			if (failed[temp][0])
+				finalFail = true;
 		
-		if (failed)
+		if (finalFail)
 			return false;
 		else
 			return true;
@@ -606,11 +797,8 @@ public class FirstTimeRun extends JFrame
 	private void closingEvent() 
 	{
 		if (JOptionPane.showConfirmDialog(null, "<html><center>Are you sure you want to quit?</center></html>", "Quit?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) 
-			System.exit(0); // output warning that it would cancel installation, if accepted...
-		else // if not accepted...
-		{
-
-		}
+			System.exit(0); // output warning that it would quit the application, if accepted...
+		// if not accepted do nothing and close
 	}
 
 	public static void main(String[] args) 
@@ -670,11 +858,14 @@ public class FirstTimeRun extends JFrame
 //	private JButton btnBack;
 	private JTabbedPane pnlTabs;
 
+	//variables used for window resizing
 	private Timer timer;
 	private int sizeW = 600;
 	private int sizeH = 400;
 	private boolean toggle = false;
 	
-	// instantiating required classes
+	private String[] accInfo;  
+	
+	// declaring required classes
 	Global_Vars gv = null;
 }
