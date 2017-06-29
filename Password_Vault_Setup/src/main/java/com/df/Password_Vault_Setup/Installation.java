@@ -27,6 +27,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -1538,13 +1539,18 @@ public class Installation extends JFrame implements PropertyChangeListener
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
 				if (winOS == true) //if on a windows system
-					try
+				{
+					Path p = Paths.get(cfgFile.getAbsolutePath());
+					try 
 					{
-						Process p = Runtime.getRuntime().exec("cmd /c attrib +H +R" + cfgFile.getPath()); //use cmd to protect the config file with hidden and read only tags
-						p.waitFor();
+						Files.setAttribute(p, "dos:hidden", true);
+					} 
+					catch (IOException e) 
+					{
+						e.printStackTrace();
 					}
-					catch (Throwable t)
-					{}
+					cfgFile.setReadOnly();
+				}
 				else //if Unix based system
 					cfgFile.renameTo(new File(cfgFile.getParent(), "." + cfgFile.getName())); //add "." in front of file to hide it
 					
@@ -1554,7 +1560,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				Progress.setText("Validating files..."); //informing the user of a task change
 					
 				//checking all created files exist, if not outputting error message
-				if (!vaultDir.exists() || !keyDir.exists() || !assetDir.exists() )//|| vaultDir.listFiles().length <= 0 || keyDir.listFiles().length <= 0 || assetDir.listFiles().length <= 0)
+				if (!vaultDir.exists() || !keyDir.exists() || !assetDir.exists())
 				{
 					JOptionPane.showMessageDialog(null, "<html><center>Failed to find created files<br>Please ensure you have enough disk space available before re-running the setup application!</center></html>", "Warning", JOptionPane.WARNING_MESSAGE);
 					System.exit(0);
