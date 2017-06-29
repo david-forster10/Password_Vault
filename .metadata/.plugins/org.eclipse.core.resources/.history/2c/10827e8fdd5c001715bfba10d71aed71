@@ -4,10 +4,7 @@ import com.df.Global.Global_Vars;
 
 public class UserCreation 
 {
-	public UserCreation()
-	{
-		gv = new Global_Vars();
-	}
+	
 	
 	public void infoHandler (String[] in)
 	{
@@ -20,5 +17,5 @@ public class UserCreation
 	}
 	
 	String[] accInfo;
-	Global_Vars gv;
+	Global_Vars gv
 }

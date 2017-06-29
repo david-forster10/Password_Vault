@@ -6,7 +6,7 @@ public class UserCreation
 {
 	public UserCreation()
 	{
-		gv = new Global_Vars();
+		gv = Global_Vars();
 	}
 	
 	public void infoHandler (String[] in)

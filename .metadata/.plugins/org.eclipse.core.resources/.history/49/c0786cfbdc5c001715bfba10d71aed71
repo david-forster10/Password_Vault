@@ -1,14 +1,9 @@
 package com.df.FirstRun;
 
-import com.df.Global.Global_Vars;
+import com.df.Global_Vars.Global_Vars;
 
 public class UserCreation 
 {
-	public UserCreation()
-	{
-		gv = new Global_Vars();
-	}
-	
 	public void infoHandler (String[] in)
 	{
 		accInfo = in;
@@ -20,5 +15,4 @@ public class UserCreation
 	}
 	
 	String[] accInfo;
-	Global_Vars gv;
 }

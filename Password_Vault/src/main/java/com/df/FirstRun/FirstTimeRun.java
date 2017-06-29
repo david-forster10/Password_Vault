@@ -43,7 +43,7 @@ import javax.swing.WindowConstants;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import com.df.Global_Vars.Global_Vars;
+import com.df.Global.Global_Vars;
 import com.df.Startup.MainMenu;
 
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;

@@ -1,4 +1,4 @@
-package com.df.Password_Vault;
+package com.df.FirstRun;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -43,6 +43,9 @@ import javax.swing.WindowConstants;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import com.df.Global_Vars.Global_Vars;
+import com.df.Startup.MainMenu;
+
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
@@ -62,11 +65,11 @@ public class FirstTimeRun extends JFrame
 
 	public FirstTimeRun() 
 	{
-		gv = new Global_Vars();
+		gv = new Global_Vars(); //instantiating new class
 
-		gv.getWorkingDirectory();
+		gv.getWorkingDirectory(); //running method to find main working directory
 
-		initComponents();
+		initComponents(); //running first screen if user doesn't have an account
 	}
 
 	private void initComponents() // method to build initial view for user for installation
@@ -392,6 +395,42 @@ public class FirstTimeRun extends JFrame
 			txtPasswords[s][1] = new JPasswordField();
 			txtPasswords[s][0].setPreferredSize(new Dimension(201, 23));
 			txtPasswords[s][1].setPreferredSize(new Dimension(201, 23));
+			txtPasswords[s][0].getDocument().addDocumentListener(new DocumentListener() 
+			{
+				@Override
+				public void changedUpdate(DocumentEvent arg0) 
+				{
+					compare();
+				}
+
+				@Override
+				public void insertUpdate(DocumentEvent arg0) 
+				{
+					compare();
+				}
+
+				@Override
+				public void removeUpdate(DocumentEvent arg0) 
+				{
+					compare();
+				}
+		
+				public void compare()
+				{
+					int tabIndex = pnlTabs.getSelectedIndex();
+
+					String p1 = String.valueOf(txtPasswords[tabIndex][0].getPassword());
+					String p2 = String.valueOf(txtPasswords[tabIndex][1].getPassword());
+					
+					if (!p1.equals(p2))
+						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.RED));
+					else
+						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.GREEN));
+					
+					p1 = null;
+					p2 = null;
+				}
+			});
 			txtPasswords[s][1].getDocument().addDocumentListener(new DocumentListener() 
 			{
 				@Override
@@ -416,13 +455,16 @@ public class FirstTimeRun extends JFrame
 				{
 					int tabIndex = pnlTabs.getSelectedIndex();
 
-					String p1 = (String)txtPasswords[tabIndex][1].getPassword();
+					String p1 = String.valueOf(txtPasswords[tabIndex][0].getPassword());
+					String p2 = String.valueOf(txtPasswords[tabIndex][1].getPassword());
 					
-					
-					if (txtPasswords[tabIndex][1].getPassword() != txtPasswords[tabIndex][0].getPassword())
+					if (!p1.equals(p2))
 						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.RED));
 					else
 						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.GREEN));
+					
+					p1 = null;
+					p2 = null;
 				}
 			});
 			
@@ -597,10 +639,34 @@ public class FirstTimeRun extends JFrame
 	
 	private void accHandler(int accNum)
 	{
+		accInfo = new String[7];
 		if (!accInfoVal(accNum))
 			JOptionPane.showMessageDialog(null, "The data you are submitting is incomplete or contains errors. Please see fields marked in red.", "Error", JOptionPane.OK_OPTION);
 		else
+		{
+			for (int s = 0; s < accNum; s++)
+			{
+				accInfo[0] = txtFirstName[s].getText();
+				accInfo[1] = txtSurname[s].getText();
+				accInfo[2] = datePicker[s].formattedTextField.getText();
+				
+				if (lblColors[s][0][0].getBorder() != null)
+					accInfo[3] = "Red";
+				else if (lblColors[s][1][0].getBorder() != null)
+					accInfo[3] = "Yellow";
+				else if (lblColors[s][0][1].getBorder() != null)
+					accInfo[3] = "Green";
+
+				accInfo[4] = txtNumber[s].getText();
+				accInfo[5] = gv.convert(String.valueOf(txtUsername[s].getText()));
+				accInfo[6] = gv.convert(String.valueOf(txtPasswords[s][0].getPassword()));
+				
+				UserCreation uc = new UserCreation();
+				
+				uc.infoHandler(accInfo);
+			}
 			MainMenu.main(null);
+		}
 	}
 	
 	private boolean accInfoVal(int accNum)
@@ -701,7 +767,7 @@ public class FirstTimeRun extends JFrame
 				failed[s][7] = false;
 			}
 			
-			if (txtPasswords[s][1].getPassword().length == 0)
+			if (txtPasswords[s][1].getPassword().length == 0 || txtPasswords[s][1].getBorder() == BorderFactory.createLineBorder(Color.RED))
 			{
 				lblPrompts[s][7].setForeground(Color.RED);
 				txtPasswords[s][1].setBorder(BorderFactory.createLineBorder(Color.RED));
@@ -710,11 +776,11 @@ public class FirstTimeRun extends JFrame
 			else
 			{
 				lblPrompts[s][7].setForeground(new JLabel().getForeground());
-				txtPasswords[s][1].setBorder(new JPasswordField().getBorder());
+				
 				failed[s][8] = false;
 			}			
 			
-			if (failed[s][1] && failed[s][2] && failed[s][3] && failed[s][4] && failed[s][5] && failed[s][6] && failed[s][7] && failed[s][8])
+			if (failed[s][1] || failed[s][2] || failed[s][3] || failed[s][4] || failed[s][5] || failed[s][6] || failed[s][7] || failed[s][8])
 				failed[s][0] = true;
 			else
 				failed[s][0] = false;
@@ -805,6 +871,8 @@ public class FirstTimeRun extends JFrame
 	private int sizeH = 400;
 	private boolean toggle = false;
 	
-	// instantiating required classes
+	private String[] accInfo;  
+	
+	// declaring required classes
 	Global_Vars gv = null;
 }

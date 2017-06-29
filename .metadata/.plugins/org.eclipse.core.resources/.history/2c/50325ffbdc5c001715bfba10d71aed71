@@ -1,7 +1,7 @@
 package com.df.Startup;
 
 import com.df.FirstRun.FirstTimeRun;
-import com.df.Global.Global_Vars;
+import com.df.Global_Vars.Global_Vars;
 
 public class Handler 
 {
