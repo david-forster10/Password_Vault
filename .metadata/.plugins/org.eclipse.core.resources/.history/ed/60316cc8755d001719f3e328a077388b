@@ -1,7 +1,6 @@
 package com.df.FirstRun;
 
 import java.io.PrintWriter;
-import java.util.Random;
 
 import com.df.Global.Global_Vars;
 
@@ -26,7 +25,6 @@ public class UserCreation
 		for (int c = 0; c < 1000; c++)
 		{
 			Random rnd = new Random();
-			
 		}
 		
 		return content;

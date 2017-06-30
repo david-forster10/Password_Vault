@@ -61,7 +61,6 @@ import org.apache.commons.io.FileUtils;
 
 /*
  * TO DO :
- * -	Add in CMD reading when testing running of applications to ensure receiving correct responses
  * -	Redesign application logo - convert final image into .ico format as well
  * -	Write test cases for application
  * -	Test e-2-e process of install & apps (when complete)
