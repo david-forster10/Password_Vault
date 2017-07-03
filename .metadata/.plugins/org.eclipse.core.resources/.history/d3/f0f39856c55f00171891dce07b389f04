@@ -791,7 +791,7 @@ public class FirstTimeRun extends JFrame
 				pnlTabs.setForeground(Color.BLACK);
 		}
 		boolean finalFail = false;
-		for (int temp = 0; temp < 10; temp++)
+		for (int temp = 0; temp > 10; temp++)
 			if (failed[temp][0])
 				finalFail = true;
 		

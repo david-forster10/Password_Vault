@@ -40,9 +40,6 @@ public class UserCreation
 					
 			sb.append(l);
 		}
-		if (sb.toString().substring(sb.length() - 1).equals("\\"))
-			sb.replace(sb.length() - 1, sb.length(), "a");
-		
 		sb.append("\n");
 		
 		return content;

@@ -31,19 +31,8 @@ public class UserCreation
 			
 			char l = (char) (rnd.nextInt(127 - 33) + 33);
 
-			if (sb.toString().substring(sb.length() - 1).equals("\\"))
-				if (l == 'n' || l == 'b' || l == 't' || l == 'r' || l == '\\' || l == 'f' || l == '\"')
-					while (l == 'n' || l == 'b' || l == 't' || l == 'r' || l == '\\' || l == 'f' || l == '\"')
-					{
-						l = (char) (rnd.nextInt(127 - 33) + 33);
-					}
-					
 			sb.append(l);
 		}
-		if (sb.toString().substring(sb.length() - 1).equals("\\"))
-			sb.replace(sb.length() - 1, sb.length(), "a");
-		
-		sb.append("\n");
 		
 		return content;
 	}
