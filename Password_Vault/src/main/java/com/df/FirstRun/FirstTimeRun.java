@@ -67,8 +67,6 @@ public class FirstTimeRun extends JFrame
 	{
 		gv = new Global_Vars(); //instantiating new class
 
-		gv.getWorkingDirectory(); //running method to find main working directory
-
 		initComponents(); //running first screen if user doesn't have an account
 	}
 

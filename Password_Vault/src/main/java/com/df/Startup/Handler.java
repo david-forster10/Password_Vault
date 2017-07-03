@@ -8,7 +8,6 @@ public class Handler
 	public Handler()
 	{
 		gb = new Global_Vars();
-		gb.getWorkingDirectory();
 		
 		if (gb.usersDir.exists() && gb.usersDir.listFiles().length != 0)
 			Login.main(null);

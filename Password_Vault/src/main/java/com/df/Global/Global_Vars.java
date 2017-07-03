@@ -14,7 +14,7 @@ public class Global_Vars
 	public String foundDir = "";
 	public File usersDir = null;
 	
-	public void getWorkingDirectory ()
+	public Global_Vars ()
 	{
 		String OS = (System.getProperty("os.name")).toUpperCase(); //capitalises OS version
 		

@@ -44,8 +44,6 @@ public class Login extends JFrame
 	{
 		gv = new Global_Vars();
 		
-		gv.getWorkingDirectory();
-		
 		initComponents();
 	}
 	
