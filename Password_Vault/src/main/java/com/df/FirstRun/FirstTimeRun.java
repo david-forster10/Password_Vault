@@ -596,7 +596,7 @@ public class FirstTimeRun extends JFrame
 		repaint(); // repainting what is displayed if going coming from a different form
 		pack(); // packaging everything up to use
 		setLocationRelativeTo(null); // setting form position central
-		txtAccNum.requestFocusInWindow(); // setting focus on start button when everything is loaded
+		txtFirstName[0].requestFocusInWindow(); // setting focus on start button when everything is loaded
 	}
 
 	private void resizing(int accNum)
@@ -784,14 +784,17 @@ public class FirstTimeRun extends JFrame
 				failed[s][0] = false;
 			
 			if (failed[s][0])
-				pnlTabs.setForeground(Color.RED);
+				pnlTabs.setForegroundAt(s, Color.RED);
 			else
-				pnlTabs.setForeground(Color.BLACK);
+				pnlTabs.setForegroundAt(s, Color.BLACK);
 		}
 		boolean finalFail = false;
 		for (int temp = 0; temp < 10; temp++)
 			if (failed[temp][0])
+			{
 				finalFail = true;
+				break;
+			}
 		
 		if (finalFail)
 			return false;

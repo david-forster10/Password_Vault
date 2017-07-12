@@ -19,46 +19,47 @@ public class UserCreation
 	{
 		accInfo = in;
 		
-		fileCreation(fileContent(), in[0], in[1]);
+		fileCreation(fileContent());
 	}
 	
-	public String fileContent()
+	private String fileContent()
 	{
+		rnd = new Random();
 		StringBuilder sb = new StringBuilder();
 		
-		for (int r = 0; r < 300; r++) //for every line required
+		for (int c = 0; c < 90300; c++) //for every character outputted
 		{
-			for (int c = 0; c < 301; c++) //for every character outputted
-			{
-				Random rnd = new Random();
-			
-				char l = (char) (rnd.nextInt(127 - 33) + 33);
+			char l = (char) (rnd.nextInt(127 - 33) + 33);
 
-				if (sb.length() > 0)
-					if (sb.toString().substring(sb.length() - 1).equals("\\"))
-						if (l == 'n' || l == 'b' || l == 't' || l == 'r' || l == '\\' || l == 'f' || l == '\"')
-							while (l == 'n' || l == 'b' || l == 't' || l == 'r' || l == '\\' || l == 'f' || l == '\"')
-							{
-								l = (char) (rnd.nextInt(127 - 33) + 33);
-							}
+			if (sb.length() > 0)
+				if (sb.toString().substring(sb.length() - 1).equals("\\"))
+					if (l == 'n' || l == 'b' || l == 't' || l == 'r' || l == '\\' || l == 'f' || l == '\"')
+						while (l == 'n' || l == 'b' || l == 't' || l == 'r' || l == '\\' || l == 'f' || l == '\"')
+							l = (char) (rnd.nextInt(127 - 33) + 33);
 					
-				sb.append(l);
-			}
-			if (sb.toString().substring(sb.length() - 1).equals("\\"))
-				sb.replace(sb.length() - 1, sb.length(), "a");
-		
-			sb.append("\n");
+			sb.append(l);
 		}
 		
 		return sb.toString();
 	}
 	
-	public void fileCreation (String content, String fn, String sn)
+	private void fileCreation (String content)
 	{
-		String tme = Integer.toString(LocalDateTime.now().getYear()) + String.format("%02d", LocalDateTime.now().getMonthValue()) + String.format("%02d", LocalDateTime.now().getDayOfMonth()) + Integer.toString(LocalDateTime.now().getHour()) + Integer.toString(LocalDateTime.now().getMinute());
-		File acc = new File (gv.workingDirectory + "\\sys\\acc\\" + tme + fn.substring(0, 1).toUpperCase() + sn.substring(0, 1).toUpperCase() + ".txt");
+		rnd = new Random();
+		char fn = accInfo[0].toUpperCase().charAt(0);
+		char sn = accInfo[1].toUpperCase().charAt(0);
+		char color = accInfo[3].toUpperCase().charAt(0);
+
+		StringBuilder tme = new StringBuilder();
+		tme.append(Integer.toString(LocalDateTime.now().getYear()) + String.format("%02d", LocalDateTime.now().getMonthValue()) + String.format("%02d", LocalDateTime.now().getDayOfMonth()) + Integer.toString(LocalDateTime.now().getHour()) + Integer.toString(LocalDateTime.now().getMinute()));
 		
-		acc.getParentFile().mkdirs();
+		for (int t = 0; t < accInfo[4].length(); t++)
+			tme.insert(rnd.nextInt(tme.length()), accInfo[4].charAt(t));
+		
+		File acc = new File (gv.workingDirectory + "\\sys\\acc\\" + color + tme + fn + sn + ".txt");
+		
+		if (!acc.getParentFile().exists())
+			acc.getParentFile().mkdirs();
 		
 		PrintWriter writer = null;
 		
@@ -77,4 +78,5 @@ public class UserCreation
 	
 	String[] accInfo;
 	Global_Vars gv;
+	Random rnd;
 }
