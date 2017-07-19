@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.swing.JOptionPane;
+
 public class Global_Vars 
 {
 	public String foundDir = "";
@@ -140,6 +142,13 @@ public class Global_Vars
 		}
 
 		return null;
+	}
+	
+	public void closingEvent()
+	{
+		if (JOptionPane.showConfirmDialog(null, "<html><center>Are you sure you want to quit?</center></html>", "Quit?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) 
+			System.exit(0); // output warning that it would quit the application, if accepted...
+		// if not accepted do nothing and close
 	}
 	
 	//globally used variables

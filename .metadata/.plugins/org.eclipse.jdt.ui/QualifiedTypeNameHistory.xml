@@ -10,7 +10,6 @@
 <fullyQualifiedTypeName name="javax.swing.Timer"/>
 <fullyQualifiedTypeName name="java.awt.EventQueue"/>
 <fullyQualifiedTypeName name="java.awt.Dimension"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="java.awt.event.WindowEvent"/>
 <fullyQualifiedTypeName name="javax.swing.Box"/>
 <fullyQualifiedTypeName name="java.awt.GridLayout"/>
@@ -30,7 +29,10 @@
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 <fullyQualifiedTypeName name="java.beans.PropertyChangeListener"/>
 <fullyQualifiedTypeName name="com.df.Startup.MainMenu"/>
-<fullyQualifiedTypeName name="com.df.FirstRun.FirstTimeRun"/>
 <fullyQualifiedTypeName name="com.df.Startup.Login"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="com.df.FirstRun.FirstTimeRun"/>
+<fullyQualifiedTypeName name="com.df.FirstRun.AccDetails"/>
+<fullyQualifiedTypeName name="com.df.Global.Global_Frame"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
 </qualifiedTypeNameHistroy>

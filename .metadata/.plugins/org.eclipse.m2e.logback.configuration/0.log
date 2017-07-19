@@ -18391,3 +18391,747 @@ org.eclipse.core.runtime.CoreException: Launch configuration Runner references n
 2017-07-19 14:03:57,827 [Worker-162] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
 2017-07-19 14:03:57,829 [Worker-162] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-07-19 14:03:57,829 [Worker-162] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:26:05,058 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:26:05,063 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:26:05,065 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:26:05,066 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:26:34,897 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:26:34,898 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:26:34,900 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:26:34,900 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:26:36,302 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:26:36,302 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:26:36,303 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:26:36,304 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:26:55,675 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:26:55,675 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:26:55,677 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:26:55,677 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:27:01,265 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:27:01,265 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:27:01,267 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:27:01,267 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:27:14,026 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:27:14,026 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:27:14,028 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:27:14,031 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:27:17,520 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:27:17,521 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:27:17,522 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:27:17,522 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:27:29,888 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:27:29,889 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:27:29,892 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:27:29,892 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:27:30,968 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:27:30,968 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:27:30,970 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:27:30,971 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:28:09,747 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:28:09,747 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:28:09,749 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:28:09,749 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:28:18,078 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:28:18,078 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:28:18,081 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:28:18,081 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:28:34,784 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:28:34,784 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:28:34,786 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:28:34,786 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:28:48,984 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:28:48,985 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:28:48,986 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:28:48,986 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:29:08,736 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:29:08,737 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:29:08,739 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:29:08,739 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:29:15,284 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:29:15,286 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:29:15,287 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:29:15,288 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:29:34,726 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:29:34,727 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:29:34,731 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:29:34,731 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:29:46,114 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:29:46,115 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:29:46,116 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:29:46,116 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:29:55,931 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:29:55,932 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:29:55,934 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:29:55,934 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:30:12,095 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:30:12,097 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:30:12,098 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:30:12,098 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:30:27,695 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:30:27,695 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:30:27,697 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:30:27,697 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:31:07,014 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:31:07,014 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:31:07,015 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:31:07,015 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:31:24,257 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:31:24,258 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:31:24,259 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:31:24,259 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:31:33,877 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:31:33,878 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:31:33,879 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:31:33,879 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:31:48,157 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:31:48,157 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:31:48,158 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:31:48,158 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:32:02,119 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:02,119 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:32:02,120 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:02,121 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:32:05,758 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:05,758 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:32:05,760 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:05,760 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:32:09,717 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:09,717 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:32:09,718 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:09,718 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:32:24,519 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:24,520 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:32:24,522 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:24,522 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:32:26,805 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:26,805 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:32:26,807 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:26,807 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:32:36,022 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:36,022 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:32:36,023 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:32:36,024 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:33:38,370 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:33:38,371 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:33:38,373 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:33:38,373 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:33:45,288 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:33:45,289 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:33:45,290 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:33:45,290 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:34:06,203 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:34:06,204 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:34:06,204 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:34:06,204 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:34:12,459 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:34:12,460 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:34:12,461 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:34:12,461 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:34:37,521 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:34:37,521 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:34:37,523 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:34:37,523 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:36:51,250 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:36:51,250 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:36:51,251 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:36:51,251 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:37:06,106 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:37:06,106 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:37:06,107 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:37:06,107 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:37:20,212 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:37:20,212 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:37:20,214 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:37:20,214 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:37:58,330 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:37:58,330 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:37:58,331 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:37:58,331 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:38:47,041 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:38:47,041 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:38:47,042 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:38:47,042 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:39:01,345 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:01,345 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:39:01,346 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:01,347 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:39:05,397 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:05,397 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:39:05,398 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:05,398 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:39:10,574 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:10,574 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:39:10,576 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:10,576 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:39:24,870 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:24,871 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:39:24,871 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:24,872 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:39:25,961 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:25,961 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:39:25,962 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:25,962 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:39:30,646 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:30,647 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:39:30,649 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:30,649 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:39:46,223 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:46,223 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:39:46,224 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:39:46,225 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:40:02,238 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:40:02,238 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:40:02,239 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:40:02,239 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:40:09,118 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:40:09,120 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:40:09,122 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:40:09,122 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:40:21,911 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:40:21,911 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:40:21,912 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:40:21,912 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:40:23,328 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:40:23,329 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:40:23,333 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:40:23,334 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:40:45,328 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:40:45,329 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:40:45,330 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:40:45,330 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:41:14,370 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:41:14,371 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:41:14,372 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:41:14,372 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:41:15,904 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:41:15,904 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:41:15,905 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:41:15,905 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:41:58,272 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:41:58,272 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:41:58,273 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:41:58,273 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:42:43,173 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:42:43,173 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:42:43,175 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:42:43,175 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:42:55,384 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:42:55,384 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:42:55,385 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:42:55,385 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:43:00,370 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:43:00,370 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:43:00,371 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:43:00,371 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:43:59,934 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:43:59,934 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:43:59,936 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:43:59,938 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:44:10,255 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:44:10,256 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:44:10,258 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:44:10,258 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:44:46,229 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:44:46,229 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:44:46,230 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:44:46,230 [Worker-18] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:45:12,405 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:12,405 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:45:12,406 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:12,406 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:45:21,978 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:21,978 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:45:21,979 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:21,979 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:45:25,861 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:25,862 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:45:25,863 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:25,863 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:45:31,428 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:31,428 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:45:31,429 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:31,430 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:45:35,270 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:35,272 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:45:35,273 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:35,273 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:45:37,903 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:37,904 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:45:37,905 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:37,905 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:45:50,956 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:50,957 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:45:50,958 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:50,958 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:45:54,270 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:54,270 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:45:54,271 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:45:54,271 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:46:03,724 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:46:03,725 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:46:03,726 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:46:03,727 [Worker-19] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:46:19,093 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:46:19,093 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:46:19,094 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:46:19,094 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:46:25,711 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:46:25,712 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:46:25,712 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:46:25,713 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:46:40,382 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:46:40,382 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:46:40,383 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:46:40,384 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:46:56,113 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:46:56,114 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:46:56,115 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:46:56,115 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:47:15,369 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:47:15,370 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:47:15,371 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:47:15,371 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:47:16,981 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:47:16,982 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:47:16,983 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:47:16,983 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:47:24,032 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:47:24,032 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:47:24,033 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:47:24,033 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:47:32,150 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:47:32,151 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:47:32,152 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:47:32,152 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:47:36,675 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:47:36,675 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:47:36,676 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:47:36,676 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:49:15,255 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:49:15,255 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:49:15,256 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:49:15,256 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:49:18,133 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:49:18,134 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:49:18,135 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:49:18,135 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:50:21,937 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:21,937 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:50:21,938 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:21,938 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:50:24,434 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:24,435 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:50:24,436 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:24,437 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:50:35,309 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:35,310 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:50:35,311 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:35,312 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:50:45,829 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:45,829 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:50:45,830 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:45,830 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:50:56,335 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:56,335 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:50:56,336 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:56,336 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:50:59,556 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:59,556 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:50:59,557 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:50:59,558 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:51:04,353 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:51:04,354 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:51:04,355 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:51:04,356 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:51:11,700 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:51:11,701 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:51:11,702 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:51:11,703 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:52:34,630 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:52:34,631 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:52:34,633 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:52:34,634 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:52:45,310 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:52:45,310 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:52:45,311 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:52:45,311 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:53:19,446 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:53:19,446 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:53:19,450 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:53:19,450 [Worker-17] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:53:24,854 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:53:24,854 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:53:24,855 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:53:24,855 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:53:31,022 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:53:31,022 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:53:31,023 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:53:31,023 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:54:07,947 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:07,947 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:54:07,948 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:07,949 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:54:09,113 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:09,114 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:54:09,120 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:09,121 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:54:18,773 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:18,773 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:54:18,774 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:18,774 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:54:35,622 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:35,622 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:54:35,623 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:35,623 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:54:45,548 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:45,548 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:54:45,550 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:45,550 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:54:52,750 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:52,751 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:54:52,752 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:52,752 [Worker-22] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:54:57,990 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:57,990 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:54:57,991 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:54:57,991 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:55:00,246 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:55:00,246 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:55:00,247 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:55:00,247 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:55:01,772 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:55:01,773 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:55:01,774 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:55:01,774 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:55:06,220 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:55:06,221 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:55:06,222 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:55:06,222 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:58:24,889 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:58:24,889 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:58:24,890 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:58:24,890 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:58:55,068 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:58:55,069 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:58:55,070 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:58:55,070 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:59:17,421 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:59:17,421 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:59:17,422 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:59:17,422 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:59:35,415 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:59:35,415 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:59:35,417 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:59:35,417 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:59:42,425 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:59:42,426 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:59:42,428 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:59:42,428 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:59:48,451 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:59:48,451 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:59:48,451 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:59:48,452 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 14:59:50,300 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:59:50,300 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 14:59:50,301 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 14:59:50,301 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:01:16,733 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:16,733 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:01:16,742 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:16,742 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:01:17,846 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:17,846 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:01:17,847 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:17,847 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:01:23,432 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:23,432 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:01:23,433 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:23,434 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:01:39,659 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:39,659 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:01:39,660 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:39,660 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:01:44,048 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:44,049 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:01:44,049 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:44,049 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:01:59,307 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:59,307 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:01:59,308 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:01:59,308 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:02:01,778 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:02:01,778 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:02:01,779 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:02:01,779 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:02:33,242 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:02:33,242 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:02:33,243 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:02:33,243 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:02:42,391 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:02:42,392 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:02:42,393 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:02:42,393 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:02:46,904 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:02:46,904 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:02:46,905 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:02:46,905 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:03:06,183 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:03:06,183 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:03:06,184 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:03:06,184 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:03:22,221 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:03:22,222 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:03:22,223 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:03:22,223 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:03:40,859 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:03:40,859 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:03:40,860 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:03:40,860 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:03:55,990 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:03:55,990 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:03:55,990 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:03:55,991 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:04:14,585 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:04:14,586 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:04:14,587 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:04:14,587 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:04:20,574 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:04:20,574 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:04:20,575 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:04:20,575 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:04:32,467 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:04:32,467 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:04:32,468 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:04:32,469 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:04:52,065 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:04:52,065 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:04:52,066 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:04:52,066 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:05:12,203 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:05:12,203 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:05:12,204 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:05:12,205 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:05:35,044 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:05:35,044 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:05:35,044 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:05:35,044 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:05:41,189 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:05:41,189 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:05:41,190 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:05:41,190 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:06:03,577 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:03,577 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:06:03,578 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:03,578 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:06:13,889 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:13,889 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:06:13,890 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:13,890 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:06:19,284 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:19,284 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:06:19,285 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:19,285 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:06:37,115 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:37,116 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:06:37,118 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:37,118 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:06:40,528 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:40,529 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:06:40,530 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:40,530 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:06:47,390 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:47,390 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:06:47,392 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:47,393 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:06:51,964 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:51,964 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:06:51,965 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:06:51,965 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:07:30,106 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:07:30,106 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:07:30,107 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:07:30,107 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:07:57,904 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:07:57,904 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:07:57,905 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:07:57,905 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:08:12,908 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:08:12,908 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:08:12,909 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:08:12,909 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:08:34,048 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:08:34,048 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:08:34,049 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:08:34,049 [Worker-30] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:08:37,238 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:08:37,238 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:08:37,240 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:08:37,240 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:08:55,406 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:08:55,407 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:08:55,411 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:08:55,412 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:08:58,126 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:08:58,126 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:08:58,127 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:08:58,127 [Worker-31] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:09:06,513 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:09:06,514 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:09:06,515 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:09:06,515 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:09:49,250 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:09:49,250 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:09:49,251 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:09:49,251 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:21:22,553 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:21:22,553 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:21:22,554 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:21:22,554 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:21:31,220 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:21:31,220 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:21:31,221 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:21:31,221 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:21:43,594 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:21:43,594 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:21:43,595 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:21:43,595 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:22:50,344 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:22:50,344 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:22:50,345 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:22:50,346 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:22:51,451 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:22:51,451 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:22:51,452 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:22:51,453 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:25:28,205 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:25:28,205 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:25:28,206 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:25:28,206 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:53:02,539 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:53:02,539 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:53:02,540 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:53:02,540 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:53:08,639 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:53:08,640 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:53:08,641 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:53:08,641 [Worker-49] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:53:15,164 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:53:15,164 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:53:15,166 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:53:15,167 [Worker-50] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:53:23,632 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:53:23,633 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:53:23,633 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:53:23,633 [Worker-52] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:53:32,341 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:53:32,341 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:53:32,342 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:53:32,342 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:57:16,476 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:57:16,477 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:57:16,478 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:57:16,478 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:57:18,406 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:57:18,407 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:57:18,407 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:57:18,408 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:57:24,931 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:57:24,932 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:57:24,933 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:57:24,933 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:58:22,926 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:58:22,926 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:58:22,928 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:58:22,929 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:59:04,953 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:59:04,954 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:59:04,955 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:59:04,955 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:59:15,410 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:59:15,410 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:59:15,410 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:59:15,411 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:59:21,213 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:59:21,213 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:59:21,214 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:59:21,214 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:59:24,741 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:59:24,741 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:59:24,742 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:59:24,742 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 15:59:38,720 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:59:38,720 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 15:59:38,720 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 15:59:38,721 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:00:40,658 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:00:40,658 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:00:40,658 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:00:40,658 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:00:51,967 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:00:51,967 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:00:51,968 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:00:51,968 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:00:53,005 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:00:53,005 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:00:53,006 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:00:53,006 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:00:58,369 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:00:58,369 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:00:58,370 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:00:58,370 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:01:09,467 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:09,467 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:01:09,468 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:09,468 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:01:13,996 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:13,996 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:01:13,996 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:13,997 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:01:16,662 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:16,662 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:01:16,663 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:16,663 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:01:23,909 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:23,910 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:01:23,911 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:23,911 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:01:48,802 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:48,802 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:01:48,802 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:48,804 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:01:56,133 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:56,133 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:01:56,133 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:01:56,134 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:02:09,061 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:02:09,061 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:02:09,062 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:02:09,062 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:02:14,240 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:02:14,240 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:02:14,241 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:02:14,241 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:02:26,096 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:02:26,096 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:02:26,097 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:02:26,097 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:02:44,116 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:02:44,116 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:02:44,117 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:02:44,117 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:03:44,364 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:03:44,364 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:03:44,365 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:03:44,365 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:04:03,256 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:04:03,256 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:04:03,256 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:04:03,256 [Worker-57] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:04:24,867 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:04:24,867 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:04:24,868 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:04:24,868 [Worker-56] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources
+2017-07-19 16:04:44,963 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:04:44,963 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\main\resources
+2017-07-19 16:04:44,964 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-19 16:04:44,964 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\DFORSTER\Documents\GitHub\Password_Vault\Password_Vault\src\test\resources

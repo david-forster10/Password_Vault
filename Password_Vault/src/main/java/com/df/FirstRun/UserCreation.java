@@ -22,8 +22,6 @@ public class UserCreation extends FirstTimeRun
 		accInfo = in;
 		
 		fileCreation(fileContent());
-		
-		Done();
 	}
 	
 	private String fileContent()
