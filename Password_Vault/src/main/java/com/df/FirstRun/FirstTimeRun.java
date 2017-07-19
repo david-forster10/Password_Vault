@@ -44,6 +44,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import com.df.Global.Global_Vars;
+import com.df.Startup.Login;
 import com.df.Startup.MainMenu;
 
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
@@ -54,7 +55,7 @@ public class FirstTimeRun extends JFrame
 {
 	private static final long serialVersionUID = 1L;
 
-	private WindowListener exitListener = new WindowAdapter() 
+	private WindowListener exitListener = new WindowAdapter()
 	{
 		@Override
 		public void windowClosing(WindowEvent e) 
@@ -63,7 +64,7 @@ public class FirstTimeRun extends JFrame
 		}
 	};
 
-	public FirstTimeRun() 
+	public FirstTimeRun()
 	{
 		gv = new Global_Vars(); //instantiating new class
 
@@ -200,7 +201,7 @@ public class FirstTimeRun extends JFrame
 		txtAccNum.requestFocusInWindow(); // setting focus on start button when everything is loaded
 	}
 
-	private void valSub() 
+	private void valSub()
 	{
 		if (gv.validation(1, txtAccNum.getText()) != true || Integer.parseInt(txtAccNum.getText()) > 11) 
 		{
@@ -218,7 +219,7 @@ public class FirstTimeRun extends JFrame
 		}
 	}
 
-	private void accDetails(int accNum) 
+	private void accDetails(int accNum)
 	{
 		// instantiating elements of the GUI
 		pnlAccDetails = new JPanel[6];
@@ -802,14 +803,21 @@ public class FirstTimeRun extends JFrame
 			return true;
 	}
 	
-	private void closingEvent() 
+	private void closingEvent()
 	{
 		if (JOptionPane.showConfirmDialog(null, "<html><center>Are you sure you want to quit?</center></html>", "Quit?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION) 
 			System.exit(0); // output warning that it would quit the application, if accepted...
 		// if not accepted do nothing and close
 	}
 
-	public static void main(String[] args) 
+	public void Done()
+	{
+		getContentPane().removeAll();
+		
+		Login.main(null);
+	}
+	
+	public static void main(String[] args)
 	{
 		try 
 		{

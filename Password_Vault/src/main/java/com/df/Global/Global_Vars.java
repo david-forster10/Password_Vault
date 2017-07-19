@@ -29,8 +29,8 @@ public class Global_Vars
 		}
 		
 		workingDirectory = workingDirectory.replaceAll("\\\\", "\\\\\\\\"); //replace all \ with \\ so that the file path can be used without errors
-		usersDir = new File (workingDirectory+"\\users"); //declaring directory from recently found workingDir
 		workingDirectory = workingDirectory + "\\Password_Vault";
+		usersDir = new File (workingDirectory+"\\sys\\acc"); //declaring directory from recently found workingDir
 	}
 	
 	public String findDir (String target) //first method called to search entire drive (file passed in is what is being searched for)

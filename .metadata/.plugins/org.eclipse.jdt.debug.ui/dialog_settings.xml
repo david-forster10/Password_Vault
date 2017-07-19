@@ -4,11 +4,11 @@
 		<item value="500" key="SashWeightTree"/>
 		<item value="500" key="SashWeightDetails"/>
 		<item value="614" key="WIDTH"/>
-		<item value="194" key="HEIGHT"/>
+		<item value="188" key="HEIGHT"/>
 	</section>
 	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
 		<item value="true" key="ShowStatusLine"/>
-		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Password_Key/src\/main\/java&amp;lt;com.df.Password_Key{Runner.java[Runner&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Password_Vault/src\/main\/java&amp;lt;com.df.Password_Vault{Handler.java[Handler&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Password_Key/src\/main\/java&amp;lt;com.df.Password_Key{Runner.java[Runner&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Password_Vault/src\/main\/java&amp;lt;com.df.Password_Vault{Handler.java[Handler&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Password_Vault/src\/main\/java&amp;lt;com.df.Startup{Handler.java[Handler&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
 		<section name="DialogBoundsSettings">
 			<item value="600" key="DIALOG_WIDTH"/>
 			<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>

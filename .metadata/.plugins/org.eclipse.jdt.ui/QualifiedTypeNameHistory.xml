@@ -29,4 +29,8 @@
 <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
 <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 <fullyQualifiedTypeName name="java.beans.PropertyChangeListener"/>
+<fullyQualifiedTypeName name="com.df.Startup.MainMenu"/>
+<fullyQualifiedTypeName name="com.df.FirstRun.FirstTimeRun"/>
+<fullyQualifiedTypeName name="com.df.Startup.Login"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
 </qualifiedTypeNameHistroy>
