@@ -1,0 +1,62 @@
+package com.example.FirstRun;
+
+import java.awt.BorderLayout;
+import java.awt.Font;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import com.example.Global.Global_Vars;
+
+public class AccDetails extends JPanel
+{
+	private static final long serialVersionUID = 1L;
+	
+	public AccDetails()
+	{}
+	
+	public AccDetails(int accNum, Global_Vars gb)
+	{
+		gv = gb;
+		accAssets(accNum);
+	}
+	
+	private void accAssets(int accNum)
+	{	
+		// instantiating elements of the GUI
+		pnlAccDetails = new JPanel[5];
+		lblWelcome = new JLabel();
+		lblMain = new JLabel();
+		pnlAccDetails = new JPanel[6];
+		
+		for (int i = 0; i < 5; i++)
+			pnlAccDetails[i] = new JPanel();
+		
+		lblWelcome.setText("Welcome to Example_App"); // label welcoming user
+		lblWelcome.setFont(lblWelcome.getFont().deriveFont(22.0f)); // changing font size to 22
+		lblWelcome.setFont(lblWelcome.getFont().deriveFont(Font.BOLD)); // changing font style to bold
+		pnlAccDetails[0].setLayout(new BoxLayout(pnlAccDetails[0], BoxLayout.LINE_AXIS));
+		pnlAccDetails[0].add(lblWelcome); // adding label to form
+
+		lblMain.setText("<html>The following information that is collected will be used as part of the encryption process to ensure that each user has unique encryption paths. Please fill in all areas of the following tabs:</html>"); // main label that explains what happens, html used for formatting
+		lblMain.setFont(lblMain.getFont().deriveFont(16.0f)); // changing font size to 16
+		pnlAccDetails[1].setLayout(new BorderLayout());
+		pnlAccDetails[1].add(Box.createHorizontalStrut(20), BorderLayout.LINE_START);
+		pnlAccDetails[1].add(lblMain, BorderLayout.CENTER); //adding label to JFrame
+		pnlAccDetails[1].add(Box.createHorizontalStrut(20), BorderLayout.LINE_END);
+		
+		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		add(Box.createVerticalStrut(15));
+		add(pnlAccDetails[0]);
+		add(pnlAccDetails[1]);
+
+	}
+	
+	private JLabel lblWelcome;	
+	private JLabel lblMain;
+	private JPanel[] pnlAccDetails;
+	
+	Global_Vars gv = null;
+}

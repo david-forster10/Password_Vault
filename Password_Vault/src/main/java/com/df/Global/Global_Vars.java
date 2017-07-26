@@ -10,11 +10,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+import org.apache.commons.codec.binary.Base64;
 
 public class Global_Vars 
 {
 	public String foundDir = "";
 	public File usersDir = null;
+	public String[] accInfo = new String[7];
+	ArrayList<String[]> comparison = new ArrayList<String[]>();
 	
 	public Global_Vars ()
 	{
@@ -33,6 +39,9 @@ public class Global_Vars
 		workingDirectory = workingDirectory.replaceAll("\\\\", "\\\\\\\\"); //replace all \ with \\ so that the file path can be used without errors
 		workingDirectory = workingDirectory + "\\Password_Vault";
 		usersDir = new File (workingDirectory+"\\sys\\acc"); //declaring directory from recently found workingDir
+		
+		for (int c = 0; c < 7 ; c++)
+			accInfo[c] = "";
 	}
 	
 	public String findDir (String target) //first method called to search entire drive (file passed in is what is being searched for)
@@ -54,7 +63,6 @@ public class Global_Vars
 				i =+ 1; //counter to ensure drives don't over write older drives
 				paths[i] = temp; //adding drive to last element in File array
 			}
-				
 		
 		for(File path:paths) // for each pathname in pathname array
 		{
@@ -151,6 +159,23 @@ public class Global_Vars
 		// if not accepted do nothing and close
 	}
 	
+	public String encrypt64(String str)
+	{
+		// encode data using BASE64
+		byte[] bytesEncoded = Base64.encodeBase64(str.getBytes());
+		return new String(bytesEncoded);
+	}
+	
+	public String decrypt64(String str)
+	{
+		// Decode data on other side, by processing encoded data
+		byte[] valueDecoded = Base64.decodeBase64(str);
+		return new String(valueDecoded);
+	}
+	
 	//globally used variables
 	public String workingDirectory; //variable for where everything is stored
+	public JTextField txtAccNum;
+	public JTextField txtUsername;
+	public JPasswordField txtPassword;
 }

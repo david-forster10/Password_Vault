@@ -29,7 +29,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import com.df.Global.Global_Vars;
-import com.df.Startup.MainMenu;
 
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
@@ -39,14 +38,16 @@ public class AccDetails extends JPanel
 {
 	private static final long serialVersionUID = 1L;
 	
-	public AccDetails(int accNum)
+	public AccDetails()
+	{}
+	
+	public AccDetails(int accNum, Global_Vars gb, ActionListener log)
 	{
-		gv = new Global_Vars();
-		
-		accAssets(accNum);
+		gv = gb;
+		accAssets(accNum, log);
 	}
 	
-	private void accAssets(int accNum)
+	private void accAssets(int accNum, ActionListener log)
 	{	
 		// instantiating elements of the GUI
 		pnlAccDetails = new JPanel[5];
@@ -65,26 +66,26 @@ public class AccDetails extends JPanel
 		lblColors = new JLabel[10][2][2];
 		txtNumber = new JTextField[10];
 		btnRanNum = new JButton[10];
-		txtUsername = new JTextField[10];
-		txtPasswords = new JPasswordField[10][2];
+		txtRegUsernames = new JTextField[10];
+		txtRegPasswords = new JPasswordField[10][2];
 		lblPrompts = new JLabel[10][8];
 		pnlAccDetails = new JPanel[6];
 		
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 5; i++)
 			pnlAccDetails[i] = new JPanel();
 		
 		lblWelcome.setText("Welcome to Password_Vault"); // label welcoming user
 		lblWelcome.setFont(lblWelcome.getFont().deriveFont(22.0f)); // changing font size to 22
 		lblWelcome.setFont(lblWelcome.getFont().deriveFont(Font.BOLD)); // changing font style to bold
-		pnlAccDetails[1].setLayout(new BoxLayout(pnlAccDetails[1], BoxLayout.LINE_AXIS));
-		pnlAccDetails[1].add(lblWelcome); // adding label to form
+		pnlAccDetails[0].setLayout(new BoxLayout(pnlAccDetails[0], BoxLayout.LINE_AXIS));
+		pnlAccDetails[0].add(lblWelcome); // adding label to form
 
 		lblMain.setText("<html>The following information that is collected will be used as part of the encryption process to ensure that each user has unique encryption paths. Please fill in all areas of the following tabs:</html>"); // main label that explains what happens, html used for formatting
 		lblMain.setFont(lblMain.getFont().deriveFont(16.0f)); // changing font size to 16
-		pnlAccDetails[2].setLayout(new BorderLayout());
-		pnlAccDetails[2].add(Box.createHorizontalStrut(20), BorderLayout.LINE_START);
-		pnlAccDetails[2].add(lblMain, BorderLayout.CENTER); //adding label to JFrame
-		pnlAccDetails[2].add(Box.createHorizontalStrut(20), BorderLayout.LINE_END);
+		pnlAccDetails[1].setLayout(new BorderLayout());
+		pnlAccDetails[1].add(Box.createHorizontalStrut(20), BorderLayout.LINE_START);
+		pnlAccDetails[1].add(lblMain, BorderLayout.CENTER); //adding label to JFrame
+		pnlAccDetails[1].add(Box.createHorizontalStrut(20), BorderLayout.LINE_END);
 		
 		for (int s = 0; s < 10; s++)
 		{
@@ -193,21 +194,21 @@ public class AccDetails extends JPanel
 					{
 						while (random.length() != 6)
 						{
-							random = "0"+random;
+							random = "0" + random;
 						}
 					}
 					txtNumber[tabIndex].setText(random);
 				}
 			});
 			
-			txtUsername[s] = new JTextField();
-			txtUsername[s].setPreferredSize(new Dimension(201, 23));
+			txtRegUsernames[s] = new JTextField();
+			txtRegUsernames[s].setPreferredSize(new Dimension(201, 23));
 			
-			txtPasswords[s][0] = new JPasswordField();
-			txtPasswords[s][1] = new JPasswordField();
-			txtPasswords[s][0].setPreferredSize(new Dimension(201, 23));
-			txtPasswords[s][1].setPreferredSize(new Dimension(201, 23));
-			txtPasswords[s][0].getDocument().addDocumentListener(new DocumentListener() 
+			txtRegPasswords[s][0] = new JPasswordField();
+			txtRegPasswords[s][1] = new JPasswordField();
+			txtRegPasswords[s][0].setPreferredSize(new Dimension(201, 23));
+			txtRegPasswords[s][1].setPreferredSize(new Dimension(201, 23));
+			txtRegPasswords[s][0].getDocument().addDocumentListener(new DocumentListener() 
 			{
 				@Override
 				public void changedUpdate(DocumentEvent arg0) 
@@ -231,19 +232,19 @@ public class AccDetails extends JPanel
 				{
 					int tabIndex = pnlTabs.getSelectedIndex();
 
-					String p1 = String.valueOf(txtPasswords[tabIndex][0].getPassword());
-					String p2 = String.valueOf(txtPasswords[tabIndex][1].getPassword());
+					String p1 = String.valueOf(txtRegPasswords[tabIndex][0].getPassword());
+					String p2 = String.valueOf(txtRegPasswords[tabIndex][1].getPassword());
 					
 					if (!p1.equals(p2))
-						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.RED));
+						txtRegPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.RED));
 					else
-						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.GREEN));
+						txtRegPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.GREEN));
 					
 					p1 = null;
 					p2 = null;
 				}
 			});
-			txtPasswords[s][1].getDocument().addDocumentListener(new DocumentListener() 
+			txtRegPasswords[s][1].getDocument().addDocumentListener(new DocumentListener() 
 			{
 				@Override
 				public void changedUpdate(DocumentEvent arg0) 
@@ -267,13 +268,13 @@ public class AccDetails extends JPanel
 				{
 					int tabIndex = pnlTabs.getSelectedIndex();
 
-					String p1 = String.valueOf(txtPasswords[tabIndex][0].getPassword());
-					String p2 = String.valueOf(txtPasswords[tabIndex][1].getPassword());
+					String p1 = String.valueOf(txtRegPasswords[tabIndex][0].getPassword());
+					String p2 = String.valueOf(txtRegPasswords[tabIndex][1].getPassword());
 					
 					if (!p1.equals(p2))
-						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.RED));
+						txtRegPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.RED));
 					else
-						txtPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.GREEN));
+						txtRegPasswords[tabIndex][1].setBorder(BorderFactory.createLineBorder(Color.GREEN));
 					
 					p1 = null;
 					p2 = null;
@@ -337,17 +338,17 @@ public class AccDetails extends JPanel
 			pnlTabContain[t][4].add(Box.createHorizontalStrut(22));
 			pnlTabContain[t][4].add(lblPrompts[t][5]);
 			pnlTabContain[t][4].add(Box.createHorizontalStrut(2));
-			pnlTabContain[t][4].add(txtUsername[t]);
+			pnlTabContain[t][4].add(txtRegUsernames[t]);
 
 			pnlTabContain[t][6].add(Box.createHorizontalStrut(24));
 			pnlTabContain[t][6].add(lblPrompts[t][6]);
 			pnlTabContain[t][6].add(Box.createHorizontalStrut(2));
-			pnlTabContain[t][6].add(txtPasswords[t][0]);
+			pnlTabContain[t][6].add(txtRegPasswords[t][0]);
 			
 			pnlTabContain[t][8].setLayout(new FlowLayout());
 			pnlTabContain[t][8].add(lblPrompts[t][7]);
 			pnlTabContain[t][8].add(Box.createHorizontalStrut(2));
-			pnlTabContain[t][8].add(txtPasswords[t][1]);
+			pnlTabContain[t][8].add(txtRegPasswords[t][1]);
 			
 			pnlTabContain[t][9].setLayout(new GridLayout(4, 2));
 			for (int u = 1; u < 9; u++)	
@@ -360,13 +361,13 @@ public class AccDetails extends JPanel
 		}
 		pnlTabs.setPreferredSize(new Dimension(720, 280));
 
-		pnlAccDetails[3].add(pnlTabs);
+		pnlAccDetails[2].add(pnlTabs);
 		
 		lblDivider.setForeground(Color.WHITE);
 		lblDivider.setText("________________________________________________________________________________________________________________________"); //ensuring no text in label
 		lblDivider.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY)); //setting border to label for the dividing
-		pnlAccDetails[4].setLayout(new FlowLayout());
-		pnlAccDetails[4].add(lblDivider); //adding it to JFrame
+		pnlAccDetails[3].setLayout(new FlowLayout());
+		pnlAccDetails[3].add(lblDivider); //adding it to JFrame
 
 		btnExit.setText("Quit"); // adding text to button for exiting
 		btnExit.setFont(lblMain.getFont().deriveFont(14.0f)); //getting font from start button
@@ -378,66 +379,58 @@ public class AccDetails extends JPanel
 				gv.closingEvent(); // running cancel method (same method as hitting the "x" button on the form)
 			}
 		});
-		pnlAccDetails[5].setLayout(new FlowLayout());
-		pnlAccDetails[5].add(Box.createHorizontalStrut(1));
-		pnlAccDetails[5].add(btnExit); //adding button to JFrame
+		pnlAccDetails[4].setLayout(new FlowLayout());
+		pnlAccDetails[4].add(Box.createHorizontalStrut(1));
+		pnlAccDetails[4].add(btnExit); //adding button to JFrame
 		
 		btnNext.setText("Next"); // adding text to button for starting
 		btnNext.setFont(btnExit.getFont()); //setting font size
 		btnNext.setPreferredSize(new Dimension(80, 35)); //positioning start button
-		btnNext.addActionListener(new ActionListener() // add listener for action to run method
-		{
-			public void actionPerformed(ActionEvent evt) 
-			{
-				accHandler(accNum);
-			}
-		});
-		pnlAccDetails[5].add(Box.createHorizontalStrut(520));
-		pnlAccDetails[5].add(btnNext); //adding button to JFrame
+		btnNext.addActionListener(log); // add listener for action to run method
+		pnlAccDetails[4].add(Box.createHorizontalStrut(520));
+		pnlAccDetails[4].add(btnNext); //adding button to JFrame
 
-		pnlAccDetails[0].setLayout(new BoxLayout(pnlAccDetails[0], BoxLayout.PAGE_AXIS));
-		pnlAccDetails[0].add(Box.createVerticalStrut(15));
-		pnlAccDetails[0].add(pnlAccDetails[1]);
-		pnlAccDetails[0].add(pnlAccDetails[2]);
-		pnlAccDetails[0].add(pnlAccDetails[3]);
-		pnlAccDetails[0].add(pnlAccDetails[4]);
-		pnlAccDetails[0].add(Box.createVerticalStrut(10));
-		pnlAccDetails[0].add(pnlAccDetails[5]);
-		pnlAccDetails[0].add(Box.createVerticalStrut(15));
-		add(pnlAccDetails[0]); // adding the panel to the frame
-
+		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		add(Box.createVerticalStrut(15));
+		add(pnlAccDetails[0]);
+		add(pnlAccDetails[1]);
+		add(pnlAccDetails[2]);
+		add(pnlAccDetails[3]);
+		add(Box.createVerticalStrut(10));
+		add(pnlAccDetails[4]);
+		add(Box.createVerticalStrut(15));
+		
 		txtFirstName[0].requestFocusInWindow(); // setting focus on start button when everything is loaded
 	}
 
-	private void accHandler(int accNum)
+	public void accHandler(int accNum)
 	{
-		accInfo = new String[7];
+		gv.accInfo = new String[7];
 		if (!accInfoVal(accNum))
 			JOptionPane.showMessageDialog(null, "The data you are submitting is incomplete or contains errors. Please see fields marked in red.", "Error", JOptionPane.OK_OPTION);
 		else
 		{
 			for (int s = 0; s < accNum; s++)
 			{
-				accInfo[0] = txtFirstName[s].getText();
-				accInfo[1] = txtSurname[s].getText();
-				accInfo[2] = datePicker[s].formattedTextField.getText();
+				gv.accInfo[0] = txtFirstName[s].getText();
+				gv.accInfo[1] = txtSurname[s].getText();
+				gv.accInfo[2] = datePicker[s].formattedTextField.getText();
 				
 				if (lblColors[s][0][0].getBorder() != null)
-					accInfo[3] = "Red";
+					gv.accInfo[3] = "Red";
 				else if (lblColors[s][1][0].getBorder() != null)
-					accInfo[3] = "Yellow";
+					gv.accInfo[3] = "Yellow";
 				else if (lblColors[s][0][1].getBorder() != null)
-					accInfo[3] = "Green";
+					gv.accInfo[3] = "Green";
 
-				accInfo[4] = txtNumber[s].getText();
-				accInfo[5] = gv.convert(String.valueOf(txtUsername[s].getText()));
-				accInfo[6] = gv.convert(String.valueOf(txtPasswords[s][0].getPassword()));
+				gv.accInfo[4] = txtNumber[s].getText();
+				gv.accInfo[5] = gv.convert(String.valueOf(txtRegUsernames[s].getText()));
+				gv.accInfo[6] = gv.convert(String.valueOf(txtRegPasswords[s][0].getPassword()));
 				
-				UserCreation uc = new UserCreation();
+				UserCreation uc = new UserCreation(gv);
 				
-				uc.infoHandler(accInfo);
+				uc.infoHandler(gv.accInfo);
 			}
-			MainMenu.main(null);
 		}
 	}
 	
@@ -513,36 +506,36 @@ public class AccDetails extends JPanel
 				failed[s][5] = false;
 			}
 			
-			if (txtUsername[s].getText().equals(""))
+			if (txtRegUsernames[s].getText().equals(""))
 			{
 				lblPrompts[s][5].setForeground(Color.RED);
-				txtUsername[s].setBorder(BorderFactory.createLineBorder(Color.RED));
+				txtRegUsernames[s].setBorder(BorderFactory.createLineBorder(Color.RED));
 				failed[s][6] = true;
 			}
 			else
 			{
 				lblPrompts[s][5].setForeground(new JLabel().getForeground());
-				txtUsername[s].setBorder(new JTextField().getBorder());
+				txtRegUsernames[s].setBorder(new JTextField().getBorder());
 				failed[s][6] = false;
 			}
 			
-			if (txtPasswords[s][0].getPassword().length == 0)
+			if (txtRegPasswords[s][0].getPassword().length == 0)
 			{
 				lblPrompts[s][6].setForeground(Color.RED);
-				txtPasswords[s][0].setBorder(BorderFactory.createLineBorder(Color.RED));
+				txtRegPasswords[s][0].setBorder(BorderFactory.createLineBorder(Color.RED));
 				failed[s][7] = true;
 			}
 			else
 			{
 				lblPrompts[s][6].setForeground(new JLabel().getForeground());
-				txtPasswords[s][0].setBorder(new JPasswordField().getBorder());
+				txtRegPasswords[s][0].setBorder(new JPasswordField().getBorder());
 				failed[s][7] = false;
 			}
 			
-			if (txtPasswords[s][1].getPassword().length == 0 || txtPasswords[s][1].getBorder() == BorderFactory.createLineBorder(Color.RED))
+			if (txtRegPasswords[s][1].getPassword().length == 0 || txtRegPasswords[s][1].getBorder() == BorderFactory.createLineBorder(Color.RED))
 			{
 				lblPrompts[s][7].setForeground(Color.RED);
-				txtPasswords[s][1].setBorder(BorderFactory.createLineBorder(Color.RED));
+				txtRegPasswords[s][1].setBorder(BorderFactory.createLineBorder(Color.RED));
 				failed[s][8] = true;
 			}
 			else
@@ -591,11 +584,11 @@ public class AccDetails extends JPanel
 	private JLabel[][][] lblColors;
 	private JTextField[] txtNumber;
 	private JButton[] btnRanNum;
-	private JTextField[] txtUsername;
-	private JPasswordField[][] txtPasswords;
+	private JTextField[] txtRegUsernames;
+	private JPasswordField[][] txtRegPasswords;
 	private JLabel[][] lblPrompts;
 	private JTabbedPane pnlTabs;
-	private String[] accInfo;  
+//	private String[] accInfo;  
 	
 	Global_Vars gv = null;
 }

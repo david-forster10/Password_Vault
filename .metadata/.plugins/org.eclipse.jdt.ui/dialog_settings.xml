@@ -46,13 +46,13 @@
 	</section>
 	<section name="FatJarPackageWizard">
 		<item value="C:\Users\DFORSTER\GitHub\Password_Vault Repo.xml" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
-		<item value="Handler - Password_Vault" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\setup\assets\Password_Vault.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="Installation - Password_Vault_Setup" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\setup\main\setup.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="2" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
-			<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\setup\assets\Password_Vault.jar"/>
 			<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\setup\main\setup.jar"/>
+			<item value="C:\Users\DFORSTER\Documents\GitHub\Password_Vault\setup\assets\Password_Vault.jar"/>
 			<item value="C:\Users\DFORSTER\GitHub\Password_Vault Repo\setup\main\Password_Vault.jar"/>
 			<item value="C:\Users\DFORSTER\Documents\Password_Vault_setup\setup.jar"/>
 		</list>
@@ -65,6 +65,8 @@
 		<item value="false" key="expanded2"/>
 		<item value="false" key="expanded1"/>
 		<item value="true" key="expanded0"/>
+	</section>
+	<section name="BreadcrumbItemDropDown">
 	</section>
 	<section name="RenameInformationPopup">
 	</section>

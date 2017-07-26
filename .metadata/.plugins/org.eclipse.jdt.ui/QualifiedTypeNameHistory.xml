@@ -31,8 +31,9 @@
 <fullyQualifiedTypeName name="com.df.Startup.MainMenu"/>
 <fullyQualifiedTypeName name="com.df.Startup.Login"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
-<fullyQualifiedTypeName name="com.df.FirstRun.FirstTimeRun"/>
 <fullyQualifiedTypeName name="com.df.FirstRun.AccDetails"/>
 <fullyQualifiedTypeName name="com.df.Global.Global_Frame"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="com.df.FirstRun.FirstTimeRun"/>
+<fullyQualifiedTypeName name="org.apache.commons.codec.binary.Base64"/>
 </qualifiedTypeNameHistroy>

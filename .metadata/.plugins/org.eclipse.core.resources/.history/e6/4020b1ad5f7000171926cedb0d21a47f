@@ -1,0 +1,31 @@
+package com.example.Startup;
+
+import com.example.Global.Global_Frame;
+import com.example.Global.Global_Vars;
+
+public class Handler 
+{
+	public Handler()
+	{
+		gv = new Global_Vars();
+		gf = new Global_Frame();
+		
+		if (gv.usersDir.exists() && gv.usersDir.listFiles().length != 0)
+		{
+			//go to main menu
+		}
+		else
+		{
+			gf.getAccNum();
+			gf.setVisible(true);
+		}
+	}
+	
+	public static void main(String[] args) 
+	{
+		new Handler();
+	}
+
+	Global_Vars gv = null;
+	Global_Frame gf = null;
+}

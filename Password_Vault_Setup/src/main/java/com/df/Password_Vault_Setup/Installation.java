@@ -92,6 +92,8 @@ public class Installation extends JFrame implements PropertyChangeListener
 	
 	public Installation() //constructor of class, start initComponents
 	{
+		gv = new Global_Vars();
+		
 		initComponents();
 	}
 	
@@ -696,7 +698,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 	{
 		task.pause();
 		
-		mainDirectory = new File(Global_Vars.getWorkingDirectory()); //declaring a variable for the main directory of where the app is stored.
+		mainDirectory = new File(gv.getWorkingDirectory()); //declaring a variable for the main directory of where the app is stored.
 		exitMsg = new JOptionPane(); //linking the option pane to a variable so it can be referenced at a later point
 		if (exitMsg.showConfirmDialog(null, "<html><center>Are you sure you wish to cancel installation?<br>Please note doing this will close all open cmd windows due to the removal of our assets!</center></html>", "Confirm?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
 		{ //offering user choice to leave, if they select yes...
@@ -1098,11 +1100,11 @@ public class Installation extends JFrame implements PropertyChangeListener
 	private JCheckBox chkbxDesktopRun;
 	private JCheckBox chkbxQuick;
 	private JProgressBar prbrInstall;
-	private static JOptionPane backMsg;
-	private static JOptionPane exitMsg;
+	private JOptionPane backMsg;
+	private JOptionPane exitMsg;
 	
 	//declaring task background task
-	private static Task task;
+	private Task task;
 	
 	//variables used when declaring File
 	private String runDir = "";
@@ -1133,6 +1135,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 	private ArrayList<String> serialNumbers = new ArrayList<String>();
 	private int keyIt = 0;
 
+	private Global_Vars gv;
 	
 	class Task extends SwingWorker<Void, Void> //swing worker to handle the background task
 	{	
@@ -1203,7 +1206,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
 					
-				mainDirectory = new File(Global_Vars.getWorkingDirectory()); //getting main directory for use in this thread;
+				mainDirectory = new File(gv.getWorkingDirectory()); //getting main directory for use in this thread;
 					
 				if (increment(prbrInstall.getValue(), 2) == true) //incrementing the progress bar to represent that task has been complete for the user
 					return null; //if true is returned, the task has been cancelled so return null to complete task and trigger the "done" method
@@ -1526,7 +1529,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 							else
 								temp = temp + "-"; //if variable is shorter than others, add "-" in place to preserve hash
 								
-						writer.println(temp); //print writer is outputting to the previously specified file
+						writer.println(gv.encrypt(temp)); //print writer is outputting to the previously specified file
 						temp = ""; //resetting value of temp
 					}		
 					writer.close(); //close print writer to commit information to txt file.
