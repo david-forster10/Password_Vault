@@ -36,4 +36,5 @@
 <fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="com.df.FirstRun.FirstTimeRun"/>
 <fullyQualifiedTypeName name="org.apache.commons.codec.binary.Base64"/>
+<fullyQualifiedTypeName name="org.apache.commons.codec.binary.Hex"/>
 </qualifiedTypeNameHistroy>

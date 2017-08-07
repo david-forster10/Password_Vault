@@ -1,11 +1,13 @@
 package com.df.Global;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,12 +19,7 @@ import org.apache.commons.codec.binary.Base64;
 
 public class Global_Vars 
 {
-	public String foundDir = "";
-	public File usersDir = null;
-	public String[] accInfo = new String[7];
-	ArrayList<String[]> comparison = new ArrayList<String[]>();
-	
-	public Global_Vars ()
+	public Global_Vars()
 	{
 		String OS = (System.getProperty("os.name")).toUpperCase(); //capitalises OS version
 		
@@ -36,15 +33,14 @@ public class Global_Vars
 			workingDirectory += "\\Library\\Application Support"; //and reference to the Application files
 		}
 		
-		workingDirectory = workingDirectory.replaceAll("\\\\", "\\\\\\\\"); //replace all \ with \\ so that the file path can be used without errors
 		workingDirectory = workingDirectory + "\\Password_Vault";
-		usersDir = new File (workingDirectory+"\\sys\\acc"); //declaring directory from recently found workingDir
+		usersDir = workingDirectory+"\\sys\\acc"; //declaring string for directory from recently found workingDir
 		
 		for (int c = 0; c < 7 ; c++)
 			accInfo[c] = "";
 	}
 	
-	public String findDir (String target) //first method called to search entire drive (file passed in is what is being searched for)
+	public String findDir(String target) //first method called to search entire drive (file passed in is what is being searched for)
 	{
 		foundDir = "";
 		File[] tempPaths; //File array used while putting C to the top of the search list
@@ -73,7 +69,7 @@ public class Global_Vars
 		return null; //if nothing found return null
 	}
 	
-	public void findDir (String target, File drive) //overload method of findDir for second iterative step of finding
+	public void findDir(String target, File drive) //overload method of findDir for second iterative step of finding
 	{
 		ArrayList<File> contents = new ArrayList<File>(); //arraylist for handling contents of current directory being searched
 		
@@ -108,7 +104,7 @@ public class Global_Vars
 			}
 	}
 
-	public boolean validation (int pat, String input)
+	public boolean validation(int pat, String input)
 	{
 		input = input.toUpperCase();
 		switch (pat)
@@ -134,7 +130,7 @@ public class Global_Vars
 		}	
 	}
 
-	public String convert (String in)
+	public String convert(String in)
 	{
 		MessageDigest messageDigest;
 		try 
@@ -173,8 +169,81 @@ public class Global_Vars
 		return new String(valueDecoded);
 	}
 	
+	public String[][] getLogDet()
+	{
+		String[][] dets = new String[10][1];
+		
+		File[] users = new File(usersDir).listFiles();
+		
+		for (File det : users)
+		{
+			try 
+			{
+				Scanner in = new Scanner(det);
+				
+				while (in.hasNextLine())
+				{
+					String line = decrypt64(in.nextLine());
+					int place = 0;
+					String hexUser = "";
+					String hexPass = "";
+					String hexUserEnd = "";
+					String hexPassEnd = "";
+					
+					
+					for (int a = 0; a < 30; a++)
+					{
+						if (line.charAt(a) == ']' || line.charAt(a) == '=' || line.charAt(a) == '(' || line.charAt(a) == '#' || line.charAt(a) == '~')
+							place ++;
+						
+						if (place == 9 || place == 11)
+						{
+							int b = 0;
+							while (line.charAt(a+b+1) != '.')
+							{
+								if (place == 9)
+									hexUser = hexUser + line.charAt(a+b+1);
+								else
+									hexPass = hexPass + line.charAt(a+b+1);
+								
+								b++;
+							}
+							
+							b = 0;
+							while (line.charAt(a+b+1) != ']' && line.charAt(a+b+1) != '(' && line.charAt(a+b+1) != '~' && line.charAt(a+b+1) != '#' && line.charAt(a) == '=')
+							{
+								if (place == 9)
+									hexUserEnd = hexUserEnd + line.charAt(a+b+1);
+								else
+									hexPassEnd = hexPassEnd + line.charAt(a+b+1);
+								
+								b++;
+							}
+							
+							if (hexUser != "" && hexPass != "" && hexUserEnd != "" && hexPassEnd != "")
+								break;
+						}
+					}
+					
+					Integer.valueOf(hexUser, 16);
+					
+				}				
+				in.close();
+			} 
+			catch (FileNotFoundException e) 
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		return dets;
+	}
+	
 	//globally used variables
 	public String workingDirectory; //variable for where everything is stored
+	public String foundDir = "";
+	public String usersDir = null;
+	public String[] accInfo = new String[7];
 	public JTextField txtAccNum;
 	public JTextField txtUsername;
 	public JPasswordField txtPassword;

@@ -28,7 +28,7 @@ public class UserCreation extends FirstTimeRun
 	{
 		rnd = new Random();
 		StringBuilder sb = new StringBuilder();
-		
+		int p = 0;
 		int[] triggers = {rnd.nextInt(15050), rnd.nextInt(30100 - 15050) + 15050, rnd.nextInt(45150 - 30100) + 30100, rnd.nextInt(60200 - 45150) + 45150, rnd.nextInt(75250 - 60200) + 60200, rnd.nextInt(90300 - 75250) + 75250};
 		
 		for (int hex : triggers)
@@ -43,7 +43,7 @@ public class UserCreation extends FirstTimeRun
 					ran = '#';
 					break;
 				case 2:
-					ran = '.';
+					ran = '=';
 					break;
 				case 3:
 					ran = ']';
@@ -51,7 +51,12 @@ public class UserCreation extends FirstTimeRun
 				default:
 					ran = '~';
 			}
-			sb.append(ran + hexConvert(hex));
+			
+			int end = hex + accInfo[p].length();
+			
+			sb.append(ran + Integer.toHexString(hex) + "." + end + ran);
+			
+			p++;
 		}
 		
 		for (int c = 0; c < 90300; c++) //for every character outputted
@@ -74,13 +79,13 @@ public class UserCreation extends FirstTimeRun
 						sb.append(charReplace(accInfo[2]));
 					else if (c > triggers[2])
 						if (c == triggers[3])
-							sb.append(charReplace(accInfo[3]));
+							sb.append(charReplace(accInfo[4]));
 						else if (c > triggers[3])
 							if (c == triggers[4])
-								sb.append(charReplace(accInfo[4]));
+								sb.append(charReplace(accInfo[5]));
 							else if (c > triggers[4])
 								if (c == triggers[5])
-									sb.append(charReplace(accInfo[5]));
+									sb.append(charReplace(accInfo[6]));
 					
 			sb.append(l);
 		}
@@ -110,7 +115,7 @@ public class UserCreation extends FirstTimeRun
 		try 
 		{
 			writer = new PrintWriter(acc);
-			writer.println(content);
+			writer.println(gv.encrypt64(content));
 		} 
 		catch (FileNotFoundException e) 
 		{
@@ -164,23 +169,6 @@ public class UserCreation extends FirstTimeRun
 			}
 		}
 		return out.toString();
-	}
-	
-	private String hexConvert(int num)
-	{
-	     int rem;
-	     String str2=""; 
-	 
-	     char hex[]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-	 
-	     while(num>0)
-	     {
-	       rem=num%16; 
-	       str2=hex[rem]+str2; 
-	       num=num/16;
-	     }
-	     
-	     return str2;
 	}
 	
 	String[] accInfo;

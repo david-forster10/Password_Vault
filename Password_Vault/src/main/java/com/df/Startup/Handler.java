@@ -1,9 +1,12 @@
 package com.df.Startup;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,43 +28,96 @@ public class Handler
 		getProperty("echo %username%", 3); //calling method with command needed to be ran and number referencing this is the third command
 		getProperty("getmac", 4); //calling method with command needed to be ran and number referencing this is the fourth command
 		
-		compspec();
-		
-		if (gv.usersDir.exists() && gv.usersDir.listFiles().length != 0)
+		int tmp = 0;
+		for (String prop : serialNumbers)
 		{
-			gf.goLogin();
-			gf.setVisible(true);
+			serialNumbers.set(tmp, gv.convert(prop));
+			tmp++;
+		}
+		
+		if (compareProps(compspec(), serialNumbers))
+		{
+			if (new File(gv.usersDir).exists() && new File(gv.usersDir).listFiles().length != 0)
+			{
+				gf.goLogin();
+				gf.setVisible(true);
+			}
+			else
+			{
+				gf.getAccNum();
+				gf.setVisible(true);
+			}
 		}
 		else
 		{
-			gf.getAccNum();
-			gf.setVisible(true);
+			JOptionPane.showMessageDialog(null, "Incorrect matching properties, please run this off your usual machine.");
+			System.exit(0);
 		}
 	}
 	
 	private ArrayList<String> compspec()
 	{
-		ArrayList<String> out = new ArrayList<String>();
 		ArrayList<Integer> index = new ArrayList<Integer>();
-		Scanner in = new Scanner(gv.workingDirectory+"\\sys\\config\\sys_cfg.txt");
+		Scanner in = null;
+		try 
+		{
+			in = new Scanner(new File(gv.workingDirectory+"\\sys\\config\\sys_cfg.txt"));
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
 		
-		String id = in.nextLine();
+		String id = gv.decrypt64(in.nextLine());
 		
 		for (int i = 0; i < id.length(); i++)
 			if (id.charAt(i) == '%' || id.charAt(i) == '^' || id.charAt(i) == '&' || id.charAt(i) == '*')
 				index.add(i);
 		
+		StringBuilder[] out = new StringBuilder[index.size()];
+		
+		for (int q = 0; q < out.length; q++)
+			out[q] = new StringBuilder();
+		
 		while (in.hasNextLine())
 		{
-			String line = in.nextLine();
+			String line = gv.decrypt64(in.nextLine());
 			for (int o = 0; o < index.size(); o++)
-				line.charAt(index.get(o));
+				out[o].append(line.charAt(index.get(o)));
 		}
 		
-		return null;
+		ArrayList<String> returner = new ArrayList<String>();
+		
+		for (StringBuilder build : out)
+			returner.add(build.toString());
+			
+		in.close();
+		
+		return returner;
 	}
 	
-	public void getProperty (String cmd, int cmdNum) //code to collect unique identifier information
+	private boolean compareProps(ArrayList<String> old, ArrayList<String> nw)
+	{
+		Boolean[] val = new Boolean[old.size()];
+		int s = 0;
+		
+		if (old.size() == nw.size())
+			for (String o : old)
+			{
+				for (String n : nw)
+					if (o.equals(n))
+						val[s] = true;
+						
+				s++;
+			}
+		
+		if (Arrays.asList(val).contains(true))
+			return true;
+		
+		return false;
+	}
+
+	private void getProperty (String cmd, int cmdNum) //code to collect unique identifier information
 	{
 		try
 		{
