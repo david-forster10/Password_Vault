@@ -701,7 +701,7 @@ public class Installation extends JFrame implements PropertyChangeListener
 		
 		mainDirectory = new File(gv.getWorkingDirectory()); //declaring a variable for the main directory of where the app is stored.
 		exitMsg = new JOptionPane(); //linking the option pane to a variable so it can be referenced at a later point
-		if (exitMsg.showConfirmDialog(null, "<html><center>Are you sure you wish to cancel installation?</center></html>", "Confirm?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+		if (exitMsg.showConfirmDialog(null, "<html><center>Are you sure you wish to cancel installation?<br>Please note doing this will close all open cmd windows due to the removal of our assets!</center></html>", "Confirm?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
 		{ //offering user choice to leave, if they select yes...
 
 			if (mainDirectory.exists()) //check if some of the installation has started already, if so...
