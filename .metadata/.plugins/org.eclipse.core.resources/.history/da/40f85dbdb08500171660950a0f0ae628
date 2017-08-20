@@ -507,7 +507,6 @@ public class Installation extends JFrame implements PropertyChangeListener
 		repaint(); //repainting what is displayed if going coming from a different form
 		pack(); //packaging everything up to use
 		
-		btnBackCancel.requestFocusInWindow();
 		setLocationRelativeTo(null); //setting form position central
 
 		if (!tskDone) //if the task hadn't finished
