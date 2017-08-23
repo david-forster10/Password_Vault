@@ -83,7 +83,8 @@ public class Handler
 		{
 			String line = gv.decrypt64(in.nextLine());
 			for (int o = 0; o < index.size(); o++)
-				out[o].append(line.charAt(index.get(o)));
+				if (line.charAt(index.get(o)) != '-')
+					out[o].append(line.charAt(index.get(o)));
 		}
 		
 		ArrayList<String> returner = new ArrayList<String>();

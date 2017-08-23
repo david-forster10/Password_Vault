@@ -180,7 +180,7 @@ public class Global_Vars
 			try 
 			{
 				Scanner in = new Scanner(det);
-				
+				int i = 0;
 				while (in.hasNextLine())
 				{
 					String line = decrypt64(in.nextLine());
@@ -191,7 +191,7 @@ public class Global_Vars
 					String hexPassEnd = "";
 					
 					
-					for (int a = 0; a < 30; a++)
+					for (int a = 0; a < line.length(); a++)
 					{
 						if (line.charAt(a) == ']' || line.charAt(a) == '=' || line.charAt(a) == '(' || line.charAt(a) == '#' || line.charAt(a) == '~')
 							place ++;
@@ -209,24 +209,36 @@ public class Global_Vars
 								b++;
 							}
 							
-							b = 0;
-							while (line.charAt(a+b+1) != ']' && line.charAt(a+b+1) != '(' && line.charAt(a+b+1) != '~' && line.charAt(a+b+1) != '#' && line.charAt(a) == '=')
+							b = b+1;
+							
+							System.out.print(line.charAt(a+b+1));
+							while (true)
 							{
-								if (place == 9)
-									hexUserEnd = hexUserEnd + line.charAt(a+b+1);
+								if (line.charAt(a+b+1) != ']' && line.charAt(a+b+1) != '(' && line.charAt(a+b+1) != '~' && line.charAt(a+b+1) != '#' && line.charAt(a+b+1) != '=')
+								{
+									if (place == 9)
+										hexUserEnd = hexUserEnd + line.charAt(a+b+1);
+									else
+										hexPassEnd = hexPassEnd + line.charAt(a+b+1);
+								}
 								else
-									hexPassEnd = hexPassEnd + line.charAt(a+b+1);
+								{
+									place = a+b+1;
+									break;
+								}
 								
 								b++;
 							}
 							
-							if (hexUser != "" && hexPass != "" && hexUserEnd != "" && hexPassEnd != "")
+							if (!hexUser.equals("") && !hexPass.equals("") && !hexUserEnd.equals("") && !hexPassEnd.equals("") && place >= 11)
 								break;
 						}
 					}
 					
-					Integer.valueOf(hexUser, 16);
-					
+					dets[i][0] = line.substring(Integer.valueOf(hexUser, 16), Integer.valueOf(hexUserEnd, 16));
+					dets[i][1] = line.substring(Integer.valueOf(hexPass, 16), Integer.valueOf(hexPassEnd, 16));
+
+					i++;
 				}				
 				in.close();
 			} 

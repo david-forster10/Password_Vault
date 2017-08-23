@@ -61,12 +61,13 @@ public class Global_Frame extends JFrame
 	{
 		public void actionPerformed(ActionEvent e) 
 		{
-			String[] in = {gv.txtUsername.getText(), gv.txtPassword.getPassword().toString()};
+			String[][] in = {{gv.txtUsername.getText(), gv.txtPassword.getPassword().toString()}};
 			String[][] saved = gv.getLogDet();
 			
-//			if (in == saved)
-//				System.out.println("YAY");
-			
+			for (int i = 0; i < saved.length; i++)
+				if (in[0].equals(saved[i]) && in[0][0].equals(saved[i][0]))
+					
+				
 			getContentPane().removeAll();
 			resizing(450, 250, 2);
 		}
